@@ -1,0 +1,74 @@
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
+
+# Ledgerly
+
+Fictional billing ops SaaS. Fieldnote Workspace. Operator Avery Quinn. No auth. No real companies.
+
+Catalog prices are frozen: Starter **$49**, Growth **$99**, Scale **$249**. Never invent a fourth price, live ARR, or a real customer name.
+
+This is the **workshop tree**: the `workshop/data/` corpus is Ledgerly's own working material for the **Collections 4.2** release (products Collections, Nudge, Pulse; competitors Slatebook, Harborbill). It was imported fully remapped into the Ledgerly world — never reintroduce pre-remap company or product names, in code, data, or copy. The `/analysis` page renders agent-written reports from `workshop/runs/` (see `workshop/REPORT_CONTRACT.md`).
+
+## Cursor Cloud specific instructions
+
+### Install
+
+```bash
+npm i
+npx prisma generate
+```
+
+`.cursor/environment.json` runs that on setup.
+
+### Seed
+
+SQLite file is `prisma/dev.db` (gitignored). Schema URL is hardcoded in `prisma/schema.prisma` as `file:./dev.db`. No `.env` required.
+
+```bash
+npx prisma db seed
+```
+
+The seed script runs `prisma db push` first, then reloads deterministic Fieldnote data. Safe to re-run. Demo clock is **2026-08-23**.
+
+### Dev server
+
+```bash
+npm run dev
+```
+
+Listens on **43173** (not 3000).
+
+### Tests
+
+```bash
+npm test
+```
+
+One test is intentionally failing. Do not change `tests/dispute-credit.test.ts` or `lib/dispute-credit.ts` unless the user asked to cap suggested credit. Do not change the seed.
+
+Passing tests include `tests/money.test.ts` and `tests/plans.test.ts`. Environment start seeds the database and runs only the passing tests so a red suite cannot mark the machine as failed to boot.
+
+### Multi-file stub (leave it unless asked)
+
+Incomplete on purpose:
+
+- `lib/disputes/resolve.ts`
+- `app/api/disputes/[id]/resolve/route.ts`
+- `app/disputes/[id]/page.tsx` (resolution panel)
+
+### Product constraints
+
+- Prices only from `lib/plans.ts`.
+- Customer names only from `prisma/seed.ts` (which includes the 14 Collections 4.2 corpus accounts).
+- Comments in code must not cite Slack, GitHub, or Jira URLs.
+- The corpus remap is done and locked — do not rename Collections / Nudge / Pulse / Slatebook / Harborbill again, and never reintroduce the retired pre-remap names.
+- Do not add Deno workflows or GitHub Actions starters. Do not add better-sqlite3.
+- Do not add use-case-solver skills.
+- `workshop/data/` is UC input. App code must not import `workshop/**` as modules; the `/analysis` routes read `workshop/data` and `workshop/runs` from disk, read-only at request time, which is the one sanctioned touchpoint.

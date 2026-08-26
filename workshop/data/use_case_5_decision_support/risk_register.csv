@@ -1,0 +1,7 @@
+risk_id,title,likelihood,impact,owner_team_id,evidence_ids,source_ids,mitigation
+RSK-001,Accessibility workflow failure,medium,high,TEAM-007,EVD-0002,DOC-0007,Block the affected workflow until fixes pass review.
+RSK-002,Security telemetry gap,medium,high,TEAM-004,EVD-0003,DOC-0011,Use a ten-percent ring and verify Pulse coverage.
+RSK-003,Renewal confidence declines,medium,medium,TEAM-005,EVD-0004|EVD-0006,CUST-005|DOC-0010,Offer written rollout milestones.
+RSK-004,EU reliability regression,low,high,TEAM-003,EVD-0005,TKT-00001|DOC-0003,Require a latency gate before ring expansion.
+RSK-005,Model input drift,medium,medium,TEAM-009,EVD-0007,SCN-001|DOC-0018,Revalidate workbook inputs at each checkpoint.
+RSK-006,Competitive positioning overreach,low,medium,TEAM-011,EVD-0008,CLM-0010|DOC-0014,Label inference and retain source confidence.

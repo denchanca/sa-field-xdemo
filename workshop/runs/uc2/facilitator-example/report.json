@@ -1,0 +1,192 @@
+{
+  "contract": "ledgerly.report.v1",
+  "useCase": 2,
+  "title": "Feedback \u2192 themed, RICE-ranked backlog",
+  "generatedBy": "Facilitator example run (Cursor agent)",
+  "summary": "120 feedback items classified from text into six themes (agreement with the expected labels: 82.5%), RICE recomputed for all 18 backlog candidates with no rubric deviations, and the product-owner gate applied: 2 approved, 4 still pending review.",
+  "sections": [
+    {
+      "kind": "metrics",
+      "heading": "Pipeline",
+      "items": [
+        {
+          "label": "Feedback items themed",
+          "value": "120 / 120"
+        },
+        {
+          "label": "Label agreement",
+          "value": "82.5%",
+          "hint": "text classification vs expected_theme_id, scored after",
+          "tone": "warning"
+        },
+        {
+          "label": "RICE recomputed",
+          "value": "18 / 18",
+          "hint": "rubric formula, no ad-hoc scores",
+          "tone": "success"
+        },
+        {
+          "label": "Awaiting human gate",
+          "value": "4",
+          "hint": "product-owner review required",
+          "tone": "warning"
+        }
+      ]
+    },
+    {
+      "kind": "chart",
+      "heading": "Theme volumes (my classification)",
+      "chart": {
+        "type": "bar",
+        "xKey": "theme",
+        "series": [
+          "items"
+        ],
+        "data": [
+          {
+            "theme": "Integrations",
+            "items": 27
+          },
+          {
+            "theme": "Workflow reliability",
+            "items": 20
+          },
+          {
+            "theme": "Administration usability",
+            "items": 20
+          },
+          {
+            "theme": "Collaboration",
+            "items": 20
+          },
+          {
+            "theme": "Commercial packaging",
+            "items": 20
+          },
+          {
+            "theme": "Reporting and analytics",
+            "items": 13
+          }
+        ]
+      }
+    },
+    {
+      "kind": "table",
+      "heading": "Ranked backlog (top 10 of 18)",
+      "columns": [
+        "Rank",
+        "Candidate",
+        "Title",
+        "Theme",
+        "RICE",
+        "Owner gate"
+      ],
+      "rows": [
+        [
+          1,
+          "CAN-014",
+          "Administration usability: initiative 3",
+          "THM-002",
+          915.3,
+          "\u2014"
+        ],
+        [
+          2,
+          "CAN-017",
+          "Collaboration: initiative 3",
+          "THM-005",
+          426.06,
+          "\u2014"
+        ],
+        [
+          3,
+          "CAN-008",
+          "Administration usability: initiative 2",
+          "THM-002",
+          410.4,
+          "\u2014"
+        ],
+        [
+          4,
+          "CAN-007",
+          "Workflow reliability: initiative 2",
+          "THM-001",
+          314.25,
+          "\u2014"
+        ],
+        [
+          5,
+          "CAN-016",
+          "Reporting and analytics: initiative 3",
+          "THM-004",
+          282.0,
+          "\u2014"
+        ],
+        [
+          6,
+          "CAN-011",
+          "Collaboration: initiative 2",
+          "THM-005",
+          255.15,
+          "\u2014"
+        ],
+        [
+          7,
+          "CAN-010",
+          "Reporting and analytics: initiative 2",
+          "THM-004",
+          159.0,
+          "\u2014"
+        ],
+        [
+          8,
+          "CAN-002",
+          "Administration usability: initiative 1",
+          "THM-002",
+          157.95,
+          "pending_review"
+        ],
+        [
+          9,
+          "CAN-015",
+          "Integrations: initiative 3",
+          "THM-003",
+          143.0,
+          "\u2014"
+        ],
+        [
+          10,
+          "CAN-005",
+          "Collaboration: initiative 1",
+          "THM-005",
+          133.07,
+          "pending_review"
+        ]
+      ]
+    },
+    {
+      "kind": "callout",
+      "tone": "warning",
+      "heading": "Human gate is load-bearing",
+      "body": "Nothing on this backlog ships from this report. Candidates marked pending_review need the product owner's decision, and any override of the RICE order must record the owner, the reason, and the review time \u2014 exactly as the rubric requires.",
+      "cite": [
+        "POL-006"
+      ]
+    },
+    {
+      "kind": "prose",
+      "heading": "Method",
+      "body": "Classification worked from the feedback text only \u2014 a deliberately simple keyword baseline built from the theme definitions in themes.json. expected_theme_id was held back and used afterwards to score agreement (82.5%), as the prompt requires. Treat that number as the floor: a semantic classification should beat it, and yours gets scored the same way.\n\nRICE = (reach \u00d7 impact \u00d7 confidence) / effort, with the rubric's fixed confidence values. The three PRDs and the stakeholder update are drafted in this run folder as Markdown artifacts."
+    }
+  ],
+  "citations": [
+    "CUST-001",
+    "CUST-002",
+    "CUST-003",
+    "CUST-007",
+    "CUST-008",
+    "CUST-009",
+    "CUST-013",
+    "CUST-014"
+  ]
+}

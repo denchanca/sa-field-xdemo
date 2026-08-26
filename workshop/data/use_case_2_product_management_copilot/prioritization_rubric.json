@@ -1,0 +1,18 @@
+{
+  "confidence_values": [
+    0.6,
+    0.75,
+    0.9
+  ],
+  "formula": "(reach * impact * confidence) / effort_person_months",
+  "impact_scale": {
+    "1": "incremental",
+    "2": "meaningful",
+    "3": "critical"
+  },
+  "override_requires": [
+    "product_owner_id",
+    "reason",
+    "reviewed_at"
+  ]
+}

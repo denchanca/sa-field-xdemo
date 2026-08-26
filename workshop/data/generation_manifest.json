@@ -1,0 +1,783 @@
+{
+  "all_data_is_synthetic": true,
+  "configuration": {
+    "company": "Ledgerly",
+    "generator_version": "2.0.0",
+    "planned_release_date": "2026-10-26",
+    "random_seed": 42042,
+    "reference_date": "2026-09-14",
+    "runtime_network_required": false,
+    "use_case_count": 5
+  },
+  "counts": {
+    "components": 9,
+    "customers": 14,
+    "decision_assumptions": 4,
+    "decision_evidence": 8,
+    "decision_risks": 6,
+    "decision_scenarios": 3,
+    "employees": 36,
+    "knowledge_documents": 60,
+    "knowledge_evaluation_questions": 12,
+    "operations_automatable_cases": 35,
+    "operations_cases": 50,
+    "operations_escalation_cases": 15,
+    "operations_events": 200,
+    "operations_runbooks": 5,
+    "policies": 10,
+    "product_backlog_candidates": 18,
+    "product_feedback_items": 120,
+    "product_themes": 6,
+    "products": 3,
+    "research_claims": 24,
+    "research_fact_checks": 12,
+    "research_sources": 16,
+    "systems": 12,
+    "teams": 12,
+    "timeline_events": 18
+  },
+  "files": [
+    {
+      "classification": "structured_data",
+      "path": "shared/components.csv",
+      "sha256": "5b2676b7d1f98af2a3b0ff1849a297fd54eebfa8c80b59d954e44d1e136a8dad"
+    },
+    {
+      "classification": "structured_data",
+      "path": "shared/customers.csv",
+      "sha256": "34419425add19ce0731b37036fb01e652e68fbfca3c5116895cf9618b94e931d"
+    },
+    {
+      "classification": "structured_data",
+      "path": "shared/employees.csv",
+      "sha256": "be94a8cd2b797139da915c05bd51cc3a0a8cb85e0cbcbb7108c0b5df58f720ad"
+    },
+    {
+      "classification": "structured_data",
+      "path": "shared/identifier_patterns.json",
+      "sha256": "d3cafabe892cf91f2034cdc77e3f6bb63a42ccd82d244b2e07828f7750f9375d"
+    },
+    {
+      "classification": "structured_data",
+      "path": "shared/policies.csv",
+      "sha256": "880a0f1ff981e037b2287b4537c8fb7f679a8eed302ec7e64c1bdfae79629923"
+    },
+    {
+      "classification": "structured_data",
+      "path": "shared/products.csv",
+      "sha256": "71649fb0f45aca1f8482b8547cd95f9851dced9c1b5c9fe7bd19940544cdb62a"
+    },
+    {
+      "classification": "structured_data",
+      "path": "shared/systems.csv",
+      "sha256": "62de3da9c87c376adbaaeee9037dd5a0e68baa3284f40595891de9905c319bf2"
+    },
+    {
+      "classification": "structured_data",
+      "path": "shared/teams.csv",
+      "sha256": "40f205412234029a448f5620df538eac427c1a5613fe73d0928609dfd920013f"
+    },
+    {
+      "classification": "structured_data",
+      "path": "shared/timeline.jsonl",
+      "sha256": "c65581ddfe6f0c7b13b65e219bff564815ae6c5f78819a3eb888ba06e4945086"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/corpus_catalog.xlsx",
+      "sha256": "a2ed566b4c3f725ef3d8130834e6d49af181825e6a9c76a9f66b64a51901e268"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0001_production_change_approval.pdf",
+      "sha256": "7496b103f53c25c5de2cb91e00951ad5e97ad74309702bd3d29d69dbf80f6d34"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0002_privileged_access_review.pptx",
+      "sha256": "ed48a5c4c3801b36f4ad6cd6501083b18b5a4d0cf007fcbaca4d61fc92b3ba08"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0003_deployment_ring_controls.docx",
+      "sha256": "72007b02b09f3bb69c15b87878fdd6d0d127492ae647e83a113b719b0691f286"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0004_collections_eu_release_readiness_checklist.pdf",
+      "sha256": "f8e5f3263c8bf5ba03f6a267a451bf87db14995b18527d524c2c0ecca3176a52"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0005_collections_runtime_architecture.pptx",
+      "sha256": "62fc980004bd019052fa2e6ccfb2241a96976027577804b66bed32dc957b8735"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0006_customer_data_redaction.docx",
+      "sha256": "2484196f545422be5f2d5734a08f230bcd6b2b450b859df9aa524683984aef80"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0007_collections_4_2_accessibility_findings.pdf",
+      "sha256": "5ab3a1065474fa952778bc99a82f7e7ce74718439c08df2b9a0cf82e04b51c62"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0008_customer_escalation_handling.pptx",
+      "sha256": "26cee05d8be2e9816310ceb5fd27b2ef9e9d16ae796488964a7e6ee372ff46fd"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0009_decision_record_collections_4_1_rollout.docx",
+      "sha256": "e21c0496eabdaba92f53d53ec281149eb4d7ed7bce1e3a8273b24319adf86882"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0010_regional_processor_notice_requirements.pdf",
+      "sha256": "3c4a2869f5941ed170170d91e77c4cc4a683daa87c01cf46e57a26f827f19678"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0011_collections_4_2_security_review.pptx",
+      "sha256": "73e93d471564962ebdddbe80714e75d7dea8c0b42bd958efa5643c4e67d2df64"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0012_product_feedback_prioritization.docx",
+      "sha256": "ec8575d6e03e4092548259731f58c372ddfa9092151ebaba114c78d28e4a77a1"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0013_feedback_taxonomy_guide.pdf",
+      "sha256": "07a25423108bc56619e6d99984839d9fcfbfe1c08918a8dc98f81406613afc0f"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0014_research_source_attribution.pptx",
+      "sha256": "9f63697776477676fce4f9e447974a5e6f7fb795b0d7002aaf0a713d99c0ab89"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0015_competitive_research_confidence_scale.docx",
+      "sha256": "1bc5c5451f5a16fe45c6ca264206132c34adf161af5b611bb9af45a26a1378cf"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0016_ai_assisted_decision_review.pdf",
+      "sha256": "eff44703b9b47176441546010f860713d7d1777ab82f594b3efc94c86d766a79"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0017_collections_4_2_financial_assumptions.pptx",
+      "sha256": "ca456e68759036e127b46b8d14bd3918deb32194c543951382c44e78d2ebefcc"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0018_financial_model_verification.docx",
+      "sha256": "bded149b56e3a4b1ff545869ee38029ce66a8ea5dc9dc4b29e4d40dfea4e33c7"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0019_operations_exception_escalation.pdf",
+      "sha256": "92e03c066df131a8fc9ad9e6fae8e030ab349dc675740e72b52f2f0e9551d577"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0020_vendor_and_tool_onboarding.pptx",
+      "sha256": "3638a52deee745f78f7bbff73bd75f89e275ced19bea4dc54aa4e34e013db616"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0021_collections_4_2_policy_21.docx",
+      "sha256": "f0d5df7758b4c6a815b29cb049b990fef3de04bee4199559657730b53323c4be"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0022_collections_4_2_architecture_22.docx",
+      "sha256": "ce7b735414093342bcc12f37e0ecea65d35dfaf09d7524bf762df2d771f96a36"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0023_collections_4_2_runbook_23.pptx",
+      "sha256": "f7a81428c818e8c6b0c5ad046d946ab190cf7282d0ebd13e3ee2bab4bfdd80ba"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0024_collections_4_2_release_note_24.docx",
+      "sha256": "fb8b24585b7398b6fc0560d1cf9ed73f3504b64b50a7e2ae024fbb1e3711e811"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0025_collections_4_2_meeting_note_25.pdf",
+      "sha256": "9f070a5066d0e59984b7bb6822443da3b48ec3e05df80a8111decae24e346d7c"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0026_collections_4_2_support_article_26.pptx",
+      "sha256": "3e94bf406066ae3a2a66428c010cfdf46d6b8c238bce25f32154dfc865c439e1"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0027_collections_4_2_research_note_27.docx",
+      "sha256": "c5ca0ec8add1ed2a285e4df5e70607b9d3cd3ab376d52894cfd94bf51e9a0674"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0028_collections_4_2_decision_record_28.pdf",
+      "sha256": "67b517afe28f62da5ba5d6f8b8273178bcb219bd2eaa82560f43c85934cd48e3"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0029_collections_4_2_playbook_29.pptx",
+      "sha256": "16bc95c2904834ceb9086e9cd965fc8caa0d014934ee29f9728d06a512e4590f"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0030_collections_4_2_faq_30.docx",
+      "sha256": "10099b95cd5fec2034754b6aa3eedb98a163faa83cfd020b45b2c485213ed6cc"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0031_collections_4_2_policy_31.pdf",
+      "sha256": "af0e5c0237e33e8a0be707cb68711feacbcfae694399748143ebe7b3228b60dc"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0032_collections_4_2_architecture_32.docx",
+      "sha256": "4117f9f23250b7a11c9e5d8ac7de6bfab6398c39fd6fcf67c2195b97cecd201e"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0033_collections_4_2_runbook_33.docx",
+      "sha256": "7d4d1a5a33e7b77a53ad25a4461e15ce99a5c67f2a47842899aeeece9b123e37"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0034_collections_4_2_release_note_34.pdf",
+      "sha256": "1559f30002b1e93eed4bf82e7cd2dbbbb39320387bd5bd56b8421cbd16253d39"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0035_collections_4_2_meeting_note_35.pptx",
+      "sha256": "c1441c24917152ad0bfc1bdd3a3d12ca04172b61e6d21c716dd6b897f7cb7fea"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0036_collections_4_2_support_article_36.docx",
+      "sha256": "970c925ccd1eda9e73266b9ff821e86b2636ac559b1da84b0ec9caed5388ea5d"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0037_collections_4_2_research_note_37.pdf",
+      "sha256": "7404106e9afba537a097643252ef45041a644ab3b384f92f4748a5ff42b1b06f"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0038_collections_4_2_decision_record_38.pptx",
+      "sha256": "779e3b7c0f96b3136e4deb10cb017fa00ef852cb8b897c4841a559134b7613ea"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0039_collections_4_2_playbook_39.docx",
+      "sha256": "44e1f127104ed74589539726e1d11ac0bd269ee88b770dfda83ea68efc056e2b"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0040_collections_4_2_faq_40.pdf",
+      "sha256": "7bf104cb3025660b6aa0594899eb8ff95f200e5c25f10181cd543f985e50d803"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0041_collections_4_2_policy_41.pptx",
+      "sha256": "7af7fe652b259dbad8f5ea6a5efbe843c041ba09e3111540d22643dbbb8d9635"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0042_collections_4_2_architecture_42.docx",
+      "sha256": "871910a114116ead20eea0c4ed432587f91d003b0f787193d21e45997d681a13"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0043_collections_4_2_runbook_43.pdf",
+      "sha256": "df1b002581b7e563f2fcf2bdf41671233a7a1661c7c221f5224bba44c3a2b241"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0044_collections_4_2_release_note_44.pptx",
+      "sha256": "2d6e1bcd3279a82f96a9d8d75894ed622a652d688e3136db4e86c9e594e764e3"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0045_collections_4_2_meeting_note_45.docx",
+      "sha256": "b4f31b7df684eff35b3a8b65883d58f5189a84300f79497398b19ef60713ac7b"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0046_collections_4_2_support_article_46.pdf",
+      "sha256": "fd0ddf54225299c9b56b7f921174535a8cf713fe28bc3929d5ebe38ad81c74b4"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0047_collections_4_2_research_note_47.pptx",
+      "sha256": "d38723540233783a7ae6eb28d3e26c59f12452293651e8426592760fd07a5fd2"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0048_collections_4_2_decision_record_48.docx",
+      "sha256": "da91bf6f4bacbd7cd7eb203d44ed454bc29ce4b4d3460308c6f813f67d2e7619"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0049_collections_4_2_playbook_49.pdf",
+      "sha256": "a0b7135036ed1bb5db366de06ada84050155c690662a5f8a8c5610e4cbf4062d"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0050_collections_4_2_faq_50.pptx",
+      "sha256": "6dcabcaa9022add0d81ef306bbb753937e65aa4a7e889fa02f8a3a13d8d2e8b1"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0051_collections_4_2_policy_51.docx",
+      "sha256": "72bfc3147b1ef4c9515857a9c5c95842043c9df6a61495ad70b716767feb3580"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0052_collections_4_2_architecture_52.docx",
+      "sha256": "e3a473a393eda92deece1fd2dcb67b20e59dccc0faa2e9ad0f249941bb628770"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0053_collections_4_2_runbook_53.pptx",
+      "sha256": "76853c599496745ae11d8aeee77e89ab57dc8efa8aed90dca66a379de16fdf63"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0054_collections_4_2_release_note_54.docx",
+      "sha256": "3fa9fc031c9e16ef027e60e6f7fbada17810ee26b2d26b500b20b36edee186a4"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0055_collections_4_2_meeting_note_55.pdf",
+      "sha256": "5c02b31016ce6b85c8d3a7c943a7386c17f56cd8e63cd2aba2b16f30772057bf"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0056_collections_4_2_support_article_56.pptx",
+      "sha256": "ca121989a857a2f1c9858ecd945bed5abb366482df81225cf8cb04f2276c2a47"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0057_collections_4_2_research_note_57.docx",
+      "sha256": "a67ab5e5efff2780f4fd5d5b0fc173630df6a7cbb14e1a4a63d4efae954474b7"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0058_collections_4_2_decision_record_58.pdf",
+      "sha256": "f2fcdd6353afecae0e23952446f014ba80b174db58a2f653bd76d995ea1f6876"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0059_collections_4_2_playbook_59.pptx",
+      "sha256": "59b0608b3efa78bbf67222d3a86d4c2af96ed9f8063d93bb14d5da3a8f189c45"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_1_enterprise_knowledge/documents/DOC-0060_collections_4_2_faq_60.docx",
+      "sha256": "180ababc3f99c0f85fb3f090bf4b9155755aebc98322ec2717bf7c36521eed00"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_1_enterprise_knowledge/documents_metadata.csv",
+      "sha256": "a78a323633d19973569be609447dd797c47b91aacdb88d2042ff713475de0d56"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_1_enterprise_knowledge/evaluation_questions.json",
+      "sha256": "3a62a896faecb2224413c91eca674817fc934dfba54490b96cdfaeb871c156fd"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_2_product_management_copilot/backlog_candidates.csv",
+      "sha256": "642966a913a412882a18f7f8113d6ddd4b17e14136cd8ee45cc8538a5ac56aa8"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_2_product_management_copilot/evaluation_cases.json",
+      "sha256": "f2a6f4a51ed52d119a774508ec2933950ddf56bce078d6f3d6eed8f8dbe3dac7"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_2_product_management_copilot/feedback.csv",
+      "sha256": "b1599b1d6188d35e30a63be293e92cc22fba6b4258087348431707c79c31c5db"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_2_product_management_copilot/prioritization_rubric.json",
+      "sha256": "eb19411d28097841d1f21394f3ed54fc17098b20e0965232c497c89819cf4e18"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_2_product_management_copilot/product_owner_reviews.json",
+      "sha256": "3a341906e1ffc7af50747b823603b47f34e3509f4db833f06cc3d834a9d267f3"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_2_product_management_copilot/source_artifacts/customer_survey_responses.xlsx",
+      "sha256": "feb484bdde5d11a31a562e35fbc68fbac670950f5a907361be9c72ba2f4ebcbc"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_2_product_management_copilot/source_artifacts/sales_calls/CALL-001.docx",
+      "sha256": "e5b4b6afe9a7c7000b5093a2edd3d4935d7cafce1d544de8d6b6c0ff4a7d25cd"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_2_product_management_copilot/source_artifacts/sales_calls/CALL-002.docx",
+      "sha256": "f65ddd964760691fddd07424f759205132d9f4ec76432db7547d8dd874977438"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_2_product_management_copilot/source_artifacts/sales_calls/CALL-003.docx",
+      "sha256": "ab81510025283f9dd8944fe6118719a98c9f7b8e963bf84460628e2a7352bc97"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_2_product_management_copilot/source_artifacts/sales_calls/CALL-004.docx",
+      "sha256": "7eefcbbaeada2a83cb99d03cda536be9df96268c420bb967c74d352b91ca97b1"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_2_product_management_copilot/source_artifacts/sales_calls/CALL-005.docx",
+      "sha256": "41024c96331b13531295f7ab8e548266012078bc2c315d1e06a6f27af1c4062c"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_2_product_management_copilot/source_artifacts/sales_calls/CALL-006.docx",
+      "sha256": "c4a02e73a88a12ba0a4881d559b6ef7684d31389351427bd77fb412e0cb08966"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_2_product_management_copilot/source_artifacts/sales_calls/CALL-007.docx",
+      "sha256": "e094d8c91ba28fa0d65f2440c7e1917319a014d4bf20f057ff66c0735f70926f"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_2_product_management_copilot/source_artifacts/sales_calls/CALL-008.docx",
+      "sha256": "0ba1c4bec397ff66b2ab5d3f4788cd903b1200dcf93426096e93d6eef73f1262"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_2_product_management_copilot/source_artifacts/sales_calls/CALL-009.docx",
+      "sha256": "b39b412c9e3acf66aa0a5f8f664d6e7ea7c003e2768f9b0a30d1380ee6ca8106"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_2_product_management_copilot/source_artifacts/sales_calls/CALL-010.docx",
+      "sha256": "cea01290d738e74fab93f4f803835476eed5e649980637e35153596a47d1f106"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_2_product_management_copilot/source_artifacts/support_feedback_export.xlsx",
+      "sha256": "2c4622ef2f3f3df11cfe47bdf3be2b9eed2dbc4cef1f6bb76ca8e63f8cab75fc"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_2_product_management_copilot/templates/prd_template.docx",
+      "sha256": "b02f92bd2292cd603654583aa6d7aa92c3b031cfb86aaf3a9c4f4236cd227118"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_2_product_management_copilot/templates/prioritized_roadmap_template.xlsx",
+      "sha256": "2b02fd155db0a6882ff989db731b4897d535a16ef7839322f4164e1079a5bd07"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_2_product_management_copilot/templates/stakeholder_update_template.pptx",
+      "sha256": "603657c9e597d779e3a4de37bb40ecfeefe2a627e53e28d1959612c66b430394"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_2_product_management_copilot/themes.json",
+      "sha256": "3670c738a0b3c840d7dd2eb07ec7ae9fb6fd173c9049feffb66c244c2daa9616"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_3_operations_automation/audit_expectations.csv",
+      "sha256": "8cbc013d135134d5538b6557419e11ee5a6330e05e57ac1d57a22bfe05af994f"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_3_operations_automation/cases.csv",
+      "sha256": "78ce21f1f30b3f26b16f0495c55896c846f8f35c4e0857a755839e737265b6fc"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_3_operations_automation/events.jsonl",
+      "sha256": "1d34463b75750010dad28e9bc23f34c6b2aff6c357c06c7e6d7ded5afd24a041"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_3_operations_automation/expected_outcomes.json",
+      "sha256": "064671acdb712c96280341fee2bbf9a132ad25f756d6cafe4d8c3498b83795a7"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/intake_documents/BATCH-01.docx",
+      "sha256": "a7fd8a1fcf47ee3842e3bcd25a0dfea8d9e7b46b84aa27db6f34c3d1e52b36f3"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/intake_documents/BATCH-02.docx",
+      "sha256": "be6fe0cfd191f3666add6a9296ef31948150fe5d42a1e24cea49d082afe6d633"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/intake_documents/BATCH-03.docx",
+      "sha256": "4e92f3980f82b647c750ebc9c8ad1342e69ddf4fa0c3cb47b327e659c25fdb37"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/intake_documents/BATCH-04.docx",
+      "sha256": "a073f3787649917507de947f8dedf69441aac9499291776f368bf05ef62606e8"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/intake_documents/BATCH-05.docx",
+      "sha256": "4b1ea630cb59fa132a7a7d2cffc90ac7f8720dcd5b6eca21d7f0db459eb8a2d2"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/intake_documents/BATCH-06.docx",
+      "sha256": "380096b0ab3671537832669eaec93afb37f8f002f97164ae6ff9ab53f5216c83"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/intake_documents/BATCH-07.docx",
+      "sha256": "42ad6e016901e40fdcf8b57fe20ac533d1577f3227eb8f5c874ddb8ea01e774a"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/intake_documents/BATCH-08.docx",
+      "sha256": "e46141e36ff4a9d6a2c974942c3fc43986beb34e40391a4bebb7e2327f4cddd4"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/intake_documents/BATCH-09.docx",
+      "sha256": "a15b0f26032ebbd671a94c119a5fd2e87787a213cd48c45a28b67d1d4999bcc5"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/intake_documents/BATCH-10.docx",
+      "sha256": "d90fb355ad62ad4b4c93e50c1166d0f86401399909743e97eee9baaacc81732c"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_3_operations_automation/mock_system_responses.jsonl",
+      "sha256": "f73138f6d8012c4edd181b814062cd9f3d3da622348b1f380fa3058d9ca3a191"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/operations_queue.xlsx",
+      "sha256": "124092339409b6c0b152fed9fd9baf380a5bfe98738f2110b80726fcb6883713"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/runbooks/RUNBOOK-001_latency_triage.pdf",
+      "sha256": "0bc24e835e517e61e74ad53ca0e6482f7f351d3e23a19c63386549feca4cdb37"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/runbooks/RUNBOOK-002_privileged_access.pdf",
+      "sha256": "5ffcf51080d5d80fee168d5eae47ae3531154fd5cae2f2bbac1a90ed605c391b"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/runbooks/RUNBOOK-003_release_change_legacy.pdf",
+      "sha256": "989d11e58e4acdb56b8f80914c4c098bebb39cdaffae1f56d072eeb4900bd22b"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/runbooks/RUNBOOK-004_data_quality.pdf",
+      "sha256": "f878220cc89fbb508ebec3f1e5ffdd179efd4efc810209d2dd8d3af64dc52122"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_3_operations_automation/runbooks/RUNBOOK-005_customer_escalation.pdf",
+      "sha256": "c158dd086f583613632fb324f2862b925347153eb334f8cdedb54a62a76629fc"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_4_research_synthesis/claim_ledger.csv",
+      "sha256": "a7a0b453d0482d7f5a592a2662cc17be505d0c491945de6d6f728ea27ccd78df"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_4_research_synthesis/fact_check_cases.json",
+      "sha256": "b51a13bb2a2bee85bfa1e2c6b43348f14dabb51d657e78b6def06f91c33778f8"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_4_research_synthesis/research_scope.json",
+      "sha256": "dd6acdd264cc86561268eeb947058f91369a957f2d60b98bb70a6ba52429db77"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/research_tracker.xlsx",
+      "sha256": "7c52f74161e9c19a1f7c6158ce7c0592a41333afc879f4fa8df6130944307455"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-001_slatebook_launches_regional_workflow_controls.pdf",
+      "sha256": "2d8cf6d5fb469604479e357d6457c8d1c327a12fc54b4743a0a4470f0bfe4e7a"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-002_slatebook_annual_operating_review.docx",
+      "sha256": "4a5dc854712e622adf4fe8072170cd4b949f88d72d49eb1e9c9563bc5f8bf391"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-003_slatebook_customer_call.pptx",
+      "sha256": "8c660f336b4a02656a3e41ea70f9e58d0301e789dfee363df5565c29eeb5eb7e"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-004_collections_win_loss_review.pdf",
+      "sha256": "f56aed5059f96a1389ea7a20350b393be52c38a9b964eca3eacbbaef100ec1c2"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-005_workflow_automation_market_outlook.docx",
+      "sha256": "208e633b180c5660c60aa20cdf80928bf821f78bfb135501dfa57f91be774781"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-006_slatebook_pricing_statement.pptx",
+      "sha256": "47475696527603654117f53574385be39e82bab886c4310605eb99144438418c"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-007_slatebook_partner_briefing.pdf",
+      "sha256": "0cdf3d5ba4e430f98e2f7a0d6fe31b3e55e45f4ed517f2a3337bab9b9b7a4758"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-008_collections_pricing_interview_synthesis.docx",
+      "sha256": "2d7d9c9a954a9a553140392276aef1f6bf81860f63ee174dfd91aeb5b8fbf6f0"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-009_harborbill_quarterly_review.pptx",
+      "sha256": "ed461f148232472078daf496f9ea2a3a22a94c064355d251936ed9e1b1b1e137"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-010_enterprise_ai_controls_survey.pdf",
+      "sha256": "dad8ac8d1fd6e314494e1b68cd4c7b3c5aff010b9ac34d92f9d6805ff6c425c2"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-011_alder_biosystems_strategy_interview.docx",
+      "sha256": "929b56dd9b6d65b7908330647531100c6d2fb49e811695c660e02cec54a9bca7"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-012_european_pipeline_review.pptx",
+      "sha256": "23f379ed1a201cf33ba649e9eb6093eb49b48731da9462f9229a1e4ec784b08b"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-013_harborbill_assistant_release.pdf",
+      "sha256": "39a511c18a0b5b965991d0ba6cadebff06165d7bf47752dcb837ca049e59cb7d"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-014_assistant_adoption_benchmark.docx",
+      "sha256": "4f309d55b6feb7fc31101eada9872ab47eba61242a88c523d51896af0808d9e4"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-015_blue_harbor_security_review.pptx",
+      "sha256": "a4c2dfb2a755a6f521aca6cf88422e59c4eee7bc9934b31cb97e433ade0c0bbd"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/sources/SRC-016_collections_strategic_recommendation_draft.pdf",
+      "sha256": "df195588be094c66eae26a4264a2aa73df6da68a417c95d8435e753a1ae5cc35"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_4_research_synthesis/sources_metadata.csv",
+      "sha256": "133ff9a6b51f40a0841392e98741e8cb9e0ded5f971d5b31ce597474c48b9ae2"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_4_research_synthesis/templates/leadership_decision_memo_template.pptx",
+      "sha256": "d9c14dc872f0622d2c58688b54183fb719609de3d4833768ad33e99f79020d25"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_5_decision_support/artifacts/collections_42_financial_model.xlsx",
+      "sha256": "c598f5380a082a99a5cabcc466df757a49a8acd72a5c737eb83b4d2717470179"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_5_decision_support/artifacts/collections_eu_customer_terms.docx",
+      "sha256": "3a2d78925e3af071d377714c8b35409146867a9a3646f670cf54d219ef80ff68"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_5_decision_support/artifacts/market_and_cost_outlook.pdf",
+      "sha256": "cee2883bd0f12a9cb60540de3dfe52e6b604662975ce80b1445cb265218d31cd"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_5_decision_support/artifacts/stakeholder_notes.docx",
+      "sha256": "c448536f03c6eff20e1739fa8b070fa7c4d9ab09c030c6712d687ba0fd315787"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_5_decision_support/assumptions.json",
+      "sha256": "fe1add27894ef2981b9476d367346489785c2c5514e4074e948626fddddfd66f"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_5_decision_support/decision_record.json",
+      "sha256": "3fe08b02f10283433979b2e3447bdba929949e8f349a5dd8f8b5c8d53770307a"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_5_decision_support/evidence.csv",
+      "sha256": "285b9fd1922e1937742d72ed8bcae289fe5aae45ec58a6deac9940cab1d5c37b"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_5_decision_support/expected_calculation_checks.json",
+      "sha256": "908a1ec6ded537cc50075f722f9c9f51ad3a778fb683606d5ecf90c88b3c4f94"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_5_decision_support/risk_register.csv",
+      "sha256": "6d066247a91bd1db26c77610f0ed4f4f37b6c0a26231b74f1c8126e0d0099d4f"
+    },
+    {
+      "classification": "structured_data",
+      "path": "use_case_5_decision_support/scenario_inputs_and_outputs.csv",
+      "sha256": "e4fc9ee0c2aeb095bd96cd7bf99c9cb959330f6995cf14c5f6dd460a5c3ccf8e"
+    },
+    {
+      "classification": "native_artifact",
+      "path": "use_case_5_decision_support/templates/decision_brief_template.pptx",
+      "sha256": "666e6ca12138913df9445407feaf02d714b63eb10196ead3dc70354f64b11f39"
+    }
+  ],
+  "generated_at": "2026-09-14T00:00:00Z",
+  "generation_command": "python scripts/generate_sample.py",
+  "validation_command": "python -m pytest",
+  "remap": {
+    "applied": true,
+    "note": "Corpus remapped into the Ledgerly world at repo import; hashes are post-remap. Mapping table lives in the facilitator plan only."
+  }
+}

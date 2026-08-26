@@ -1,0 +1,41 @@
+{
+  "$comment": "Fixed points of the Ledgerly world shared by the app seed, the workshop corpus, and the /analysis page. The seed reads `accounts` to create matching live rows; /analysis uses it to resolve corpus customer IDs to app pages. Catalog cents mirror lib/plans.ts — never the other way around.",
+  "world": {
+    "company": "Ledgerly",
+    "workspace": "Fieldnote Workspace",
+    "operator": "Avery Quinn",
+    "release": "Collections 4.2",
+    "planned_release_date": "2026-10-26",
+    "products": {
+      "PRD-001": "Collections",
+      "PRD-002": "Nudge",
+      "PRD-003": "Pulse"
+    },
+    "competitors": ["Slatebook", "Harborbill"]
+  },
+  "clocks": {
+    "demo_as_of": "2026-08-23",
+    "corpus_reference": "2026-09-14"
+  },
+  "catalog_cents": {
+    "STARTER": 4900,
+    "GROWTH": 9900,
+    "SCALE": 24900
+  },
+  "accounts": {
+    "CUST-001": { "customerId": "cus_northstarfab", "invoiceId": "inv_2001", "invoiceNumber": "INV-2001", "name": "Northstar Fabrication", "segment": "Enterprise", "plan": "GROWTH", "contactName": "Mara Ellison", "email": "ap@northstarfab.example" },
+    "CUST-002": { "customerId": "cus_northstarlog", "invoiceId": "inv_2002", "invoiceNumber": "INV-2002", "name": "North Star Logistics", "segment": "Enterprise", "plan": "GROWTH", "contactName": "Devan Kohl", "email": "billing@northstarlogistics.example" },
+    "CUST-003": { "customerId": "cus_alderbio", "invoiceId": "inv_2003", "invoiceNumber": "INV-2003", "name": "Alder BioSystems", "segment": "Strategic", "plan": "SCALE", "contactName": "Ines Beaufort", "email": "finance@alderbio.example" },
+    "CUST-004": { "customerId": "cus_juniperpw", "invoiceId": "inv_2004", "invoiceNumber": "INV-2004", "name": "Juniper Public Works", "segment": "Public Sector", "plan": "STARTER", "contactName": "Ray Okafor", "email": "accounts@juniperpw.example" },
+    "CUST-005": { "customerId": "cus_helioretail", "invoiceId": "inv_2005", "invoiceNumber": "INV-2005", "name": "Helio Retail Group", "segment": "Enterprise", "plan": "GROWTH", "contactName": "Sanne Vos", "email": "ap@helioretail.example" },
+    "CUST-006": { "customerId": "cus_cedarhealth", "invoiceId": "inv_2006", "invoiceNumber": "INV-2006", "name": "Cedar Health Network", "segment": "Strategic", "plan": "SCALE", "contactName": "Toni Merced", "email": "payables@cedarhealth.example" },
+    "CUST-007": { "customerId": "cus_velaenergy", "invoiceId": "inv_2007", "invoiceNumber": "INV-2007", "name": "Vela Energy Systems", "segment": "Enterprise", "plan": "GROWTH", "contactName": "Bram Whitlock", "email": "billing@velaenergy.example" },
+    "CUST-008": { "customerId": "cus_kestrelmob", "invoiceId": "inv_2008", "invoiceNumber": "INV-2008", "name": "Kestrel Mobility", "segment": "Growth", "plan": "STARTER", "contactName": "Freja Lindqvist", "email": "ap@kestrelmobility.example" },
+    "CUST-009": { "customerId": "cus_blueharbor", "invoiceId": "inv_2009", "invoiceNumber": "INV-2009", "name": "Blue Harbor Bank", "segment": "Strategic", "plan": "SCALE", "contactName": "Curtis Alba", "email": "vendors@blueharborbank.example" },
+    "CUST-010": { "customerId": "cus_stonebridge", "invoiceId": "inv_2010", "invoiceNumber": "INV-2010", "name": "Stonebridge Media", "segment": "Growth", "plan": "STARTER", "contactName": "Petra Hollis", "email": "accounts@stonebridgemedia.example" },
+    "CUST-011": { "customerId": "cus_lumenedu", "invoiceId": "inv_2011", "invoiceNumber": "INV-2011", "name": "Lumen Education", "segment": "Public Sector", "plan": "STARTER", "contactName": "Marisol Duarte", "email": "finance@lumenedu.example" },
+    "CUST-012": { "customerId": "cus_orchidfoods", "invoiceId": "inv_2012", "invoiceNumber": "INV-2012", "name": "Orchid Foods", "segment": "Enterprise", "plan": "GROWTH", "contactName": "Hana Sook", "email": "ap@orchidfoods.example" },
+    "CUST-013": { "customerId": "cus_summitaero", "invoiceId": "inv_2013", "invoiceNumber": "INV-2013", "name": "Summit Aero", "segment": "Strategic", "plan": "SCALE", "contactName": "Callum Reyes", "email": "payables@summitaero.example" },
+    "CUST-014": { "customerId": "cus_redwoodcomp", "invoiceId": "inv_2014", "invoiceNumber": "INV-2014", "name": "Redwood Components", "segment": "Growth", "plan": "STARTER", "contactName": "Josie Tran", "email": "billing@redwoodcomponents.example" }
+  }
+}

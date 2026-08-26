@@ -1,0 +1,25 @@
+claim_id,claim_text,source_ids,claim_type,confidence,contradiction_group,status,review_note
+CLM-0001,Slatebook announced region-specific workflow controls for enterprise customers.,SRC-001,verified_fact,high,,supported,Source supports the claim at the stated confidence.
+CLM-0002,Slatebook reported that enterprise expansion remains its largest growth driver.,SRC-002,verified_fact,high,,supported,Source supports the claim at the stated confidence.
+CLM-0003,A customer reported that Slatebook implementation took fourteen weeks.,SRC-003,verified_fact,medium,,supported,Source supports the claim at the stated confidence.
+CLM-0004,Collections won three of five evaluated deals where implementation speed was a deciding factor.,SRC-004,verified_fact,medium,,supported,Source supports the claim at the stated confidence.
+CLM-0005,The fictional workflow automation market may grow between 11 and 15 percent next year.,SRC-005,inference,medium,,supported,Source supports the claim at the stated confidence.
+CLM-0006,Slatebook stated that list prices will remain unchanged through 2026.,SRC-006,verified_fact,high,CON-001,unresolved,Public pricing statement conflicts with partner briefing; retain both and seek confirmation.
+CLM-0007,A partner said Slatebook plans a twelve-percent enterprise price increase in November 2026.,SRC-007,verified_fact,low,CON-001,unresolved,Public pricing statement conflicts with partner briefing; retain both and seek confirmation.
+CLM-0008,Customers prefer predictable capacity bands to metered overage pricing.,SRC-008,inference,medium,,supported,Source supports the claim at the stated confidence.
+CLM-0009,Harborbill increased research spending while operating margin declined.,SRC-009,verified_fact,high,,supported,Source supports the claim at the stated confidence.
+CLM-0010,Governance controls rank above autonomous execution for regulated buyers.,SRC-010,inference,medium,,supported,Source supports the claim at the stated confidence.
+CLM-0011,Alder will not expand automation without region-specific audit retention.,SRC-011,verified_fact,high,,supported,Source supports the claim at the stated confidence.
+CLM-0012,Seven pipeline accounts mention regional controls as a purchase criterion.,SRC-012,verified_fact,medium,,supported,Source supports the claim at the stated confidence.
+CLM-0013,Harborbill released an assistant that drafts workflow remediation steps.,SRC-013,verified_fact,high,,supported,Source supports the claim at the stated confidence.
+CLM-0014,Drafting assistants show adoption when recommendations remain reviewable.,SRC-014,inference,medium,,supported,Source supports the claim at the stated confidence.
+CLM-0015,Blue Harbor requires explicit human approval before production changes.,SRC-015,verified_fact,high,,supported,Source supports the claim at the stated confidence.
+CLM-0016,Ledgerly should prioritize governed regional rollout controls over fully autonomous execution.,SRC-016,inference,low,,supported,Source supports the claim at the stated confidence.
+CLM-0017,Cross-source synthesis 1 combines market and customer evidence.,SRC-001|SRC-009,inference,medium,,supported,Inference must remain labeled in the leadership memo.
+CLM-0018,Cross-source synthesis 2 combines market and customer evidence.,SRC-002|SRC-010,inference,medium,,supported,Inference must remain labeled in the leadership memo.
+CLM-0019,Cross-source synthesis 3 combines market and customer evidence.,SRC-003|SRC-011,inference,medium,,supported,Inference must remain labeled in the leadership memo.
+CLM-0020,Cross-source synthesis 4 combines market and customer evidence.,SRC-004|SRC-012,inference,medium,,supported,Inference must remain labeled in the leadership memo.
+CLM-0021,Cross-source synthesis 5 combines market and customer evidence.,SRC-005|SRC-013,inference,medium,,supported,Inference must remain labeled in the leadership memo.
+CLM-0022,Cross-source synthesis 6 combines market and customer evidence.,SRC-006|SRC-014,inference,medium,,supported,Inference must remain labeled in the leadership memo.
+CLM-0023,Cross-source synthesis 7 combines market and customer evidence.,SRC-007|SRC-015,inference,medium,,supported,Inference must remain labeled in the leadership memo.
+CLM-0024,Cross-source synthesis 8 combines market and customer evidence.,SRC-008|SRC-016,inference,medium,,supported,Inference must remain labeled in the leadership memo.

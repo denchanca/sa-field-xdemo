@@ -1,0 +1,4 @@
+scenario_id,name,eligible_accounts,adoption_rate,annual_contract_value,support_cost_per_adopter,remediation_cost,risk_probability,risk_impact,expected_adopters,projected_revenue,support_cost,expected_risk_cost,risk_adjusted_value
+SCN-001,broad_launch,120,0.78,32000,6200,740000,0.2,1200000,93.6,2995200.0,580320.0,240000.0,1434880.0
+SCN-002,phased_rollout,120,0.62,32000,4800,410000,0.12,1200000,74.4,2380800.0,357120.0,144000.0,1469680.0
+SCN-003,delay,120,0.45,32000,3900,280000,0.08,1200000,54.0,1728000.0,210600.0,96000.0,1141400.0

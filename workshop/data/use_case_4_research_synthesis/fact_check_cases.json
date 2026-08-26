@@ -1,0 +1,110 @@
+[
+  {
+    "case_id": "FC-001",
+    "claim_id": "CLM-0001",
+    "expected_claim_type": "verified_fact",
+    "expected_source_ids": [
+      "SRC-001"
+    ],
+    "must_flag_contradiction": false
+  },
+  {
+    "case_id": "FC-002",
+    "claim_id": "CLM-0002",
+    "expected_claim_type": "verified_fact",
+    "expected_source_ids": [
+      "SRC-002"
+    ],
+    "must_flag_contradiction": false
+  },
+  {
+    "case_id": "FC-003",
+    "claim_id": "CLM-0003",
+    "expected_claim_type": "verified_fact",
+    "expected_source_ids": [
+      "SRC-003"
+    ],
+    "must_flag_contradiction": false
+  },
+  {
+    "case_id": "FC-004",
+    "claim_id": "CLM-0004",
+    "expected_claim_type": "verified_fact",
+    "expected_source_ids": [
+      "SRC-004"
+    ],
+    "must_flag_contradiction": false
+  },
+  {
+    "case_id": "FC-005",
+    "claim_id": "CLM-0005",
+    "expected_claim_type": "inference",
+    "expected_source_ids": [
+      "SRC-005"
+    ],
+    "must_flag_contradiction": false
+  },
+  {
+    "case_id": "FC-006",
+    "claim_id": "CLM-0006",
+    "expected_claim_type": "verified_fact",
+    "expected_source_ids": [
+      "SRC-006"
+    ],
+    "must_flag_contradiction": true
+  },
+  {
+    "case_id": "FC-007",
+    "claim_id": "CLM-0007",
+    "expected_claim_type": "verified_fact",
+    "expected_source_ids": [
+      "SRC-007"
+    ],
+    "must_flag_contradiction": true
+  },
+  {
+    "case_id": "FC-008",
+    "claim_id": "CLM-0008",
+    "expected_claim_type": "inference",
+    "expected_source_ids": [
+      "SRC-008"
+    ],
+    "must_flag_contradiction": false
+  },
+  {
+    "case_id": "FC-009",
+    "claim_id": "CLM-0009",
+    "expected_claim_type": "verified_fact",
+    "expected_source_ids": [
+      "SRC-009"
+    ],
+    "must_flag_contradiction": false
+  },
+  {
+    "case_id": "FC-010",
+    "claim_id": "CLM-0010",
+    "expected_claim_type": "inference",
+    "expected_source_ids": [
+      "SRC-010"
+    ],
+    "must_flag_contradiction": false
+  },
+  {
+    "case_id": "FC-011",
+    "claim_id": "CLM-0011",
+    "expected_claim_type": "verified_fact",
+    "expected_source_ids": [
+      "SRC-011"
+    ],
+    "must_flag_contradiction": false
+  },
+  {
+    "case_id": "FC-012",
+    "claim_id": "CLM-0012",
+    "expected_claim_type": "verified_fact",
+    "expected_source_ids": [
+      "SRC-012"
+    ],
+    "must_flag_contradiction": false
+  }
+]

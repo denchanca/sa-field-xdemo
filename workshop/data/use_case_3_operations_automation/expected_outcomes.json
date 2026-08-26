@@ -1,0 +1,652 @@
+[
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00001"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00002"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00003"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00004"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00005"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00006"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00007"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00008"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00009"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00010"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00011"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00012"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00013"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00014"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00015"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00016"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00017"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00018"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00019"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00020"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00021"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00022"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00023"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00024"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00025"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00026"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00027"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00028"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00029"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00030"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00031"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00032"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00033"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00034"
+  },
+  {
+    "disposition": "automate",
+    "escalation_reason": "",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00035"
+  },
+  {
+    "disposition": "escalate",
+    "escalation_reason": "missing_requester_identity",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00036"
+  },
+  {
+    "disposition": "escalate",
+    "escalation_reason": "required_security_approval",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00037"
+  },
+  {
+    "disposition": "escalate",
+    "escalation_reason": "conflicting_policy_and_runbook",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00038"
+  },
+  {
+    "disposition": "escalate",
+    "escalation_reason": "malformed_downstream_response",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00039"
+  },
+  {
+    "disposition": "escalate",
+    "escalation_reason": "unresolved_customer_ambiguity",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00040"
+  },
+  {
+    "disposition": "escalate",
+    "escalation_reason": "missing_requester_identity",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00041"
+  },
+  {
+    "disposition": "escalate",
+    "escalation_reason": "required_security_approval",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00042"
+  },
+  {
+    "disposition": "escalate",
+    "escalation_reason": "conflicting_policy_and_runbook",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00043"
+  },
+  {
+    "disposition": "escalate",
+    "escalation_reason": "malformed_downstream_response",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00044"
+  },
+  {
+    "disposition": "escalate",
+    "escalation_reason": "unresolved_customer_ambiguity",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00045"
+  },
+  {
+    "disposition": "escalate",
+    "escalation_reason": "missing_requester_identity",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00046"
+  },
+  {
+    "disposition": "escalate",
+    "escalation_reason": "required_security_approval",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00047"
+  },
+  {
+    "disposition": "escalate",
+    "escalation_reason": "conflicting_policy_and_runbook",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00048"
+  },
+  {
+    "disposition": "escalate",
+    "escalation_reason": "malformed_downstream_response",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00049"
+  },
+  {
+    "disposition": "escalate",
+    "escalation_reason": "unresolved_customer_ambiguity",
+    "required_audit_fields": [
+      "ticket_id",
+      "trace_id",
+      "decision",
+      "reason",
+      "timestamp",
+      "actor_id"
+    ],
+    "ticket_id": "TKT-00050"
+  }
+]

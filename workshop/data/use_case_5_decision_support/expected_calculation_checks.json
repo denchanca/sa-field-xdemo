@@ -1,0 +1,29 @@
+[
+  {
+    "expected_adopters": 93.6,
+    "expected_risk_cost": 240000.0,
+    "projected_revenue": 2995200.0,
+    "risk_adjusted_value": 1434880.0,
+    "scenario_id": "SCN-001",
+    "support_cost": 580320.0,
+    "tolerance": 0.01
+  },
+  {
+    "expected_adopters": 74.4,
+    "expected_risk_cost": 144000.0,
+    "projected_revenue": 2380800.0,
+    "risk_adjusted_value": 1469680.0,
+    "scenario_id": "SCN-002",
+    "support_cost": 357120.0,
+    "tolerance": 0.01
+  },
+  {
+    "expected_adopters": 54.0,
+    "expected_risk_cost": 96000.0,
+    "projected_revenue": 1728000.0,
+    "risk_adjusted_value": 1141400.0,
+    "scenario_id": "SCN-003",
+    "support_cost": 210600.0,
+    "tolerance": 0.01
+  }
+]

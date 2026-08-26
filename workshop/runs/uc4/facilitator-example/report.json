@@ -1,0 +1,301 @@
+{
+  "contract": "ledgerly.report.v1",
+  "useCase": 4,
+  "title": "Collections-automation market \u2014 attributed claim ledger",
+  "generatedBy": "Facilitator example run (Cursor agent)",
+  "summary": "All 24 claims from the sixteen vendored sources are attributed and confidence-rated: 11 verified facts, 13 inferences. One contradiction is flagged and left unresolved on purpose \u2014 two sources disagree about a competitor's pricing plans.",
+  "sections": [
+    {
+      "kind": "metrics",
+      "heading": "Ledger",
+      "items": [
+        {
+          "label": "Claims attributed",
+          "value": "24 / 24",
+          "tone": "success"
+        },
+        {
+          "label": "Verified facts",
+          "value": "11"
+        },
+        {
+          "label": "Inferences",
+          "value": "13",
+          "hint": "labeled, never mixed with fact"
+        },
+        {
+          "label": "Unresolved contradictions",
+          "value": "1",
+          "hint": "kept visible, not smoothed",
+          "tone": "warning"
+        }
+      ]
+    },
+    {
+      "kind": "callout",
+      "tone": "warning",
+      "heading": "Contradiction: Slatebook pricing",
+      "body": "\u201cSlatebook stated that list prices will remain unchanged through 2026.\u201d (SRC-006, confidence high) directly conflicts with \u201cA partner said Slatebook plans a twelve-percent enterprise price increase in November 2026.\u201d (SRC-007, confidence low). Both sides stay in the ledger with their confidence levels; the recommendation below does not assume either is true.",
+      "cite": [
+        "SRC-006",
+        "SRC-007",
+        "CLM-0006",
+        "CLM-0007"
+      ]
+    },
+    {
+      "kind": "chart",
+      "heading": "Confidence distribution",
+      "chart": {
+        "type": "pie",
+        "xKey": "confidence",
+        "series": [
+          "claims"
+        ],
+        "data": [
+          {
+            "confidence": "high",
+            "claims": 7
+          },
+          {
+            "confidence": "low",
+            "claims": 2
+          },
+          {
+            "confidence": "medium",
+            "claims": 15
+          }
+        ]
+      }
+    },
+    {
+      "kind": "table",
+      "heading": "Claim ledger",
+      "columns": [
+        "Claim",
+        "Statement",
+        "Sources",
+        "Type",
+        "Confidence",
+        "Status"
+      ],
+      "rows": [
+        [
+          "CLM-0001",
+          "Slatebook announced region-specific workflow controls for enterprise customers.",
+          "SRC-001",
+          "verified_fact",
+          "high",
+          "supported"
+        ],
+        [
+          "CLM-0002",
+          "Slatebook reported that enterprise expansion remains its largest growth driver.",
+          "SRC-002",
+          "verified_fact",
+          "high",
+          "supported"
+        ],
+        [
+          "CLM-0003",
+          "A customer reported that Slatebook implementation took fourteen weeks.",
+          "SRC-003",
+          "verified_fact",
+          "medium",
+          "supported"
+        ],
+        [
+          "CLM-0004",
+          "Collections won three of five evaluated deals where implementation speed was a deciding factor.",
+          "SRC-004",
+          "verified_fact",
+          "medium",
+          "supported"
+        ],
+        [
+          "CLM-0005",
+          "The fictional workflow automation market may grow between 11 and 15 percent next year.",
+          "SRC-005",
+          "inference",
+          "medium",
+          "supported"
+        ],
+        [
+          "CLM-0006",
+          "Slatebook stated that list prices will remain unchanged through 2026.",
+          "SRC-006",
+          "verified_fact",
+          "high",
+          "unresolved"
+        ],
+        [
+          "CLM-0007",
+          "A partner said Slatebook plans a twelve-percent enterprise price increase in November 2026.",
+          "SRC-007",
+          "verified_fact",
+          "low",
+          "unresolved"
+        ],
+        [
+          "CLM-0008",
+          "Customers prefer predictable capacity bands to metered overage pricing.",
+          "SRC-008",
+          "inference",
+          "medium",
+          "supported"
+        ],
+        [
+          "CLM-0009",
+          "Harborbill increased research spending while operating margin declined.",
+          "SRC-009",
+          "verified_fact",
+          "high",
+          "supported"
+        ],
+        [
+          "CLM-0010",
+          "Governance controls rank above autonomous execution for regulated buyers.",
+          "SRC-010",
+          "inference",
+          "medium",
+          "supported"
+        ],
+        [
+          "CLM-0011",
+          "Alder will not expand automation without region-specific audit retention.",
+          "SRC-011",
+          "verified_fact",
+          "high",
+          "supported"
+        ],
+        [
+          "CLM-0012",
+          "Seven pipeline accounts mention regional controls as a purchase criterion.",
+          "SRC-012",
+          "verified_fact",
+          "medium",
+          "supported"
+        ],
+        [
+          "CLM-0013",
+          "Harborbill released an assistant that drafts workflow remediation steps.",
+          "SRC-013",
+          "verified_fact",
+          "high",
+          "supported"
+        ],
+        [
+          "CLM-0014",
+          "Drafting assistants show adoption when recommendations remain reviewable.",
+          "SRC-014",
+          "inference",
+          "medium",
+          "supported"
+        ],
+        [
+          "CLM-0015",
+          "Blue Harbor requires explicit human approval before production changes.",
+          "SRC-015",
+          "verified_fact",
+          "high",
+          "supported"
+        ],
+        [
+          "CLM-0016",
+          "Ledgerly should prioritize governed regional rollout controls over fully autonomous execution.",
+          "SRC-016",
+          "inference",
+          "low",
+          "supported"
+        ],
+        [
+          "CLM-0017",
+          "Cross-source synthesis 1 combines market and customer evidence.",
+          "SRC-001, SRC-009",
+          "inference",
+          "medium",
+          "supported"
+        ],
+        [
+          "CLM-0018",
+          "Cross-source synthesis 2 combines market and customer evidence.",
+          "SRC-002, SRC-010",
+          "inference",
+          "medium",
+          "supported"
+        ],
+        [
+          "CLM-0019",
+          "Cross-source synthesis 3 combines market and customer evidence.",
+          "SRC-003, SRC-011",
+          "inference",
+          "medium",
+          "supported"
+        ],
+        [
+          "CLM-0020",
+          "Cross-source synthesis 4 combines market and customer evidence.",
+          "SRC-004, SRC-012",
+          "inference",
+          "medium",
+          "supported"
+        ],
+        [
+          "CLM-0021",
+          "Cross-source synthesis 5 combines market and customer evidence.",
+          "SRC-005, SRC-013",
+          "inference",
+          "medium",
+          "supported"
+        ],
+        [
+          "CLM-0022",
+          "Cross-source synthesis 6 combines market and customer evidence.",
+          "SRC-006, SRC-014",
+          "inference",
+          "medium",
+          "supported"
+        ],
+        [
+          "CLM-0023",
+          "Cross-source synthesis 7 combines market and customer evidence.",
+          "SRC-007, SRC-015",
+          "inference",
+          "medium",
+          "supported"
+        ],
+        [
+          "CLM-0024",
+          "Cross-source synthesis 8 combines market and customer evidence.",
+          "SRC-008, SRC-016",
+          "inference",
+          "medium",
+          "supported"
+        ]
+      ]
+    },
+    {
+      "kind": "prose",
+      "heading": "Recommendation (medium confidence)",
+      "body": "Ledgerly's Collections release compares well on implementation speed \u2014 the win-loss review credits it in three of five evaluated deals \u2014 while the market outlook supports continued investment in regional controls, which both competitors are shipping.\n\nThe open pricing question is the one thing leadership should not act on yet: if the partner briefing is right, a competitor price increase lands in November and changes the positioning window; if the public statement is right, nothing changes. Recommended next step is a direct confirmation pass on that single question before any pricing-adjacent decision. Corpus prices are quoted as market evidence only \u2014 the Ledgerly catalog ($49 / $99 / $249) is not affected by anything in this ledger."
+    }
+  ],
+  "citations": [
+    "SRC-001",
+    "SRC-002",
+    "SRC-003",
+    "SRC-004",
+    "SRC-005",
+    "SRC-006",
+    "SRC-007",
+    "SRC-008",
+    "SRC-009",
+    "SRC-010",
+    "SRC-011",
+    "SRC-012",
+    "SRC-013",
+    "SRC-014",
+    "SRC-015",
+    "SRC-016"
+  ]
+}

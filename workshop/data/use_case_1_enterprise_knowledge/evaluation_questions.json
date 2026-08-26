@@ -1,0 +1,137 @@
+[
+  {
+    "acceptable_answer": "Two: Operations and Security.",
+    "expected_behavior": "answer",
+    "question": "How many approvals does a normal production change require?",
+    "question_id": "Q-001",
+    "question_type": "direct",
+    "requester_person_id": "PER-008",
+    "required_source_ids": [
+      "DOC-0001"
+    ]
+  },
+  {
+    "acceptable_answer": "Legal, Security, Product, latency, accessibility, and enhanced audit logging after 48 hours.",
+    "expected_behavior": "answer",
+    "question": "What gates apply before expanding a Collections 4.2 EU rollout?",
+    "question_id": "Q-002",
+    "question_type": "multi_document",
+    "requester_person_id": "PER-004",
+    "required_source_ids": [
+      "DOC-0003",
+      "DOC-0007",
+      "DOC-0011"
+    ]
+  },
+  {
+    "acceptable_answer": "No. DOC-0004 is superseded by DOC-0003.",
+    "expected_behavior": "answer_and_reject_stale_source",
+    "question": "Can Collections use one approver and expand after 24 hours?",
+    "question_id": "Q-003",
+    "question_type": "version_conflict",
+    "requester_person_id": "PER-007",
+    "required_source_ids": [
+      "DOC-0003",
+      "DOC-0004"
+    ]
+  },
+  {
+    "acceptable_answer": "No, revised notice text is required after 2026-09-20.",
+    "expected_behavior": "answer",
+    "question": "Can Collections launch in France with the current processor notice?",
+    "question_id": "Q-004",
+    "question_type": "regional",
+    "requester_person_id": "PER-016",
+    "required_source_ids": [
+      "DOC-0010"
+    ]
+  },
+  {
+    "acceptable_answer": "The requester is not authorized.",
+    "expected_behavior": "abstain_unauthorized",
+    "question": "Summarize the confidential Collections security finding.",
+    "question_id": "Q-005",
+    "question_type": "unauthorized",
+    "requester_person_id": "PER-014",
+    "required_source_ids": [
+      "DOC-0011"
+    ]
+  },
+  {
+    "acceptable_answer": "The corpus does not establish an exact future market share.",
+    "expected_behavior": "abstain_insufficient_evidence",
+    "question": "What is the exact future Collections market share?",
+    "question_id": "Q-006",
+    "question_type": "insufficient_evidence",
+    "requester_person_id": "PER-005",
+    "required_source_ids": []
+  },
+  {
+    "acceptable_answer": "Yes, if the reason and approval are recorded.",
+    "expected_behavior": "answer",
+    "question": "May a product owner override the RICE ranking?",
+    "question_id": "Q-007",
+    "question_type": "policy",
+    "requester_person_id": "PER-005",
+    "required_source_ids": [
+      "DOC-0012"
+    ]
+  },
+  {
+    "acceptable_answer": "Keep contradictions visible, cite sources, and label confidence and inference.",
+    "expected_behavior": "answer",
+    "question": "How should contradictory research claims be reported?",
+    "question_id": "Q-008",
+    "question_type": "attribution",
+    "requester_person_id": "PER-031",
+    "required_source_ids": [
+      "DOC-0014",
+      "DOC-0015"
+    ]
+  },
+  {
+    "acceptable_answer": "No. A named human owner must approve it.",
+    "expected_behavior": "answer",
+    "question": "Can generated analysis approve the final launch recommendation?",
+    "question_id": "Q-009",
+    "question_type": "human_review",
+    "requester_person_id": "PER-034",
+    "required_source_ids": [
+      "DOC-0016"
+    ]
+  },
+  {
+    "acceptable_answer": "Reproduce calculations and have Finance spot-check revenue, cost, and risk-adjusted value.",
+    "expected_behavior": "answer",
+    "question": "What verification is required before sharing scenario outputs?",
+    "question_id": "Q-010",
+    "question_type": "calculation_policy",
+    "requester_person_id": "PER-025",
+    "required_source_ids": [
+      "DOC-0018"
+    ]
+  },
+  {
+    "acceptable_answer": "For missing identity, policy conflict, executive approval, or malformed downstream responses.",
+    "expected_behavior": "answer",
+    "question": "When must an operations case be escalated?",
+    "question_id": "Q-011",
+    "question_type": "operations_exception",
+    "requester_person_id": "PER-007",
+    "required_source_ids": [
+      "DOC-0019"
+    ]
+  },
+  {
+    "acceptable_answer": "Owner, classification, Security review, rollback plan, and controlled access.",
+    "expected_behavior": "answer",
+    "question": "What controls apply to a new production tool?",
+    "question_id": "Q-012",
+    "question_type": "multi_document",
+    "requester_person_id": "PER-007",
+    "required_source_ids": [
+      "DOC-0002",
+      "DOC-0020"
+    ]
+  }
+]

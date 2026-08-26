@@ -1,0 +1,30 @@
+{
+  "decision_id": "DEC-001",
+  "evidence_ids": [
+    "EVD-0001",
+    "EVD-0002",
+    "EVD-0003",
+    "EVD-0004",
+    "EVD-0005",
+    "EVD-0006",
+    "EVD-0007",
+    "EVD-0008"
+  ],
+  "human_decision_owner": "PER-034",
+  "options": [
+    "broad_launch",
+    "phased_rollout",
+    "delay"
+  ],
+  "question": "Should Ledgerly launch Collections 4.2 broadly in Europe, use a phased rollout, or delay?",
+  "recommended_option": null,
+  "required_approver_ids": [
+    "PER-004",
+    "PER-010",
+    "PER-016",
+    "PER-025",
+    "PER-034"
+  ],
+  "review_checkpoint": "2026-10-05",
+  "status": "pending_human_review"
+}

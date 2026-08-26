@@ -1,0 +1,17 @@
+source_id,title,source_type,publisher,published_date,retrieved_date,artifact_path,reliability,access_classification,is_synthetic
+SRC-001,Slatebook launches regional workflow controls,synthetic_news,Fictional Publisher 1,2026-08-12,2026-09-14,sources/SRC-001_slatebook_launches_regional_workflow_controls.pdf,high,internal,true
+SRC-002,Slatebook annual operating review,synthetic_filing,Fictional Publisher 2,2026-08-14,2026-09-14,sources/SRC-002_slatebook_annual_operating_review.docx,high,internal,true
+SRC-003,Slatebook customer call,call_transcript,Fictional Publisher 3,2026-08-16,2026-09-14,sources/SRC-003_slatebook_customer_call.pptx,medium,internal,true
+SRC-004,Collections win-loss review,internal_note,Fictional Publisher 4,2026-08-18,2026-09-14,sources/SRC-004_collections_win_loss_review.pdf,medium,restricted,true
+SRC-005,Workflow automation market outlook,analyst_note,Fictional Publisher 5,2026-08-20,2026-09-14,sources/SRC-005_workflow_automation_market_outlook.docx,medium,internal,true
+SRC-006,Slatebook pricing statement,synthetic_news,Fictional Publisher 1,2026-08-22,2026-09-14,sources/SRC-006_slatebook_pricing_statement.pptx,high,internal,true
+SRC-007,Slatebook partner briefing,call_transcript,Fictional Publisher 2,2026-08-24,2026-09-14,sources/SRC-007_slatebook_partner_briefing.pdf,low,internal,true
+SRC-008,Collections pricing interview synthesis,internal_note,Fictional Publisher 3,2026-08-26,2026-09-14,sources/SRC-008_collections_pricing_interview_synthesis.docx,medium,restricted,true
+SRC-009,Harborbill quarterly review,synthetic_filing,Fictional Publisher 4,2026-08-28,2026-09-14,sources/SRC-009_harborbill_quarterly_review.pptx,high,internal,true
+SRC-010,Enterprise AI controls survey,analyst_note,Fictional Publisher 5,2026-08-30,2026-09-14,sources/SRC-010_enterprise_ai_controls_survey.pdf,medium,internal,true
+SRC-011,Alder BioSystems strategy interview,call_transcript,Fictional Publisher 1,2026-09-01,2026-09-14,sources/SRC-011_alder_biosystems_strategy_interview.docx,high,internal,true
+SRC-012,European pipeline review,internal_note,Fictional Publisher 2,2026-09-03,2026-09-14,sources/SRC-012_european_pipeline_review.pptx,medium,restricted,true
+SRC-013,Harborbill assistant release,synthetic_news,Fictional Publisher 3,2026-09-05,2026-09-14,sources/SRC-013_harborbill_assistant_release.pdf,high,internal,true
+SRC-014,Assistant adoption benchmark,analyst_note,Fictional Publisher 4,2026-09-07,2026-09-14,sources/SRC-014_assistant_adoption_benchmark.docx,medium,internal,true
+SRC-015,Blue Harbor security review,call_transcript,Fictional Publisher 5,2026-09-09,2026-09-14,sources/SRC-015_blue_harbor_security_review.pptx,high,internal,true
+SRC-016,Collections strategic recommendation draft,internal_note,Fictional Publisher 1,2026-09-11,2026-09-14,sources/SRC-016_collections_strategic_recommendation_draft.pdf,low,restricted,true

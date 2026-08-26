@@ -1,0 +1,9 @@
+evidence_id,category,claim,stance,strength,source_ids,as_of_date,owner_team_id,region,limitation
+EVD-0001,usage,Collections beta adoption is 68 percent among eligible EU seats.,broad_launch,medium,SYS-004,2026-09-08,TEAM-001,EU,Directional workshop evidence; a human reviewer must consider conflicting sources.
+EVD-0002,accessibility,Two keyboard-navigation defects block an administrative workflow.,delay,high,DOC-0007,2026-09-09,TEAM-002,EU,Applies only within the scope stated by the source.
+EVD-0003,security,A telemetry gap can be contained through a ten-percent rollout ring.,phased_rollout,high,DOC-0011,2026-09-10,TEAM-003,EU,Applies only within the scope stated by the source.
+EVD-0004,commercial,Two renewals cite Collections 4.2 timing as material.,broad_launch,medium,CUST-005,2026-09-11,TEAM-004,EU,Directional workshop evidence; a human reviewer must consider conflicting sources.
+EVD-0005,reliability,EU beta latency is above target for one large tenant.,phased_rollout,medium,TKT-00001,2026-09-12,TEAM-005,EU,Directional workshop evidence; a human reviewer must consider conflicting sources.
+EVD-0006,legal,France requires updated processor notice text before availability.,delay,high,DOC-0010,2026-09-13,TEAM-006,FR,Applies only within the scope stated by the source.
+EVD-0007,financial,The broad launch has the highest revenue and highest expected risk cost.,phased_rollout,high,SCN-001,2026-09-14,TEAM-007,EU,Applies only within the scope stated by the source.
+EVD-0008,research,Regulated buyers prioritize governance controls over autonomous execution.,phased_rollout,medium,CLM-0010,2026-09-15,TEAM-008,EU,Directional workshop evidence; a human reviewer must consider conflicting sources.

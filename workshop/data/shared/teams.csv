@@ -1,0 +1,13 @@
+team_id,name,function,lead_person_id
+TEAM-001,Collections Engineering,Engineering,PER-001
+TEAM-002,Product Strategy,Product,PER-004
+TEAM-003,Cloud Operations,Operations,PER-007
+TEAM-004,Trust and Governance,Security,PER-010
+TEAM-005,Customer Outcomes,Support,PER-013
+TEAM-006,Commercial and Legal,Legal,PER-016
+TEAM-007,Product Design,Design,PER-019
+TEAM-008,Data and Insights,Data,PER-022
+TEAM-009,Corporate Finance,Finance,PER-025
+TEAM-010,Enterprise Sales,Sales,PER-028
+TEAM-011,Market Strategy,Strategy,PER-031
+TEAM-012,Executive Office,Leadership,PER-034
