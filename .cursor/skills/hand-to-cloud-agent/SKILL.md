@@ -1,20 +1,25 @@
 ---
 name: hand-to-cloud-agent
-description: Hands a long-lived Ledgerly objective to a Cloud Agent. Use for /goal runs that must survive closing the laptop, or for /orchestrate planner/worker/verifier trees. Not for local /loop.
+description: Hands Ledgerly work to Cloud Agents. Use for durable /goal runs, /autopilot PR supervision, or /orchestrate planner/worker/verifier trees. Not for a local /loop.
 ---
 
 # Hand work to a Cloud Agent
 
-Local `/loop` lives inside this session and dies when the laptop closes. A Cloud Agent can hold a `/goal` through a long-running session. `/orchestrate` staffs a tree of cloud agents.
+Local `/loop` lives inside this session and dies when the laptop closes. A Cloud Agent can hold a `/goal`, supervise a PR with `/autopilot`, or staff an `/orchestrate` tree.
 
 ## When to use
 
 - `/goal` and the finish line will take longer than this sitting, or must continue after the laptop closes.
+- `/autopilot` — an open PR needs event-driven passes over conflicts, comments, and checks.
 - `/orchestrate` — a root planner decomposes the work; workers are isolated; verifiers check the result.
 
 ## /goal in the cloud
 
 Use the `/goal` prompt from `lib/workflows/meta.ts` verbatim. Scope the finish line so it is verifiable (`npm test` green, `dsp_1043` suggested credit at or below $249). The agent judges when the objective is met; you review.
+
+## /autopilot
+
+The 201 deck calls this `/babysit`; the current built-in skill is `/autopilot`. It needs a real open PR. Refresh live PR state each pass, handle conflicts before comments before CI, stop on ambiguous intent, and leave the merge decision to the human.
 
 ## /orchestrate
 
@@ -28,4 +33,4 @@ The root planner writes no code. Workers are isolated; every handoff points up. 
 
 ## What you keep
 
-You review and merge. Do not treat a green verifier as a ship decision. Do not use this skill for a local `/loop` on `/api/demo/job`.
+You review and merge. Do not treat a green verifier or merge-ready PR as a ship decision. Do not use this skill for a local `/loop` on `/api/demo/job`.

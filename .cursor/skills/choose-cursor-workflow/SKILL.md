@@ -1,22 +1,33 @@
 ---
 name: choose-cursor-workflow
-description: Picks /multitask, /loop, /goal, or /orchestrate from the shape of the work. Use when someone asks which advanced Cursor workflow to run, or which /workflows prompt to use.
+description: Picks the 201 or Advanced Ledgerly track, then chooses /multitask, /loop, /autopilot, /goal, or /orchestrate from the shape of the work.
 ---
 
-# Choose a Cursor workflow
+# Choose a demo track and workflow
 
 The workflows are not interchangeable. Pick on the shape of the work: how many pieces, and what tells you it is done. You still review the result.
 
-## Two questions
+## Pick a track
+
+- **201** — deck-aligned orientation, customization, models, Cloud Agents, Automations, trust, then `/multitask`, `/loop`, `/autopilot`, or `/orchestrate`.
+- **Advanced** — deeper Ledgerly scenarios. Adds `/goal` for a durable product objective.
+
+Every beat is independent. If the user names a command, jump directly to it.
+
+## Choose the command
 
 1. **Many independent pieces?**
    - Yes → `/multitask` — hands over **breadth**.
-2. **One objective with a clear finish?**
-   - No — just waiting on it → `/loop` — hands over **time**.
-   - Yes — I am steering → `/goal` — hands over **the objective**.
-   - Yes — needs its own plan → `/orchestrate` — hands over **the plan itself**.
+2. **Just waiting or re-checking?**
+   - Yes → `/loop` — hands over **time**.
+3. **An open PR must become merge-ready?**
+   - Yes → `/autopilot` — hands over **the pull request**. This is the current name for the deck's `/babysit`.
+4. **One long-lived objective with a clear finish?**
+   - Yes → `/goal` — hands over **the objective**. Advanced track only.
+5. **The objective must first be decomposed and staffed?**
+   - Yes → `/orchestrate` — hands over **the plan itself**.
 
-Rule of thumb: if you can state a verifiable finish condition, use `/goal`. If the work must first be decomposed and staffed, use `/orchestrate`.
+Rule of thumb: use `/autopilot` only when there is a real pull request. Use `/goal` for a durable objective that is not merely PR supervision. Use `/orchestrate` when the plan itself must be delegated.
 
 ## What does not change
 
@@ -24,11 +35,12 @@ The human reviews the result and decides what ships. These commands change how m
 
 ## Use the matching prompt
 
-Prompts live in `lib/workflows/meta.ts` and on `/workflows`. Use the matching `prompt` verbatim. Do not invent a fifth workflow or a fourth catalog price.
+Prompts live in `lib/workflows/meta.ts` and on `/workflows`. Use the matching `prompt` verbatim. Do not invent another catalog price.
 
 | Command | Ledgerly target |
 | --- | --- |
 | `/multitask` | Four API surfaces via `dispatch-subagents` + `api-instrumenter` |
 | `/loop` | `POST` then poll `/api/demo/job` |
+| `/autopilot` | Current branch's open PR until merge-ready; the human merges |
 | `/goal` | Dispute resolution until tests and `dsp_1043` pass |
 | `/orchestrate` | Same outcome, planner/workers/`dispute-verifier` (plugin + `CURSOR_API_KEY`) |

@@ -1,17 +1,72 @@
 /**
- * Advanced Cursor workflows as they appear on /workflows and in the README.
+ * Cursor workflows as they appear on /workflows and in the README.
  * Prompts are the source of truth — the README test requires them verbatim.
  */
 
+export type DemoTrack = "201" | "advanced";
+
 export type WorkflowMeta = {
-  slug: "multitask" | "loop" | "goal" | "orchestrate";
+  slug: "multitask" | "loop" | "autopilot" | "goal" | "orchestrate";
   command: string;
   title: string;
   handsOver: string;
   when: string;
   blurb: string;
+  tracks: DemoTrack[];
+  setup?: string;
   prompt: string;
 };
+
+export const DEMO_TRACKS = [
+  {
+    id: "201" as const,
+    title: "201",
+    description:
+      "Deck-aligned: orient, customize the agent, choose models, show Cloud Agents and Automations, then breadth, time, PR ownership, planning, and verification.",
+    workflowSlugs: ["multitask", "loop", "autopilot", "orchestrate"] as const,
+  },
+  {
+    id: "advanced" as const,
+    title: "Advanced",
+    description:
+      "Deeper Ledgerly scenarios: durable goals, parallel workers, scheduled checking, PR supervision, planner trees, and verifier evidence.",
+    workflowSlugs: ["goal", "multitask", "loop", "autopilot", "orchestrate"] as const,
+  },
+] as const;
+
+export const DECK_BEATS = [
+  {
+    id: "orient",
+    title: "Getting oriented",
+    detail: "Ask traces prices, overdue invoices, and the intentionally unfinished dispute path.",
+  },
+  {
+    id: "customize",
+    title: "Rules, skills, subagents",
+    detail: "Open the Ledgerly rule, choose-cursor-workflow skill, and one focused worker.",
+  },
+  {
+    id: "models",
+    title: "Model selection",
+    detail: "Use a high-reasoning parent to plan; use faster focused models for isolated workers.",
+  },
+  {
+    id: "cloud",
+    title: "Cloud Agents",
+    detail:
+      "Hand off an Autopilot PR or Orchestrate tree; Advanced can also hold a durable Goal.",
+  },
+  {
+    id: "automations",
+    title: "Automations",
+    detail: "Open the Automations editor with /automate; use a PR event or schedule, not a local loop.",
+  },
+  {
+    id: "trust",
+    title: "Trust and verification",
+    detail: "Tests, browser behavior, a verifier, and the human merge decision close the loop.",
+  },
+] as const;
 
 export const WORKFLOWS: WorkflowMeta[] = [
   {
@@ -22,6 +77,7 @@ export const WORKFLOWS: WorkflowMeta[] = [
     when: "Many independent pieces of one request.",
     blurb:
       "Four API surfaces, four workers, one finish line. Independent steps run at once; you review one diff per task.",
+    tracks: ["201", "advanced"],
     prompt: `/multitask Add the same small request-log helper to Ledgerly's four independent API surfaces: invoices, disputes, Nudge, and Pulse.
 
 Use the dispatch-subagents skill. Launch four api-instrumenter subagents in one parallel turn — one route each:
@@ -40,12 +96,30 @@ A shared helper may live under lib/. Each worker starts with clean context; the 
     when: "You would otherwise sit and watch a job finish.",
     blurb:
       "Start the local invoice backfill, then let the agent check it on a schedule until it completes — or until you stop the loop.",
+    tracks: ["201", "advanced"],
     prompt: `Start the local demo job, then hand over the checking.
 
 1. POST http://127.0.0.1:43173/api/demo/job to start the invoice backfill (idle → running → complete over about 45 seconds).
 2. /loop 10s Check GET http://127.0.0.1:43173/api/demo/job until status is complete, or until I stop the loop.
 
 Do not add GitHub Actions. Do not write to the Ledgerly database. You still stop the loop; I still review the result.`,
+  },
+  {
+    slug: "autopilot",
+    command: "/autopilot",
+    title: "Hands over the pull request",
+    handsOver: "the pull request",
+    when: "An open pull request must become merge-ready.",
+    blurb:
+      "Current name for the deck's /babysit workflow. It triages comments, resolves clear conflicts, and fixes scoped CI failures. You still merge.",
+    tracks: ["201", "advanced"],
+    setup:
+      "Prepare an open pull request for the current feature branch with one actionable review comment or a scoped failing check.",
+    prompt: `/autopilot Keep the pull request for the current branch merge-ready.
+
+Refresh the live PR state before every pass. Work in this order: merge conflicts, active unresolved review comments (including Bugbot), then failing required checks. Validate each finding before acting. Fix only issues caused by this PR and keep every change inside its scope.
+
+Never change CI checks, workflows, the Ledgerly catalog, prisma/seed.ts, prisma/extra-accounts.ts, or tests/dispute-credit.test.ts to get green. Stop and ask if branch intent is ambiguous or a billing, security, privacy, migration, or concurrency comment needs judgment. Report ready only when the PR is mergeable, required checks are green, and every active comment is triaged. Do not merge or enable auto-merge; I still review and merge.`,
   },
   {
     slug: "goal",
@@ -55,6 +129,7 @@ Do not add GitHub Actions. Do not write to the Ledgerly database. You still stop
     when: "One objective with a clear finish, and you are still steering.",
     blurb:
       "Pin dispute resolution as one long-lived objective. The agent keeps going across turns until the checks pass. You review the result.",
+    tracks: ["advanced"],
     prompt: `/goal Make Ledgerly demo-complete for dispute resolution.
 
 1. Cap suggestDisputeCredit in lib/dispute-credit.ts at the catalog plan price from lib/plans.ts.
@@ -73,6 +148,8 @@ Do not change prisma/seed.ts, prisma/extra-accounts.ts, or tests/dispute-credit.
     when: "One objective that first needs its own plan, staffed across agents.",
     blurb:
       "A root planner decomposes dispute resolution and staffs isolated workers. Verifiers check the work. This one is a plugin.",
+    tracks: ["201", "advanced"],
+    setup: "Install the /orchestrate plugin; put bun on PATH and provide a CURSOR_API_KEY.",
     prompt: `/orchestrate Make Ledgerly demo-complete for dispute resolution. This is a plugin workflow — you need bun on PATH and a CURSOR_API_KEY (personal key or team service account, not a team admin key). Slack is optional.
 
 Decompose the work. The root planner writes no code. Workers are isolated; every handoff points up. Staff at least:
@@ -107,7 +184,7 @@ export const PROJECT_SKILLS = [
   {
     name: "choose-cursor-workflow",
     path: ".cursor/skills/choose-cursor-workflow/SKILL.md",
-    when: "Pick /multitask, /loop, /goal, or /orchestrate from the shape of the work.",
+    when: "Pick the 201 or Advanced track, then choose the command from the shape of the work.",
   },
   {
     name: "dispatch-subagents",
@@ -117,7 +194,17 @@ export const PROJECT_SKILLS = [
   {
     name: "hand-to-cloud-agent",
     path: ".cursor/skills/hand-to-cloud-agent/SKILL.md",
-    when: "The objective must survive closing the laptop, or needs a planner/worker/verifier tree.",
+    when: "Cloud /goal, /autopilot PR supervision, or an /orchestrate planner tree.",
+  },
+  {
+    name: "autopilot",
+    path: "~/.cursor/skills-cursor/autopilot/SKILL.md",
+    when: "Current built-in skill for the deck's former /babysit PR workflow.",
+  },
+  {
+    name: "automate",
+    path: "~/.cursor/skills-cursor/automate/SKILL.md",
+    when: "Open the Cursor Automations editor with a reviewed event- or schedule-driven draft.",
   },
 ] as const;
 

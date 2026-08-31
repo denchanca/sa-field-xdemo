@@ -14,7 +14,7 @@ Fictional billing ops SaaS. Fieldnote Workspace. Operator Avery Quinn. No auth. 
 
 Catalog prices are frozen: Starter **$49**, Growth **$99**, Scale **$249**. Never invent a fourth price, live ARR, or a real customer name.
 
-This is a **Cursor demo app**. Workflow prompts live in `lib/workflows/meta.ts` and on `/workflows`. Project subagents live in `.cursor/agents/`. Skills live in `.cursor/skills/`. Do not add talk-track or speaker-note files.
+This is a **Cursor demo app** with jumpable 201 and Advanced tracks. Workflow prompts live in `lib/workflows/meta.ts` and on `/workflows`; the presenter run-of-show is `demo-howto.md`. Project subagents live in `.cursor/agents/`. Skills live in `.cursor/skills/`. Do not add talk-track or speaker-note skills.
 
 ## Cursor Cloud specific instructions
 
@@ -81,6 +81,6 @@ Incomplete on purpose:
 | `.cursor/agents/ledgerly-reviewer.md` | Verifier after code changes |
 | `.cursor/agents/api-instrumenter.md` | `/multitask` worker — one API route |
 | `.cursor/agents/dispute-verifier.md` | `/goal` and `/orchestrate` finish line |
-| `.cursor/skills/choose-cursor-workflow/` | Pick `/multitask` `/loop` `/goal` `/orchestrate` |
+| `.cursor/skills/choose-cursor-workflow/` | Pick a track, then `/multitask` `/loop` `/autopilot` `/goal` `/orchestrate` |
 | `.cursor/skills/dispatch-subagents/` | Parallel Task launches |
-| `.cursor/skills/hand-to-cloud-agent/` | Cloud `/goal` and `/orchestrate` |
+| `.cursor/skills/hand-to-cloud-agent/` | Cloud `/goal`, `/autopilot`, and `/orchestrate` |

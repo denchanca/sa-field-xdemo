@@ -2,7 +2,7 @@
 
 Fictional B2B billing ops. Fieldnote Workspace. Operator **Avery Quinn**. Catalog is Starter **$49**, Growth **$99**, Scale **$249**. Demo clock is frozen at **23 August 2026**. Synthetic data only — no real companies.
 
-Use it to show Cursor: Ask, Cmd-K, Agent, Design Mode, then `/multitask`, `/loop`, `/goal`, and `/orchestrate`. Prompts also live on `/workflows`.
+Use it for two jumpable Cursor demos: a deck-aligned **201** track and a deeper **Advanced** track. Prompts live on `/workflows`; the presenter run-of-show is `demo-howto.md`.
 
 ## Run
 
@@ -28,6 +28,7 @@ Dashboard, Invoices, Collections, Disputes, Workflows, Settings. Extra book acco
 | `/loop` job | `POST` then `GET` `/api/demo/job` (~45s, not written to SQLite) |
 | Agents | `.cursor/agents/` — `ledgerly-reviewer`, `api-instrumenter`, `dispute-verifier` |
 | Skills | `.cursor/skills/` — play the book, or pick/dispatch a workflow |
+| Presenter script | `demo-howto.md` — two tracks plus an independent beat library |
 
 ## Starter prompts
 
@@ -59,18 +60,39 @@ Design Mode on the dashboard KPI cards:
 Restyle the four KPI cards on this dashboard using only the existing design tokens in app/globals.css: a soft indigo accent on each card, stronger emphasis on the value, and a subtle hover lift. No new hex colors, no layout rewrite, no data or price changes — $49, $99, and $249 stay exactly as rendered. Touch components/kpi-card.tsx, and app/page.tsx only if you must. Two files max, nothing under lib/ or tests/. Show me the diff — I am undoing this after the demo.
 ```
 
-## Advanced workflows
+## Pick a track
 
-You still review the result.
+**201** follows the enablement deck:
 
-| Shape | Command | Hands over |
-| --- | --- | --- |
-| Many independent pieces | `/multitask` | breadth |
-| Just waiting on it | `/loop` | time |
-| One finish line, you are steering | `/goal` | the objective |
-| Needs its own plan first | `/orchestrate` | the plan itself |
+1. Getting oriented with Ask
+2. Rules, skills, and subagents
+3. Model selection
+4. Cloud Agents
+5. Automations
+6. `/multitask`, `/loop`, `/autopilot` (the current name for the deck's `/babysit`), and `/orchestrate`
+7. Trust through tests, app behavior, verifiers, and human review
 
-`/goal` can run in the cloud. `/orchestrate` is a plugin (`bun` + `CURSOR_API_KEY`). `/loop` is local only.
+**Advanced** goes deeper on the Ledgerly scenarios:
+
+- `/goal` holds dispute resolution as a durable objective
+- `/multitask` dispatches isolated API workers
+- `/loop` hands over local checking
+- `/autopilot` drives an open PR to merge-ready
+- `/orchestrate` staffs a planner / worker / verifier tree
+
+Every beat is independent. Open `/workflows`, choose a track, and jump directly to the command you want. You still review the result.
+
+## Workflow prompt library
+
+| Shape | Command | Hands over | Track |
+| --- | --- | --- | --- |
+| Many independent pieces | `/multitask` | breadth | 201 + Advanced |
+| Just waiting on it | `/loop` | time | 201 + Advanced |
+| Open PR must become merge-ready | `/autopilot` | the pull request | 201 + Advanced |
+| One durable finish line | `/goal` | the objective | Advanced |
+| Needs its own plan first | `/orchestrate` | the plan itself | 201 + Advanced |
+
+`/goal` can run locally or in the cloud. `/autopilot` is the supported name for the older `/babysit` PR workflow. `/orchestrate` is a plugin (`bun` + `CURSOR_API_KEY`). `/loop` is local; use Cloud subscriptions or Automations when work must survive closing the laptop.
 
 **`/multitask`**
 
@@ -95,6 +117,18 @@ Start the local demo job, then hand over the checking.
 2. /loop 10s Check GET http://127.0.0.1:43173/api/demo/job until status is complete, or until I stop the loop.
 
 Do not add GitHub Actions. Do not write to the Ledgerly database. You still stop the loop; I still review the result.
+```
+
+**`/autopilot`**
+
+Before this beat, prepare an open pull request for the current feature branch with one actionable review comment or a scoped failing check.
+
+```text
+/autopilot Keep the pull request for the current branch merge-ready.
+
+Refresh the live PR state before every pass. Work in this order: merge conflicts, active unresolved review comments (including Bugbot), then failing required checks. Validate each finding before acting. Fix only issues caused by this PR and keep every change inside its scope.
+
+Never change CI checks, workflows, the Ledgerly catalog, prisma/seed.ts, prisma/extra-accounts.ts, or tests/dispute-credit.test.ts to get green. Stop and ask if branch intent is ambiguous or a billing, security, privacy, migration, or concurrency comment needs judgment. Report ready only when the PR is mergeable, required checks are green, and every active comment is triaged. Do not merge or enable auto-merge; I still review and merge.
 ```
 
 **`/goal`**
@@ -132,7 +166,9 @@ Launch the dispute-verifier subagent as the verifier: it checks tests/dispute-cr
 | `dispute-verifier` | `/goal` / `/orchestrate` finish line. No product code. |
 | `choose-cursor-workflow` | Pick the command from the table above. |
 | `dispatch-subagents` | Parallel Task launches. |
-| `hand-to-cloud-agent` | Cloud `/goal` or `/orchestrate`. |
+| `hand-to-cloud-agent` | Cloud `/goal`, `/autopilot`, or `/orchestrate`. |
+| `autopilot` (built in) | Current PR-to-merge-ready skill; formerly `/babysit`. |
+| `automate` (built in) | Draft a scheduled or event-triggered Cursor Automation. |
 
 ## Notes
 

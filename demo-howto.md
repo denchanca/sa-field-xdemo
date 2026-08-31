@@ -1,10 +1,29 @@
 # Ledgerly demo howto
 
-Presenter run-of-show. Not a course. You still review every result.
+Presenter run-of-show. Not a course. Two tracks, independent beats. You still review every result.
 
-The book is Fieldnote Workspace. Operator **Avery Quinn**. Catalog is Starter **$49**, Growth **$99**, Scale **$249**. Clock is frozen at **23 August 2026**. Prompts also live on `/workflows`. Source of truth for the four advanced prompts is `lib/workflows/meta.ts`.
+The book is Fieldnote Workspace. Operator **Avery Quinn**. Catalog is Starter **$49**, Growth **$99**, Scale **$249**. Clock is frozen at **23 August 2026**. Prompts also live on `/workflows`. Source of truth for workflow prompts is `lib/workflows/meta.ts`.
 
-Pick beats. Do not run every advanced command in one sitting.
+## Jump menu
+
+**Track 1 — 201**
+
+1. [Getting oriented](#1-the-book-2-min) — book + Ask
+2. [Customize the Agent](#6-customize-the-agent-3-min) — rules, skills, subagents
+3. [Model selection](#7-model-selection-2-min)
+4. [Cloud Agents](#8-cloud-agents-3-min)
+5. [Automations](#9-automations-3-min)
+6. [Choose one 201 workflow](#10-workflow-beat-library) — `/multitask`, `/loop`, `/autopilot`, or `/orchestrate`
+7. [Trust and verification](#11-trust-and-verification-3-min)
+
+**Track 2 — Advanced**
+
+1. [The planted dispute](#1-the-book-2-min)
+2. Pick one or more local surfaces: [Ask](#2-ask-3-min), [Cmd-K](#3-cmd-k-2-min), [Agent](#4-agent--wire-resolve-58-min), [Design Mode](#5-design-mode-3-min)
+3. [Choose an advanced workflow](#10-workflow-beat-library) — `/goal`, `/multitask`, `/loop`, `/autopilot`, or `/orchestrate`
+4. [Verify](#11-trust-and-verification-3-min) and [reset](#12-close)
+
+Jump directly to any beat. Each section states its prerequisite; you do not need to run earlier sections first.
 
 ---
 
@@ -37,7 +56,7 @@ Port 43173 busy: stop the old `npm run dev`. Empty dashboard: `npm run db:reset`
 
 ## Through-line
 
-> This is a real billing book, not a slide deck. Avery Quinn runs Fieldnote. Three prices, frozen clock, one planted dispute. I will show Cursor on that book — Ask, Cmd-K, Agent, Design — then one advanced command. I still review what ships.
+> This is a real billing book, not a slide deck. Avery Quinn runs Fieldnote. Three prices, frozen clock, one planted dispute. The 201 track maps Cursor's platform concepts onto this book. The Advanced track goes deeper on durable goals, parallel workers, PR supervision, and verifier loops. I still review what ships.
 
 ---
 
@@ -153,26 +172,104 @@ Restyle the four KPI cards on this dashboard using only the existing design toke
 
 ---
 
-## 6. One advanced command (8–15 min)
+## 6. Customize the Agent (3 min)
+
+**Prerequisite:** None. This beat is read-only.
+
+**Open side by side:**
+
+- `.cursor/rules/ledgerly.mdc`
+- `.cursor/skills/choose-cursor-workflow/SKILL.md`
+- `.cursor/agents/api-instrumenter.md`
+
+**Say:**
+
+> Rules are always-on guardrails: three prices, synthetic names, and planted seams. Skills are on-demand workflows: choose a track, dispatch workers, hand work to cloud. Subagents are focused workers with clean context. The parent has to send the files, constraints, and finish condition in every dispatch.
+
+**Show:** The rule blocks invented prices. The skill distinguishes `/autopilot` from `/goal`. The worker is allowed to touch one named API surface and nothing else.
+
+**Land:** Rules constrain every beat; skills encode repeatable methods; subagents isolate work and context.
+
+---
+
+## 7. Model selection (2 min)
+
+**Prerequisite:** Open a new Agent chat so the model picker is visible.
+
+**Say:**
+
+> Use the strongest reasoning model for exploration, planning, and coordinating subagents. Use a faster focused model for a worker with one route and one acceptance test. Model choice follows task shape; it is not one model everywhere.
+
+**Do:**
+
+1. Show the model picker on the parent chat and choose a current high-reasoning option.
+2. Use `/multitask` as the example where focused workers may use a faster option.
+3. Do not hard-code model names in the repo; availability and enterprise policy can change.
+
+**Land:** High reasoning plans and coordinates. Focused models execute bounded tasks. Verification stays independent of model choice.
+
+---
+
+## 8. Cloud Agents (3 min)
+
+**Prerequisite:** The branch and required setup must be available remotely. `.cursor/environment.json` installs dependencies, seeds the database, and starts the app on port 43173.
+
+**Say:**
+
+> Same agent, its own computer. The cloud environment is isolated, persists when my laptop closes, and returns reviewable work plus proof. In the 201 track, `/autopilot` and `/orchestrate` can outlive a local sitting.
+
+**Do:** Hand off one bounded objective with a verifiable finish.
+
+- **201:** `/autopilot` keeps an existing PR merge-ready; `/orchestrate` runs planner, workers, and verifier in isolated environments.
+- **Advanced:** `/goal` can make dispute resolution pass its test and browser check. `/autopilot` and `/orchestrate` remain available.
+
+**Look for:** Install succeeds, the app runs on 43173, checks run, and the result includes a diff plus test/browser evidence.
+
+**Land:** Cloud changes where work runs and how long it can persist. It does not remove the human review gate.
+
+---
+
+## 9. Automations (3 min)
+
+**Prerequisite:** Use Cursor's Agents Window. This beat opens the Automations editor; it does not add a GitHub Actions file.
+
+**Say:**
+
+> `/loop` repeats inside a session. A Cursor Automation is event- or schedule-driven and can survive the laptop closing. First prove the workflow while watching it; then automate it.
+
+**Use `/automate` and draft:**
+
+```text
+Create a Cursor Automation for this repository. Trigger when a pull request is opened or updated. Review the diff for Ledgerly's catalog prices, synthetic customer names, planted dispute seams, and unrelated changes. Leave a concise review comment with evidence. Do not modify product code, tests, the seed, CI configuration, or workflows.
+```
+
+**Do:** Review the draft, then open the Automations editor. Select the repository and PR trigger there. Do not save or enable it unless that is part of the live demo.
+
+**Land:** Automations are repeatable cloud workflows. They are not local shell loops and they do not require adding CI files to this repo.
+
+---
+
+## 10. Workflow beat library
 
 **Open:** [http://127.0.0.1:43173/workflows](http://127.0.0.1:43173/workflows). Copy the prompt from the page, or paste from below.
 
 **Say:**
 
-> Four commands. I pick on the shape of the work. I still review.
+> The 201 track has four deck-aligned workflows using the current product name `/autopilot` for the deck's `/babysit`. The Advanced track adds `/goal`. I pick on the shape of the work. I still review.
 
-| If the work is… | Command | Hands over |
-| --- | --- | --- |
-| Many independent pieces | `/multitask` | breadth |
-| Just waiting on a job | `/loop` | time |
-| One finish line, you are steering | `/goal` | the objective |
-| Needs its own plan first | `/orchestrate` | the plan itself |
+| If the work is… | Command | Hands over | Track |
+| --- | --- | --- | --- |
+| Many independent pieces | `/multitask` | breadth | 201 + Advanced |
+| Just waiting on a job | `/loop` | time | 201 + Advanced |
+| An open PR must become merge-ready | `/autopilot` | the pull request | 201 + Advanced |
+| One durable finish line | `/goal` | the objective | Advanced |
+| Needs its own plan first | `/orchestrate` | the plan itself | 201 + Advanced |
 
-`/loop` is local only. `/goal` can run in the cloud. `/orchestrate` is a plugin (`bun` + `CURSOR_API_KEY`).
+`/loop` is local. `/goal` can run locally or in the cloud. `/autopilot` needs a real open PR. `/orchestrate` is a plugin (`bun` + `CURSOR_API_KEY`).
 
-Run **one**.
+Run one, or jump directly to the one named in the deck discussion.
 
-### 6a. `/multitask` — breadth
+### 10a. `/multitask` — breadth
 
 **Say:**
 
@@ -194,7 +291,7 @@ A shared helper may live under lib/. Each worker starts with clean context; the 
 
 **Look for:** Four `api-instrumenter` launches in one turn. A shared helper under `lib/`. `ledgerly-reviewer` after the diffs. No price or seed edits.
 
-### 6b. `/loop` — time
+### 10b. `/loop` — time
 
 **Say:**
 
@@ -213,7 +310,29 @@ Do not add GitHub Actions. Do not write to the Ledgerly database. You still stop
 
 **Look for:** `idle` → `running` → `complete`. Nothing written to SQLite. No GitHub Actions.
 
-### 6c. `/goal` — the objective
+### 10c. `/autopilot` — the pull request
+
+The 201 deck calls this `/babysit`. The current supported name is `/autopilot`.
+
+**Prerequisite:** Prepare an open pull request for the current feature branch with one actionable review comment or a scoped failing required check. Do not run this beat on `main`.
+
+**Say:**
+
+> This is not a generic goal. It is one real pull request. Autopilot refreshes live state, handles conflicts before comments before CI, and stops at merge-ready. I still merge.
+
+**Paste:**
+
+```text
+/autopilot Keep the pull request for the current branch merge-ready.
+
+Refresh the live PR state before every pass. Work in this order: merge conflicts, active unresolved review comments (including Bugbot), then failing required checks. Validate each finding before acting. Fix only issues caused by this PR and keep every change inside its scope.
+
+Never change CI checks, workflows, the Ledgerly catalog, prisma/seed.ts, prisma/extra-accounts.ts, or tests/dispute-credit.test.ts to get green. Stop and ask if branch intent is ambiguous or a billing, security, privacy, migration, or concurrency comment needs judgment. Report ready only when the PR is mergeable, required checks are green, and every active comment is triaged. Do not merge or enable auto-merge; I still review and merge.
+```
+
+**Look for:** Fresh PR state on every pass. Conflicts first, then active comments, then CI. Findings are validated rather than obeyed blindly. No CI weakening or unrelated fixes. The run stops at merge-ready.
+
+### 10d. `/goal` — the objective
 
 **Say:**
 
@@ -237,7 +356,7 @@ Do not change prisma/seed.ts, prisma/extra-accounts.ts, or tests/dispute-credit.
 
 If the run must survive closing the laptop, use the `hand-to-cloud-agent` skill.
 
-### 6d. `/orchestrate` — the plan itself
+### 10e. `/orchestrate` — the plan itself
 
 Need `bun` on PATH and a `CURSOR_API_KEY` (personal key or team service account, not a team admin key). Slack is optional.
 
@@ -263,7 +382,36 @@ Launch the dispute-verifier subagent as the verifier: it checks tests/dispute-cr
 
 ---
 
-## 7. Close
+## 11. Trust and verification (3 min)
+
+**Prerequisite:** Use the checks appropriate to the beat you ran.
+
+**Say:**
+
+> Trust rises through evidence, not agent count. The rule prevents known bad changes. The worker has a narrow scope. Tests prove the contract. The agent runs the app like a user. A verifier reports evidence. Then I read the diff and decide what ships.
+
+**Show four layers:**
+
+1. **Guardrail:** `.cursor/rules/ledgerly.mdc`
+2. **Narrow worker:** `.cursor/agents/api-instrumenter.md`
+3. **Independent verifier:** `.cursor/agents/dispute-verifier.md`
+4. **Human gate:** diff review and merge decision
+
+**Run for any track:**
+
+```bash
+npx vitest run tests/workflows.test.ts tests/money.test.ts tests/plans.test.ts
+```
+
+**If `/goal` or `/orchestrate` completed dispute resolution:** run `npm test`, load dsp_1043, and confirm suggested credit is at or below **$249** and Accept / Decline work.
+
+**If no credit-cap beat ran:** `npm test` should remain **1 failed / 9 passed**. That is shipped state, not failed setup.
+
+**Land:** A green check is evidence, not permission to merge. The presenter remains accountable.
+
+---
+
+## 12. Close
 
 **Say:**
 
@@ -295,10 +443,20 @@ Only run `git checkout -- .` if you mean to drop **all** local changes.
 
 ---
 
-## Short path (10 min)
+## 201 short path (20–25 min)
 
-1. Book — dashboard + dsp_1043 ($400 vs $249)
-2. Ask — prices and overdue invoices
-3. One of: Cmd-K on Settings, or Agent on resolve
-4. One advanced command from `/workflows`
+1. Book + Ask — orientation
+2. Open one rule, one skill, one subagent
+3. Explain model choice in the picker
+4. Explain Cloud Agents; open an Automation draft if time allows
+5. Run one: `/multitask`, `/loop`, `/autopilot`, or `/orchestrate`
+6. Show the verification layers
+7. Reset
+
+## Advanced short path (15–25 min)
+
+1. Book — dsp_1043 ($400 vs $249)
+2. One local surface: Ask, Cmd-K, Agent, or Design
+3. Run `/goal`, or jump to another workflow from `/workflows`
+4. Show verifier evidence and review the diff
 5. Reset

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import { CopyButton } from "@/components/copy-button";
 import { PageHeader } from "@/components/page-header";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getWorkflow } from "@/lib/workflows/meta";
@@ -33,6 +34,15 @@ export default async function WorkflowPage({ params }: { params: Promise<{ slug:
         }
       />
 
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-xs font-medium text-muted-foreground">Tracks:</span>
+        {meta.tracks.map((track) => (
+          <Badge key={track} variant="secondary">
+            {track === "201" ? "201" : "Advanced"}
+          </Badge>
+        ))}
+      </div>
+
       <Card>
         <CardHeader className="flex-row items-center justify-between pb-0">
           <CardTitle className="text-base">Prompt</CardTitle>
@@ -46,6 +56,11 @@ export default async function WorkflowPage({ params }: { params: Promise<{ slug:
             <span className="font-medium text-foreground">When:</span> {meta.when} You still review the
             result.
           </p>
+          {meta.setup ? (
+            <p className="mt-2 rounded-md bg-indigo-soft px-3 py-2 text-xs leading-relaxed text-foreground">
+              <span className="font-medium">Before this beat:</span> {meta.setup}
+            </p>
+          ) : null}
         </CardContent>
       </Card>
     </div>
