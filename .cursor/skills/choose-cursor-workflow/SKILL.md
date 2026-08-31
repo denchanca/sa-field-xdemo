@@ -1,6 +1,6 @@
 ---
 name: choose-cursor-workflow
-description: Picks /multitask, /loop, /goal, or /orchestrate from the shape of the work. Use when someone asks which advanced Cursor workflow to run, how to hand over breadth or time or an objective, or which prompt to paste from /workflows.
+description: Picks /multitask, /loop, /goal, or /orchestrate from the shape of the work. Use when someone asks which advanced Cursor workflow to run, or which /workflows prompt to use.
 ---
 
 # Choose a Cursor workflow
@@ -22,9 +22,9 @@ Rule of thumb: if you can state a verifiable finish condition, use `/goal`. If t
 
 The human reviews the result and decides what ships. These commands change how much runs without sitting there, not who is accountable.
 
-## Paste the matching prompt
+## Use the matching prompt
 
-Prompts live in `lib/workflows/meta.ts` and on `/workflows`. Paste the matching `prompt` **verbatim**. Do not invent a fifth workflow or a fourth catalog price.
+Prompts live in `lib/workflows/meta.ts` and on `/workflows`. Use the matching `prompt` verbatim. Do not invent a fifth workflow or a fourth catalog price.
 
 | Command | Ledgerly target |
 | --- | --- |

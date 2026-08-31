@@ -5,7 +5,7 @@ description: Put a Ledgerly demo machine back to the shipped state — reseed SQ
 
 # Reset the demo state
 
-Goal state: clean working tree on `main`, seeded Fieldnote book, dev server on 43173, and `npm test` showing exactly **1 failed / 9 passed**.
+Goal state: seeded Fieldnote book, dev server on 43173, and `npm test` showing exactly **1 failed / 9 passed**. Restore `lib/dispute-credit.ts` if a prior demo capped the credit.
 
 ## Checklist (run what applies)
 

@@ -14,7 +14,7 @@ Fictional billing ops SaaS. Fieldnote Workspace. Operator Avery Quinn. No auth. 
 
 Catalog prices are frozen: Starter **$49**, Growth **$99**, Scale **$249**. Never invent a fourth price, live ARR, or a real customer name.
 
-This is a **Cursor demo app**. Advanced workflow prompts live in `lib/workflows/meta.ts` and render at `/workflows`. Project subagents live in `.cursor/agents/`. Dispatch skills live in `.cursor/skills/`.
+This is a **Cursor demo app**. Workflow prompts live in `lib/workflows/meta.ts` and on `/workflows`. Project subagents live in `.cursor/agents/`. Skills live in `.cursor/skills/`. Do not add talk-track or speaker-note files.
 
 ## Cursor Cloud specific instructions
 

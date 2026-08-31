@@ -14,7 +14,7 @@ Local `/loop` lives inside this session and dies when the laptop closes. A Cloud
 
 ## /goal in the cloud
 
-Paste the `/goal` prompt from `lib/workflows/meta.ts` verbatim. Scope the finish line so it is verifiable (`npm test` green, `dsp_1043` suggested credit at or below $249). The agent judges when the objective is met; you review.
+Use the `/goal` prompt from `lib/workflows/meta.ts` verbatim. Scope the finish line so it is verifiable (`npm test` green, `dsp_1043` suggested credit at or below $249). The agent judges when the objective is met; you review.
 
 ## /orchestrate
 

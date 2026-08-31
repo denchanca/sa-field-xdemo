@@ -14,41 +14,8 @@ export default function WorkflowsPage() {
       <PageHeader
         eyebrow="Cursor"
         title="Workflows"
-        description="Four commands, four things you hand over. Pick on the shape of the work: how many pieces, and what tells you it is done. You still review the result."
+        description="Four commands for this book. You still review the result."
       />
-
-      <Card>
-        <CardContent className="space-y-2 text-sm leading-relaxed text-muted-foreground">
-          <p>
-            <span className="font-medium text-foreground">Many independent pieces?</span>{" "}
-            <Link href="/workflows/multitask" className="text-indigo hover:underline">
-              /multitask
-            </Link>{" "}
-            hands over breadth.
-          </p>
-          <p>
-            <span className="font-medium text-foreground">Just waiting on it?</span>{" "}
-            <Link href="/workflows/loop" className="text-indigo hover:underline">
-              /loop
-            </Link>{" "}
-            hands over time.
-          </p>
-          <p>
-            <span className="font-medium text-foreground">One objective, and you are steering?</span>{" "}
-            <Link href="/workflows/goal" className="text-indigo hover:underline">
-              /goal
-            </Link>{" "}
-            hands over the objective.
-          </p>
-          <p>
-            <span className="font-medium text-foreground">Needs its own plan first?</span>{" "}
-            <Link href="/workflows/orchestrate" className="text-indigo hover:underline">
-              /orchestrate
-            </Link>{" "}
-            hands over the plan itself.
-          </p>
-        </CardContent>
-      </Card>
 
       <div className="grid gap-4 lg:grid-cols-2">
         {WORKFLOWS.map((workflow) => (
@@ -88,7 +55,7 @@ export default function WorkflowsPage() {
         </div>
         <p className="text-sm leading-relaxed text-muted-foreground">
           Project subagents live in <code className="rounded bg-muted px-1 py-0.5 text-xs">.cursor/agents/</code>.
-          Dispatch skills teach the parent when to launch them versus a Cloud Agent.
+          Skills pick the command or dispatch workers.
         </p>
         <div className="grid gap-3 md:grid-cols-2">
           {PROJECT_AGENTS.map((agent) => (

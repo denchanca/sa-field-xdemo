@@ -35,7 +35,7 @@ export default async function WorkflowPage({ params }: { params: Promise<{ slug:
 
       <Card>
         <CardHeader className="flex-row items-center justify-between pb-0">
-          <CardTitle className="text-base">Paste this into Cursor</CardTitle>
+          <CardTitle className="text-base">Prompt</CardTitle>
           <CopyButton text={meta.prompt} />
         </CardHeader>
         <CardContent className="pt-3">
