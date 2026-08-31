@@ -2,9 +2,8 @@ import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 
 /**
- * Mock downstream system for use case 3: Nudge, Ledgerly's dunning/reminder
- * service. Deterministic, side-effect-free, offline. Not a hosted MCP —
- * a local stand-in the ops agent "writes" to.
+ * Mock Nudge — Ledgerly's dunning/reminder service. Deterministic,
+ * side-effect-free, offline. A local stand-in for /multitask and /loop demos.
  */
 
 export async function GET() {

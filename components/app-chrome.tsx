@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useRef, useState, useTransition } from "react";
 import {
-  BarChart3,
   FileText,
   Inbox,
   LayoutDashboard,
@@ -14,6 +13,7 @@ import {
   Search,
   Settings,
   Sparkles,
+  Workflow,
   X,
 } from "lucide-react";
 import { NoticeBell, type OpenDisputeNotice } from "@/components/notice-bell";
@@ -27,7 +27,7 @@ const NAV = [
   { href: "/invoices", label: "Invoices", icon: FileText },
   { href: "/collections", label: "Collections", icon: Inbox },
   { href: "/disputes", label: "Disputes", icon: Scale },
-  { href: "/analysis", label: "Analysis", icon: BarChart3 },
+  { href: "/workflows", label: "Workflows", icon: Workflow },
   { href: "/settings", label: "Settings", icon: Settings },
 ] as const;
 
@@ -128,9 +128,9 @@ export function AppChrome({
             <div className="flex items-start gap-2">
               <Sparkles className="mt-0.5 size-4 text-indigo" />
               <div>
-                <p className="text-sm font-semibold text-foreground">Collections 4.2</p>
+                <p className="text-sm font-semibold text-foreground">Collections queue</p>
                 <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  Overdue folios and dunning notes sit in the collections queue. Catalog stays $49 / $99 / $249.
+                  Overdue invoices and dunning notes sit in the collections queue. Catalog stays $49 / $99 / $249.
                 </p>
                 <Link
                   href="/collections"

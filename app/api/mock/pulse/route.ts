@@ -2,8 +2,9 @@ import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 
 /**
- * Mock downstream system for use case 3: Pulse, Ledgerly's account-health
- * and reliability signal service. Deterministic, side-effect-free, offline.
+ * Mock Pulse — Ledgerly's account-health and reliability signal service.
+ * Deterministic, side-effect-free, offline. A local stand-in for /multitask
+ * and /loop demos.
  */
 
 export async function GET() {

@@ -14,7 +14,7 @@ Fictional billing ops SaaS. Fieldnote Workspace. Operator Avery Quinn. No auth. 
 
 Catalog prices are frozen: Starter **$49**, Growth **$99**, Scale **$249**. Never invent a fourth price, live ARR, or a real customer name.
 
-This is the **workshop tree**: the `workshop/data/` corpus is Ledgerly's own working material for the **Collections 4.2** release (products Collections, Nudge, Pulse; competitors Slatebook, Harborbill). It was imported fully remapped into the Ledgerly world — never reintroduce pre-remap company or product names, in code, data, or copy. The `/analysis` page renders agent-written reports from `workshop/runs/` (see `workshop/REPORT_CONTRACT.md`).
+This is a **Cursor demo app**. Advanced workflow prompts live in `lib/workflows/meta.ts` and render at `/workflows`. Project subagents live in `.cursor/agents/`. Dispatch skills live in `.cursor/skills/`.
 
 ## Cursor Cloud specific instructions
 
@@ -55,6 +55,8 @@ One test is intentionally failing. Do not change `tests/dispute-credit.test.ts` 
 
 Passing tests include `tests/money.test.ts` and `tests/plans.test.ts`. Environment start seeds the database and runs only the passing tests so a red suite cannot mark the machine as failed to boot.
 
+Shipped suite on a clean tree: **1 failed / 9 passed**.
+
 ### Multi-file stub (leave it unless asked)
 
 Incomplete on purpose:
@@ -66,9 +68,19 @@ Incomplete on purpose:
 ### Product constraints
 
 - Prices only from `lib/plans.ts`.
-- Customer names only from `prisma/seed.ts` (which includes the 14 Collections 4.2 corpus accounts).
+- Customer names only from `prisma/seed.ts` and `prisma/extra-accounts.ts`.
 - Comments in code must not cite Slack, GitHub, or Jira URLs.
-- The corpus remap is done and locked — do not rename Collections / Nudge / Pulse / Slatebook / Harborbill again, and never reintroduce the retired pre-remap names.
+- Do not rename Collections / Nudge / Pulse / Slatebook / Harborbill, and never reintroduce retired pre-remap names.
 - Do not add Deno workflows or GitHub Actions starters. Do not add better-sqlite3.
-- Do not add use-case-solver skills.
-- `workshop/data/` is UC input. App code must not import `workshop/**` as modules; the `/analysis` routes read `workshop/data` and `workshop/runs` from disk, read-only at request time, which is the one sanctioned touchpoint.
+- Do not add talk-track / speaker-note skills. Do not add a fourth catalog-solving agent. Workflow prompts live in `lib/workflows/meta.ts`.
+
+### Agents and skills
+
+| Path | Role |
+| --- | --- |
+| `.cursor/agents/ledgerly-reviewer.md` | Verifier after code changes |
+| `.cursor/agents/api-instrumenter.md` | `/multitask` worker — one API route |
+| `.cursor/agents/dispute-verifier.md` | `/goal` and `/orchestrate` finish line |
+| `.cursor/skills/choose-cursor-workflow/` | Pick `/multitask` `/loop` `/goal` `/orchestrate` |
+| `.cursor/skills/dispatch-subagents/` | Parallel Task launches |
+| `.cursor/skills/hand-to-cloud-agent/` | Cloud `/goal` and `/orchestrate` |

@@ -1,8 +1,8 @@
-# Ledgerly — Workshop App
+# Ledgerly — Cursor demo app
 
 Repo: [`denchanca/xdemo-app`](https://github.com/denchanca/xdemo-app).
 
-Welcome! **Ledgerly** is a fictional B2B billing and collections SaaS. You'll work inside a real, running product — invoices, disputes, collections, a dashboard — plus the working files behind Ledgerly's next big release, **Collections 4.2**, and the company's pending decision about launching it in Europe. The operator persona is **Avery Quinn**, running the **Fieldnote Workspace** book. The demo clock is frozen at **23 August 2026**, so overdue math never drifts mid-demo; the release-planning corpus runs a few weeks ahead of it, toward the planned October 26 launch.
+**Ledgerly** is a fictional B2B billing and collections SaaS. You'll work inside a real, running product — invoices, disputes, collections, a dashboard — and use it to demo Cursor: Ask, inline edit, Agent, Design Mode, then `/multitask`, `/loop`, `/goal`, and `/orchestrate`. The operator persona is **Avery Quinn**, running the **Fieldnote Workspace** book. The demo clock is frozen at **23 August 2026**, so overdue math never drifts mid-demo.
 
 Everything here is synthetic. No real companies, no real people, no real data.
 
@@ -37,28 +37,23 @@ npm run dev
 
 Open **http://localhost:43173**.
 
-`npm test` shows **1 failed / 13 passed** on a clean checkout — that red test is a planted product bug used in the guided demo, not your environment. Leave it unless the facilitator points you at it. To reset everything after experimenting, ask the agent to run the `reset-demo-state` skill (or `npm run db:reset`).
+`npm test` shows **1 failed / 9 passed** on a clean checkout — that red test is a planted product bug used in the guided demo, not your environment. Leave it unless you are running the `/goal` or `/orchestrate` prompt. To reset everything after experimenting, ask the agent to run the `reset-demo-state` skill (or `npm run db:reset`).
 
 ## What's in the box
 
-- **The app** — Next.js + TypeScript + Prisma/SQLite. Plans: Starter **$49** / Growth **$99** / Scale **$249** — the only prices in this product. Chrome: Dashboard, Invoices, Collections (overdue queue), Disputes, Analysis, Settings. Dark mode is the moon/sun control in the header.
-- **`workshop/data/`** — the five use-case datasets, one per team track:
-  - `use_case_1_enterprise_knowledge/` — the Collections 4.2 release packet: 60 native docs (`.pdf`/`.docx`/`.pptx`), `documents_metadata.csv`, `evaluation_questions.json`
-  - `use_case_2_product_management_copilot/` — `feedback.csv` (120 rows), `themes.json`, `prioritization_rubric.json`, `backlog_candidates.csv`, PRD templates, native source artifacts
-  - `use_case_3_operations_automation/` — `cases.csv` (50 cases), `runbooks/`, `events.jsonl`, `mock_system_responses.jsonl`, `audit_expectations.csv`, intake documents
-  - `use_case_4_research_synthesis/` — 16 vendored market sources on the collections-automation space (Slatebook, Harborbill and friends), `claim_ledger.csv`, fact-check fixtures — fully offline
-  - `use_case_5_decision_support/` — `artifacts/collections_42_financial_model.xlsx`, scenario inputs, `risk_register.csv`, `decision_record.json`, expected-calculation checks
-  - `shared/` — the common world: customers, employees, teams, products (Collections, Nudge, Pulse), systems, policies
-- **`/analysis`** — the in-app page that renders agent-written reports as briefs with charts. Citations link to live invoices and accounts and to the corpus viewer. Contract: `workshop/REPORT_CONTRACT.md`; reports land in `workshop/runs/`. One example run per use case ships in the repo so you can see the bar before your first run.
-- **Skills** (`.cursor/skills/`): `add-dashboard-widget`, `draft-collection-email`, `reset-demo-state`, `write-prisma-query`.
+- **The app** — Next.js + TypeScript + Prisma/SQLite. Plans: Starter **$49** / Growth **$99** / Scale **$249** — the only prices in this product. Chrome: Dashboard, Invoices, Collections (overdue queue), Disputes, Workflows, Settings. Dark mode is the moon/sun control in the header.
+- **`/workflows`** — the in-app prompt board for the four advanced Cursor commands. Each page has a copy button. `/analysis` redirects here.
+- **`/api/demo/job`** — local invoice-backfill stand-in for `/loop` (idle → running → complete, ~45 seconds). Nothing is written to SQLite.
+- **Agents** (`.cursor/agents/`): `ledgerly-reviewer`, `api-instrumenter`, `dispute-verifier`.
+- **Skills** (`.cursor/skills/`): play skills `add-dashboard-widget`, `draft-collection-email`, `reset-demo-state`, `write-prisma-query`; workflow skills `choose-cursor-workflow`, `dispatch-subagents`, `hand-to-cloud-agent`.
 
-The corpus customers are live rows: the fourteen accounts in the release packet (Northstar Fabrication through Redwood Components) are seeded into the Ledgerly book with real invoices, which is why report citations can land on actual app pages.
+The book includes the ten Fieldnote accounts plus fourteen extra accounts (Northstar Fabrication through Redwood Components) from `prisma/extra-accounts.ts`.
 
 ---
 
 ## Prompts — follow along
 
-Paste these as-is, from the running app's `/analysis` pages or from here. The product-demo prompts are for the guided walkthrough; the use-case prompts are your team's Day-2 starting points — a first move, not a ceiling.
+Paste these as-is, from the running app's `/workflows` pages or from here.
 
 ### Product demo (guided walkthrough)
 
@@ -94,106 +89,93 @@ Restyle the four KPI cards on this dashboard using only the existing design toke
 
 (No Design Mode on your build? Paste the same prompt to the Agent — it names the files and constraints either way.)
 
-**6. Cloud Agents** are **facilitator-led only** in this workshop. Nothing in your build depends on them; skip any Cloud Agent UI you see.
+### Advanced Cursor workflows
 
-### Workshop use cases (Day 2 team tracks)
+Four commands, four things you hand over. You still review the result.
 
-Every prompt ends the same way: the agent writes a `report.json` per `workshop/REPORT_CONTRACT.md` into `workshop/runs/`, and your work appears rendered at `/analysis` while the dev server runs. Each `/analysis` use-case page carries the same prompt with a copy button.
+1. **Many independent pieces?** `/multitask` hands over breadth.
+2. **One objective with a clear finish?**
+   - No — just waiting on it → `/loop` hands over time.
+   - Yes — I am steering → `/goal` hands over the objective.
+   - Yes — needs its own plan → `/orchestrate` hands over the plan itself.
 
-**UC1 — Enterprise knowledge hub**
+Cloud Agents hold a `/goal` through a long-running session and are required for `/orchestrate`. Local `/loop` cannot survive closing the laptop.
 
-```text
-You are a Ledgerly knowledge assistant working in this repo.
-Ingest only workshop/data/use_case_1_enterprise_knowledge/ (60 native docs,
-documents_metadata.csv, evaluation_questions.json) plus workshop/data/shared/employees.csv.
-Answer every question in evaluation_questions.json, citing document IDs for every answer.
-Respect document status and supersession metadata — prefer authoritative sources over
-superseded ones. If the requester is not authorized for a document's classification,
-abstain. If the corpus does not contain the answer, abstain — do not invent.
-Write your results to workshop/runs/uc1/<your-run-name>/report.json following
-workshop/REPORT_CONTRACT.md — use a "qa" section for the twelve questions and a "metrics"
-section with your pass count — then check http://localhost:43173/analysis/uc1.
-Do not import corpus content into the app database.
-```
-
-**UC2 — Product management copilot**
+**`/multitask` — hands over breadth**
 
 ```text
-You are a Ledgerly PM copilot. Use only
-workshop/data/use_case_2_product_management_copilot/ and workshop/data/shared/.
-Theme the 120 feedback rows against themes.json — classify from the feedback text itself,
-then score your classification against expected_theme_id afterwards and report agreement.
-Recompute RICE for backlog_candidates.csv using prioritization_rubric.json exactly as
-written and rank the backlog. Apply product_owner_reviews.json as a visible human gate.
-Draft 3 PRDs for the top themes from templates/prd_template.docx and one stakeholder
-update; save them as .md files in your run folder.
-Write workshop/runs/uc2/<your-run-name>/report.json per workshop/REPORT_CONTRACT.md —
-include a chart of theme volumes and the ranked backlog as a table with scoring rationale,
-and cite feedback (FBK-*) and customer (CUST-*) IDs so rows link to live Ledgerly accounts.
-Do not touch Ledgerly catalog prices or existing seed rows.
+/multitask Add the same small request-log helper to Ledgerly's four independent API surfaces: invoices, disputes, Nudge, and Pulse.
+
+Use the dispatch-subagents skill. Launch four api-instrumenter subagents in one parallel turn — one route each:
+- app/api/invoices/route.ts and app/api/invoices/[id]/route.ts
+- app/api/disputes/route.ts and app/api/disputes/[id]/route.ts
+- app/api/mock/nudge/route.ts
+- app/api/mock/pulse/route.ts
+
+A shared helper may live under lib/. Each worker starts with clean context; the dispatch prompt must name the files, the helper, and the constraint. After the diffs land, launch the ledgerly-reviewer subagent. Do not touch prices, prisma/seed.ts, prisma/extra-accounts.ts, or tests/dispute-credit.test.ts. I will review one diff per task.
 ```
 
-**UC3 — Operations automation agent**
+**`/loop` — hands over time**
 
 ```text
-You are a Ledgerly ops agent. Use only workshop/data/use_case_3_operations_automation/
-(cases.csv, events.jsonl, mock_system_responses.jsonl, audit_expectations.csv, runbooks/,
-intake_documents/). Route all 50 cases: automate the routine ones end-to-end and escalate
-the rest with a specific reason grounded in the case text, requires_approval, or a
-malformed mock response. Never fabricate missing identity, customer, or system fields.
-Record each downstream update against the local mock services — POST /api/mock/nudge and
-POST /api/mock/pulse on the running app (port 43173).
-Produce an audit log reconcilable against audit_expectations.csv and save it as
-audit-log.jsonl in your run folder. Write workshop/runs/uc3/<your-run-name>/report.json
-per workshop/REPORT_CONTRACT.md — include your automation rate as a metric, the routing
-table, and an escalation-reasons chart; cite TKT-* and CUST-* IDs.
-Mock downstream only — no hosted MCP, no live ticketing, no writes to the Ledgerly database.
+Start the local demo job, then hand over the checking.
+
+1. POST http://127.0.0.1:43173/api/demo/job to start the invoice backfill (idle → running → complete over about 45 seconds).
+2. /loop 10s Check GET http://127.0.0.1:43173/api/demo/job until status is complete, or until I stop the loop.
+
+Do not add GitHub Actions. Do not write to the Ledgerly database. You still stop the loop; I still review the result.
 ```
 
-**UC4 — Research synthesis**
+**`/goal` — hands over the objective**
 
 ```text
-You are a Ledgerly market researcher. Use only workshop/data/use_case_4_research_synthesis/
-(16 sources, sources_metadata.csv, claim_ledger.csv, fact_check_cases.json,
-research_scope.json). Work offline — every source is a local file; do not fetch the web.
-Build a claim ledger: every claim attributed to specific sources (SRC-*), verified fact
-separated from inference, each claim carrying a confidence level. Where sources disagree,
-flag the conflict explicitly and keep both sides visible — do not smooth it over.
-Quote corpus prices as cited evidence only; never import them into lib/plans.ts.
-Write workshop/runs/uc4/<your-run-name>/report.json per workshop/REPORT_CONTRACT.md —
-include the claim ledger as a table, a callout for any unresolved contradiction, and a
-recommendation with an explicit confidence level. Save your full memo as decision-memo.md
-in the run folder.
+/goal Make Ledgerly demo-complete for dispute resolution.
+
+1. Cap suggestDisputeCredit in lib/dispute-credit.ts at the catalog plan price from lib/plans.ts.
+2. Implement resolveDispute in lib/disputes/resolve.ts.
+3. Make POST /api/disputes/[id]/resolve persist ACCEPTED or DECLINED with the reviewer note.
+4. Enable the Accept credit / Decline buttons on app/disputes/[id]/page.tsx.
+5. Keep going across turns until npm test is fully green and http://127.0.0.1:43173/disputes/dsp_1043 shows suggested credit at or below the Scale catalog price of $249.
+
+Do not change prisma/seed.ts, prisma/extra-accounts.ts, or tests/dispute-credit.test.ts. Do not invent a fourth price. When the checks pass, launch the dispute-verifier subagent to report evidence. I still review the result.
 ```
 
-**UC5 — Decision support**
+**`/orchestrate` — hands over the plan itself**
 
 ```text
-You are a Ledgerly decision analyst. Use only workshop/data/use_case_5_decision_support/.
-Recompute the three scenarios (broad_launch, phased_rollout, delay) from
-artifacts/collections_42_financial_model.xlsx and scenario_inputs_and_outputs.csv using
-code you save in your run folder so a reviewer can rerun it — no prose-only math. Check
-your numbers against expected_calculation_checks.json and report any deviation.
-Extract the risk register with likelihood and impact from the corpus, citing evidence
-(EVD-*) and source documents. Write workshop/runs/uc5/<your-run-name>/report.json per
-workshop/REPORT_CONTRACT.md — include a scenario-comparison chart, a "risks" section, and
-a "decision" section reflecting decision_record.json exactly as recorded. The final call
-belongs to the named human owner; your brief supports that review — it does not make the
-decision. Do not change Ledgerly catalog prices.
+/orchestrate Make Ledgerly demo-complete for dispute resolution. This is a plugin workflow — you need bun on PATH and a CURSOR_API_KEY (personal key or team service account, not a team admin key). Slack is optional.
+
+Decompose the work. The root planner writes no code. Workers are isolated; every handoff points up. Staff at least:
+
+- Worker: cap suggestDisputeCredit in lib/dispute-credit.ts at the catalog plan price. Do not touch tests/dispute-credit.test.ts or the seed.
+- Worker: implement resolveDispute and POST /api/disputes/[id]/resolve.
+- Worker: enable Accept / Decline on app/disputes/[id]/page.tsx.
+
+Launch the dispute-verifier subagent as the verifier: it checks tests/dispute-credit.test.ts (or npm test), POSTs accept/decline against dsp_1043, and loads http://127.0.0.1:43173/disputes/dsp_1043. Republish a task if a verifier fails. I still review and merge. Do not invent a fourth price.
 ```
+
+### Agents and subagents
+
+| Kind | Name | When |
+| --- | --- | --- |
+| Agent | `ledgerly-reviewer` | After any code change. Diff-only review against catalog prices, seed names, and planted seams. |
+| Agent | `api-instrumenter` | `/multitask` worker. One named API route per invocation. |
+| Agent | `dispute-verifier` | `/goal` and `/orchestrate` finish line. Report evidence; write no product code. |
+| Skill | `choose-cursor-workflow` | Pick the command from the two questions above. |
+| Skill | `dispatch-subagents` | Many independent pieces. Launch Task subagents in one parallel turn. |
+| Skill | `hand-to-cloud-agent` | `/goal` in the cloud, or `/orchestrate`. Local `/loop` cannot do this. |
 
 ---
 
 ## Ground rules
 
 - Synthetic data only. Nothing here is real, and no external or client data comes in.
-- Every use case is solvable offline from the files in this repo.
-- The catalog prices ($49 / $99 / $249) and the frozen demo clock are fixed points of the Ledgerly world. Corpus numbers are evidence to quote and cite — never imports into the app.
-- "Not found" beats making it up: grounded answers with citations are the bar on every track.
+- The catalog prices ($49 / $99 / $249) and the frozen demo clock are fixed points of the Ledgerly world.
+- "Not found" beats making it up: grounded answers with citations are the bar.
 
 ## Troubleshooting
 
 - **Port 43173 busy** — a previous dev server is still running; stop it or `npm run dev` will fail fast.
 - **Dashboard empty / data looks wrong** — `npm run db:reset` reseeds the book deterministically.
 - **Windows is slow or file-watching flakes** — native Windows is fully supported; if you chose WSL2, keep the clone in the Linux home (not `/mnt/c`). Line endings are pinned to LF by `.gitattributes`, so no autocrlf surprises either way.
-- **`npm test` is red** — one failure is shipped on purpose (see Setup above). Exactly 1 failed / 13 passed is healthy.
+- **`npm test` is red** — one failure is shipped on purpose (see Setup above). Exactly 1 failed / 9 passed is healthy.

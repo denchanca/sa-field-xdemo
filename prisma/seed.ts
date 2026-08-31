@@ -1,39 +1,16 @@
 import { execSync } from "node:child_process";
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
 import { PrismaClient } from "@prisma/client";
 import { demoDay } from "../lib/clock";
 import { suggestDisputeCredit } from "../lib/dispute-credit";
 import { planPriceCents } from "../lib/plans";
+import { EXTRA_ACCOUNTS } from "./extra-accounts";
 
 const prisma = new PrismaClient();
 
-/**
- * Collections 4.2 corpus accounts (workshop/data/canon.json). Seeding them as
- * live customers is what lets /analysis link corpus CUST-* references to real
- * Ledgerly rows. Deterministic: same ids and rows on every reseed.
- */
-type CanonAccount = {
-  customerId: string;
-  invoiceId: string;
-  invoiceNumber: string;
-  name: string;
-  segment: string;
-  plan: "STARTER" | "GROWTH" | "SCALE";
-  contactName: string;
-  email: string;
-};
-
-const canon = JSON.parse(
-  readFileSync(join(__dirname, "../workshop/data/canon.json"), "utf8"),
-) as { accounts: Record<string, CanonAccount> };
-
-const CANON_ACCOUNTS = Object.entries(canon.accounts);
-
-/** Invoice shape for the corpus accounts: issued Aug 1, due Aug 31 — OPEN on
- * the frozen clock — except three planted states that give the collections
+/** Invoice shape for the extra book accounts: issued Aug 1, due Aug 31 — OPEN
+ * on the frozen clock — except three planted states that give the collections
  * views something to chew on without touching the original demo beats. */
-function canonInvoiceState(index: number) {
+function extraInvoiceState(index: number) {
   if (index === 2 || index === 8) {
     // Alder BioSystems, Blue Harbor Bank — overdue from the July cycle.
     return { status: "OVERDUE", issuedOn: "2026-07-05", dueOn: "2026-08-04" };
@@ -441,8 +418,8 @@ async function main() {
     });
   }
 
-  // Collections 4.2 corpus accounts — one customer + one invoice each.
-  for (const [index, [, account]] of CANON_ACCOUNTS.entries()) {
+  // Extra book accounts — one customer + one invoice each.
+  for (const [index, account] of EXTRA_ACCOUNTS.entries()) {
     await prisma.customer.create({
       data: {
         id: account.customerId,
@@ -454,7 +431,7 @@ async function main() {
         createdAt: demoDay("2026-02-02"),
       },
     });
-    const state = canonInvoiceState(index);
+    const state = extraInvoiceState(index);
     const totalCents = planPriceCents(account.plan);
     await prisma.invoice.create({
       data: {
@@ -492,7 +469,7 @@ async function main() {
     prisma.dispute.count(),
   ]);
   console.log(
-    `Seeded Fieldnote Workspace · ${customers} customers (${CANON_ACCOUNTS.length} from the Collections 4.2 corpus) · ${invoices} invoices · ${disputes} disputes`,
+    `Seeded Fieldnote Workspace · ${customers} customers (${EXTRA_ACCOUNTS.length} extra book accounts) · ${invoices} invoices · ${disputes} disputes`,
   );
 }
 
