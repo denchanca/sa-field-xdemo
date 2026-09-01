@@ -1,10 +1,10 @@
 # Ledgerly demo howto
 
-Presenter run-of-show. Not a course. Two tracks, independent beats. You still review every result.
+Presenter run-of-show, not a course. There are two tracks, and every beat stands on its own, so you can start anywhere. You still review each result before it ships.
 
-The book is Fieldnote Workspace. Operator **Avery Quinn**. Catalog is Starter **$49**, Growth **$99**, Scale **$249**. Clock is frozen at **23 August 2026**.
+The book — the set of accounts Ledgerly bills — is Fieldnote Workspace, and Avery Quinn is the operator. Three plans: Starter **$49**, Growth **$99**, Scale **$249**. The demo clock is frozen at **23 August 2026**.
 
-This guide uses short presenter prompts. The detailed, copy-ready versions live on `/workflows`; their source of truth is `lib/workflows/meta.ts`. Use the short version live. Open the detailed version only when someone asks how the guardrails are encoded.
+The prompts below are short on purpose, so run them as written. The workflow prompts in particular are one-liners that point the agent at `lib/workflows/meta.ts`, where the full scope and guardrails live. Open `/workflows` to show that longer version on screen only if someone asks how the guardrails are written down.
 
 ## Jump menu
 
@@ -21,9 +21,10 @@ This guide uses short presenter prompts. The detailed, copy-ready versions live 
 **Track 2 — Advanced**
 
 1. [The planted dispute](#1-the-book-2-min)
-2. Pick one or more local surfaces: [Ask](#2-ask-3-min), [Cmd-K](#3-cmd-k-2-min), [Agent](#4-agent--wire-resolve-58-min), [Design Mode](#5-design-mode-3-min)
-3. [Choose an advanced workflow](#10-workflow-beat-library) — `/goal`, `/multitask`, `/loop`, `/autopilot`, or `/orchestrate`
-4. [Verify](#11-trust-and-verification-3-min) and [reset](#12-close)
+2. Pick one or more local surfaces: [Ask](#2-ask-3-min), [Cmd-K](#3-cmd-k-2-min), [Agent](#4-agent--wire-resolve-5-8-min), [Design Mode](#5-design-mode-3-min)
+3. [Cursor CLI primer](#advanced-cursor-cli-primer-5-min)
+4. [Choose an advanced workflow](#10-workflow-beat-library) — `/goal`, `/multitask`, `/loop`, `/autopilot`, or `/orchestrate`
+5. [Verify](#11-trust-and-verification-3-min) and [reset](#12-close)
 
 Jump directly to any beat. Each section states its prerequisite; you do not need to run earlier sections first.
 
@@ -146,7 +147,7 @@ In under 15 words, explain that the clock is frozen on 23 August 2026 so overdue
 
 ---
 
-## 4. Agent — wire resolve (5–8 min)
+## 4. Agent — wire resolve (5-8 min)
 
 Skip this beat if the advanced command will be `/goal` or `/orchestrate` (same work, longer leash).
 
@@ -278,6 +279,52 @@ Create a PR-triggered Cursor Automation that reviews Ledgerly guardrails and lea
 **Do:** Review the draft, then open the Automations editor. Select the repository and PR trigger there. Do not save or enable it unless that is part of the live demo.
 
 **Land:** Automations are repeatable cloud workflows. They are not local shell loops and they do not require adding CI files to this repo.
+
+---
+
+## Advanced: Cursor CLI primer (5 min)
+
+This beat is Advanced-only and stands on its own.
+
+**Prerequisite:** Cursor CLI is installed and signed in. Open a terminal at the repository root. The app and seed do not need to be running.
+
+**Why:** Some work starts in a terminal, remote environment, or script. **Benefit:** Cursor Agent can use the same repository context without moving the task into the editor. **Why it matters:** Engineers can choose the interface that fits the work while keeping review and approval visible.
+
+**Primer:**
+
+- Ask mode is read-only; Agent mode can edit files and run commands with approval.
+- `/model` changes the model for the current session.
+- `agent -p` runs non-interactively for scripts; `--force` permits actions without confirmation, so do not use it live.
+
+**Check setup:**
+
+```bash
+agent --version
+agent status
+```
+
+If the CLI is missing, install it before the demo from [cursor.com/docs/cli/installation](https://cursor.com/docs/cli/installation). If it is signed out, run `agent login`.
+
+**Say:**
+
+> The CLI is Cursor Agent in the terminal. I am starting in Ask mode, so this pass is read-only. The repository remains the source of context, and I still choose the model and review the result.
+
+**Run:**
+
+```bash
+agent --mode=ask "Explain why dsp_1043 shows a $400 suggested credit on a $249 invoice. Cite the source files and do not edit anything."
+```
+
+While the session is open:
+
+1. Run `/model` and point out that model choice is explicit.
+2. Ask: `Which files would need to change to cap the credit and finish dispute resolution? Do not edit them.`
+3. Review the cited files and proposed boundary.
+4. Press Ctrl-C to leave the session.
+
+**Look for:** `prisma/seed.ts` preserves the $400 claim, `lib/dispute-credit.ts` exposes the planted cap seam, and the resolution stub spans the library, API route, and panel. No files change.
+
+**Land:** Interactive CLI is for a reviewed conversation; `agent -p` is the non-interactive form for scripts. Approval boundaries still matter, so reserve `--force` for deliberate automation rather than the live demo.
 
 ---
 
@@ -488,10 +535,11 @@ Only run `git checkout -- .` if you mean to drop **all** local changes.
 6. Show the verification layers
 7. Reset
 
-## Advanced short path (15–25 min)
+## Advanced short path (20–30 min)
 
 1. Book — dsp_1043 ($400 vs $249)
 2. One local surface: Ask, Cmd-K, Agent, or Design
-3. Run `/goal`, or jump to another workflow from `/workflows`
-4. Show verifier evidence and review the diff
-5. Reset
+3. Run the Cursor CLI primer
+4. Run `/goal`, or jump to another workflow from `/workflows`
+5. Show verifier evidence and review the diff
+6. Reset
