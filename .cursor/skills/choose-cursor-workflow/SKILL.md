@@ -10,7 +10,7 @@ The workflows are not interchangeable. Pick on the shape of the work: how many p
 ## Pick a track
 
 - **201** — deck-aligned orientation, customization, models, Cloud Agents, Automations, trust, then `/multitask`, `/loop`, `/autopilot`, or `/orchestrate`.
-- **Advanced** — deeper Ledgerly scenarios. Adds `/goal` for a durable product objective.
+- **Advanced** — deeper Ledgerly scenarios. Starts with the Cursor CLI primer, then adds `/goal` for a durable product objective.
 
 Every beat is independent. If the user names a command, jump directly to it.
 
@@ -27,7 +27,7 @@ Every beat is independent. If the user names a command, jump directly to it.
 5. **The objective must first be decomposed and staffed?**
    - Yes → `/orchestrate` — hands over **the plan itself**.
 
-Rule of thumb: use `/autopilot` only when there is a real pull request. Use `/goal` for a durable objective that is not merely PR supervision. Use `/orchestrate` when the plan itself must be delegated.
+Rule of thumb: use `/autopilot` only when there is a real pull request — if there is none, stop and say so. Use `/goal` for a durable objective that is not merely PR supervision. Use `/orchestrate` when the plan itself must be delegated. `/loop` must start with `/loop` so the slash command fires.
 
 ## What does not change
 
@@ -35,7 +35,7 @@ The human reviews the result and decides what ships. These commands change how m
 
 ## Use the matching prompt
 
-Prompts live in `lib/workflows/meta.ts` and on `/workflows`. Use the matching `prompt` verbatim. Do not invent another catalog price.
+Prompts live in `lib/workflows/meta.ts` and as copy-paste blocks on `/workflows`. Use the matching `prompt` verbatim. Do not invent another catalog price.
 
 | Command | Ledgerly target |
 | --- | --- |

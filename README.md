@@ -2,7 +2,7 @@
 
 Fictional B2B billing ops. Fieldnote Workspace. Operator **Avery Quinn**. Catalog is Starter **$49**, Growth **$99**, Scale **$249**. Demo clock is frozen at **23 August 2026**. Synthetic data only — no real companies.
 
-Use it for two jumpable Cursor demos: a deck-aligned **201** track and a deeper **Advanced** track. Prompts live on `/workflows`; the presenter run-of-show is `demo-howto.md`.
+Use it for two jumpable Cursor demos: a deck-aligned **201** track and a deeper **Advanced** track. Copy-paste prompts live on `/workflows`; the presenter run-of-show and speaker notes are `demo-howto.md`.
 
 ## Run
 
@@ -35,11 +35,9 @@ Dashboard, Invoices, Collections, Disputes, Workflows, Settings. Extra book acco
 Ask:
 
 ```text
-What are the only plan prices in this app, and which seeded invoices are overdue against the frozen demo clock? Cite the exact files you used. Do not invent any number that is not in the seed.
-```
+What are Ledgerly's only plan prices, and which seeded invoices are overdue? Cite lib/plans.ts, prisma/seed.ts, and prisma/extra-accounts.ts.
 
-```text
-Walk me through how a dispute works in this app, end to end, as if I have never seen the codebase. Finish by telling me which parts are intentionally unfinished and why.
+Explain the dispute flow end to end. What is intentionally unfinished? Cite the resolve helper, the resolve API route, and the dispute page. Do not edit any files.
 ```
 
 Cmd-K on the settings description default:
@@ -74,13 +72,14 @@ Restyle the four KPI cards on this dashboard using only the existing design toke
 
 **Advanced** goes deeper on the Ledgerly scenarios:
 
+- Cursor CLI primer (`agent --trust --mode=ask` on `dsp_1043`)
 - `/goal` holds dispute resolution as a durable objective
 - `/multitask` dispatches isolated API workers
 - `/loop` hands over local checking
-- `/autopilot` drives an open PR to merge-ready
+- `/autopilot` drives an open PR to merge-ready — stop if there is no PR
 - `/orchestrate` staffs a planner / worker / verifier tree
 
-Every beat is independent. Open `/workflows`, choose a track, and jump directly to the command you want. You still review the result.
+Every beat is independent. Open `/workflows`, copy a card, and paste it in Cursor. You still review the result.
 
 ## Workflow prompt library
 
@@ -111,12 +110,9 @@ A shared helper may live under lib/. Each worker starts with clean context; the 
 **`/loop`**
 
 ```text
-Start the local demo job, then hand over the checking.
+/loop 10s Start the invoice backfill if it is idle (POST http://127.0.0.1:43173/api/demo/job), then GET that URL until status is complete, or until I stop the loop.
 
-1. POST http://127.0.0.1:43173/api/demo/job to start the invoice backfill (idle → running → complete over about 45 seconds).
-2. /loop 10s Check GET http://127.0.0.1:43173/api/demo/job until status is complete, or until I stop the loop.
-
-Do not add GitHub Actions. Do not write to the Ledgerly database. You still stop the loop; I still review the result.
+Do not add GitHub Actions. Do not write to the Ledgerly database. I still review the result.
 ```
 
 **`/autopilot`**
@@ -125,6 +121,8 @@ Before this beat, prepare an open pull request for the current feature branch wi
 
 ```text
 /autopilot Keep the pull request for the current branch merge-ready.
+
+If this branch has no open pull request, stop and say so. Do not open a PR or merge.
 
 Refresh the live PR state before every pass. Work in this order: merge conflicts, active unresolved review comments (including Bugbot), then failing required checks. Validate each finding before acting. Fix only issues caused by this PR and keep every change inside its scope.
 

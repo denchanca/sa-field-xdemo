@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { DEMO_TRACKS, WORKFLOWS } from "@/lib/workflows/meta";
+import { CLI_BEATS, DECK_BEATS, DEMO_TRACKS, WORKFLOWS } from "@/lib/workflows/meta";
 
 const root = process.cwd();
 
@@ -42,5 +42,26 @@ describe("prompt sync", () => {
     expect(autopilot?.prompt.startsWith("/autopilot")).toBe(true);
     expect(autopilot?.prompt).not.toContain("/goal");
     expect(autopilot?.blurb).toContain("/babysit");
+
+    expect(CLI_BEATS.map((beat) => beat.id)).toEqual(["cli-setup", "cli-ask", "cli-session"]);
+    expect(CLI_BEATS[1]?.example).toContain("agent --trust --mode=ask");
+    expect(CLI_BEATS[1]?.example).toContain("dsp_1043");
+
+    const cloud = DECK_BEATS.find((beat) => beat.id === "cloud");
+    const automations = DECK_BEATS.find((beat) => beat.id === "automations");
+    const trust = DECK_BEATS.find((beat) => beat.id === "trust");
+    const loop = WORKFLOWS.find((workflow) => workflow.slug === "loop");
+
+    expect(cloud?.example).toContain("Do not launch a Cloud Agent");
+    expect(cloud?.example).not.toMatch(/^Hand this repo to a Cloud Agent/);
+    expect(automations?.example.startsWith("/automate")).toBe(true);
+    expect(automations?.example).toContain("Draft only");
+    expect(automations?.example).toContain("Do not add a GitHub Actions file");
+    expect(trust?.example).toContain("npm test");
+    expect(trust?.example).toContain("Do not change lib/dispute-credit.ts");
+    expect(trust?.example).not.toMatch(/^npx vitest run/);
+    expect(loop?.prompt.startsWith("/loop")).toBe(true);
+    expect(loop?.prompt).toContain("POST http://127.0.0.1:43173/api/demo/job");
+    expect(autopilot?.prompt).toContain("no open pull request");
   });
 });

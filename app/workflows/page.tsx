@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { ArrowRight, Bot, Sparkles } from "lucide-react";
+import { CopyButton } from "@/components/copy-button";
 import { PageHeader } from "@/components/page-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
+  CLI_BEATS,
   DECK_BEATS,
   DEMO_TRACKS,
   PROJECT_AGENTS,
@@ -14,6 +16,34 @@ import {
 } from "@/lib/workflows/meta";
 
 export const metadata = { title: "Workflows" };
+
+function PasteBlock({
+  text,
+  label = "Paste in Cursor",
+  compact = true,
+}: {
+  text: string;
+  label?: string;
+  compact?: boolean;
+}) {
+  return (
+    <div className="space-y-2">
+      <div className="flex items-center justify-between gap-2">
+        <p className="text-xs font-medium text-foreground">{label}</p>
+        <CopyButton text={text} label="Copy" />
+      </div>
+      <pre
+        className={
+          compact
+            ? "max-h-52 overflow-auto rounded-lg border border-border bg-muted/60 p-3 text-xs leading-relaxed whitespace-pre-wrap"
+            : "overflow-auto rounded-lg border border-border bg-muted/60 p-3 text-xs leading-relaxed whitespace-pre-wrap"
+        }
+      >
+        {text}
+      </pre>
+    </div>
+  );
+}
 
 function WorkflowCard({ workflow }: { workflow: WorkflowMeta }) {
   return (
@@ -34,12 +64,20 @@ function WorkflowCard({ workflow }: { workflow: WorkflowMeta }) {
         <p className="text-xs text-muted-foreground">
           <span className="font-medium text-foreground">When:</span> {workflow.when}
         </p>
-        <div className="mt-auto flex items-center justify-end pt-1">
-          <Button asChild size="sm" variant="ghost" className="text-indigo">
-            <Link href={`/workflows/${workflow.slug}`}>
-              Open <ArrowRight className="size-3.5" />
-            </Link>
-          </Button>
+        {workflow.setup ? (
+          <p className="rounded-md bg-indigo-soft px-3 py-2 text-xs leading-relaxed text-foreground">
+            <span className="font-medium">Before you paste:</span> {workflow.setup}
+          </p>
+        ) : null}
+        <div className="mt-auto space-y-3">
+          <PasteBlock text={workflow.prompt} />
+          <div className="flex justify-end">
+            <Button asChild size="sm" variant="ghost" className="text-indigo">
+              <Link href={`/workflows/${workflow.slug}`}>
+                Full page <ArrowRight className="size-3.5" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </CardContent>
     </Card>
@@ -56,7 +94,7 @@ export default function WorkflowsPage() {
       <PageHeader
         eyebrow="Cursor"
         title="Workflows"
-        description="Two tracks, independent beats. Start with 201 or jump straight to an advanced workflow."
+        description="Two tracks, independent beats. Copy a prompt, paste it in Cursor, then review the result."
         actions={
           <div className="flex flex-wrap gap-2">
             <Button asChild size="sm" variant="outline">
@@ -64,6 +102,9 @@ export default function WorkflowsPage() {
             </Button>
             <Button asChild size="sm" variant="outline">
               <Link href="#track-advanced">Advanced track</Link>
+            </Button>
+            <Button asChild size="sm" variant="outline">
+              <Link href="#cli">CLI</Link>
             </Button>
           </div>
         }
@@ -82,10 +123,15 @@ export default function WorkflowsPage() {
 
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           {DECK_BEATS.map((beat) => (
-            <Card key={beat.id}>
-              <CardContent className="space-y-1.5">
-                <p className="font-medium">{beat.title}</p>
-                <p className="text-xs leading-relaxed text-muted-foreground">{beat.detail}</p>
+            <Card key={beat.id} className="flex flex-col">
+              <CardContent className="flex flex-1 flex-col gap-3">
+                <div className="space-y-1.5">
+                  <p className="font-medium">{beat.title}</p>
+                  <p className="text-xs leading-relaxed text-muted-foreground">{beat.detail}</p>
+                </div>
+                <div className="mt-auto">
+                  <PasteBlock text={beat.example} compact={false} />
+                </div>
               </CardContent>
             </Card>
           ))}
@@ -107,6 +153,47 @@ export default function WorkflowsPage() {
           <p className="mt-1 max-w-3xl text-sm leading-relaxed text-muted-foreground">
             {DEMO_TRACKS[1].description}
           </p>
+        </div>
+
+        <div id="cli" className="scroll-mt-6 space-y-3">
+          <div>
+            <p className="font-mono text-xs font-medium tracking-[0.08em] text-indigo uppercase">
+              Primer
+            </p>
+            <h3 className="mt-1 text-lg font-semibold tracking-tight">Cursor CLI</h3>
+            <p className="mt-1 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+              Same agent, in the terminal. Open a shell at the repo root. If{" "}
+              <code className="rounded bg-muted px-1 py-0.5 text-xs">agent</code> is missing, install
+              from{" "}
+              <a
+                className="text-indigo underline-offset-2 hover:underline"
+                href="https://cursor.com/docs/cli/installation"
+                rel="noreferrer"
+                target="_blank"
+              >
+                cursor.com/docs/cli/installation
+              </a>
+              , then <code className="rounded bg-muted px-1 py-0.5 text-xs">agent login</code>. A new
+              clone needs{" "}
+              <code className="rounded bg-muted px-1 py-0.5 text-xs">--trust</code> on first Ask; that
+              is not <code className="rounded bg-muted px-1 py-0.5 text-xs">--force</code>.
+            </p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {CLI_BEATS.map((beat) => (
+              <Card key={beat.id} className="flex flex-col">
+                <CardContent className="flex flex-1 flex-col gap-3">
+                  <div className="space-y-1.5">
+                    <p className="font-medium">{beat.title}</p>
+                    <p className="text-xs leading-relaxed text-muted-foreground">{beat.detail}</p>
+                  </div>
+                  <div className="mt-auto">
+                    <PasteBlock text={beat.example} label={beat.label} compact={false} />
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
         <div className="grid gap-4 lg:grid-cols-2">
