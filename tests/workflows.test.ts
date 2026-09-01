@@ -6,7 +6,7 @@ import { DEMO_TRACKS, WORKFLOWS } from "@/lib/workflows/meta";
 const root = process.cwd();
 
 describe("prompt sync", () => {
-  it("README and presenter howto carry every workflow prompt verbatim", () => {
+  it("keeps README prompts and howto demo prompts in sync with metadata", () => {
     const readme = readFileSync(join(root, "README.md"), "utf8");
     const howto = readFileSync(join(root, "demo-howto.md"), "utf8");
     for (const workflow of WORKFLOWS) {
@@ -16,8 +16,10 @@ describe("prompt sync", () => {
       ).toContain(workflow.prompt);
       expect(
         howto,
-        `demo-howto.md is missing the ${workflow.slug} prompt from lib/workflows/meta.ts`,
-      ).toContain(workflow.prompt);
+        `demo-howto.md is missing the ${workflow.slug} demo prompt from lib/workflows/meta.ts`,
+      ).toContain(workflow.demoPrompt);
+      expect(workflow.demoPrompt).toContain("lib/workflows/meta.ts");
+      expect(workflow.demoPrompt).toContain(workflow.slug);
     }
 
     const track201 = DEMO_TRACKS.find((track) => track.id === "201");

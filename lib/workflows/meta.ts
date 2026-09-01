@@ -14,6 +14,7 @@ export type WorkflowMeta = {
   blurb: string;
   tracks: DemoTrack[];
   setup?: string;
+  demoPrompt: string;
   prompt: string;
 };
 
@@ -78,6 +79,8 @@ export const WORKFLOWS: WorkflowMeta[] = [
     blurb:
       "Four API surfaces, four workers, one finish line. Independent steps run at once; you review one diff per task.",
     tracks: ["201", "advanced"],
+    demoPrompt:
+      "/multitask Read the multitask entry in WORKFLOWS from lib/workflows/meta.ts and run its prompt exactly.",
     prompt: `/multitask Add the same small request-log helper to Ledgerly's four independent API surfaces: invoices, disputes, Nudge, and Pulse.
 
 Use the dispatch-subagents skill. Launch four api-instrumenter subagents in one parallel turn — one route each:
@@ -97,6 +100,8 @@ A shared helper may live under lib/. Each worker starts with clean context; the 
     blurb:
       "Start the local invoice backfill, then let the agent check it on a schedule until it completes — or until you stop the loop.",
     tracks: ["201", "advanced"],
+    demoPrompt:
+      "Read the loop entry in WORKFLOWS from lib/workflows/meta.ts and run its prompt exactly.",
     prompt: `Start the local demo job, then hand over the checking.
 
 1. POST http://127.0.0.1:43173/api/demo/job to start the invoice backfill (idle → running → complete over about 45 seconds).
@@ -115,6 +120,8 @@ Do not add GitHub Actions. Do not write to the Ledgerly database. You still stop
     tracks: ["201", "advanced"],
     setup:
       "Prepare an open pull request for the current feature branch with one actionable review comment or a scoped failing check.",
+    demoPrompt:
+      "/autopilot Read the autopilot entry in WORKFLOWS from lib/workflows/meta.ts and run its prompt exactly.",
     prompt: `/autopilot Keep the pull request for the current branch merge-ready.
 
 Refresh the live PR state before every pass. Work in this order: merge conflicts, active unresolved review comments (including Bugbot), then failing required checks. Validate each finding before acting. Fix only issues caused by this PR and keep every change inside its scope.
@@ -130,6 +137,8 @@ Never change CI checks, workflows, the Ledgerly catalog, prisma/seed.ts, prisma/
     blurb:
       "Pin dispute resolution as one long-lived objective. The agent keeps going across turns until the checks pass. You review the result.",
     tracks: ["advanced"],
+    demoPrompt:
+      "/goal Read the goal entry in WORKFLOWS from lib/workflows/meta.ts and run its prompt exactly.",
     prompt: `/goal Make Ledgerly demo-complete for dispute resolution.
 
 1. Cap suggestDisputeCredit in lib/dispute-credit.ts at the catalog plan price from lib/plans.ts.
@@ -150,6 +159,8 @@ Do not change prisma/seed.ts, prisma/extra-accounts.ts, or tests/dispute-credit.
       "A root planner decomposes dispute resolution and staffs isolated workers. Verifiers check the work. This one is a plugin.",
     tracks: ["201", "advanced"],
     setup: "Install the /orchestrate plugin; put bun on PATH and provide a CURSOR_API_KEY.",
+    demoPrompt:
+      "/orchestrate Read the orchestrate entry in WORKFLOWS from lib/workflows/meta.ts and run its prompt exactly.",
     prompt: `/orchestrate Make Ledgerly demo-complete for dispute resolution. This is a plugin workflow — you need bun on PATH and a CURSOR_API_KEY (personal key or team service account, not a team admin key). Slack is optional.
 
 Decompose the work. The root planner writes no code. Workers are isolated; every handoff points up. Staff at least:

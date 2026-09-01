@@ -45,12 +45,12 @@ export default async function WorkflowPage({ params }: { params: Promise<{ slug:
 
       <Card>
         <CardHeader className="flex-row items-center justify-between pb-0">
-          <CardTitle className="text-base">Prompt</CardTitle>
-          <CopyButton text={meta.prompt} />
+          <CardTitle className="text-base">Demo prompt</CardTitle>
+          <CopyButton text={meta.demoPrompt} />
         </CardHeader>
         <CardContent className="pt-3">
-          <pre className="max-h-105 overflow-auto rounded-lg border border-border bg-muted/60 p-3 text-xs leading-relaxed whitespace-pre-wrap">
-            {meta.prompt}
+          <pre className="overflow-auto rounded-lg border border-border bg-muted/60 p-3 text-sm leading-relaxed whitespace-pre-wrap">
+            {meta.demoPrompt}
           </pre>
           <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
             <span className="font-medium text-foreground">When:</span> {meta.when} You still review the
@@ -63,6 +63,23 @@ export default async function WorkflowPage({ params }: { params: Promise<{ slug:
           ) : null}
         </CardContent>
       </Card>
+
+      <details className="rounded-lg border border-border bg-card">
+        <summary className="cursor-pointer px-4 py-3 text-sm font-medium">
+          Full scope and guardrails
+        </summary>
+        <div className="border-t border-border p-4">
+          <div className="mb-3 flex items-center justify-between gap-3">
+            <p className="text-xs text-muted-foreground">
+              The demo prompt tells the agent to load this canonical instruction before acting.
+            </p>
+            <CopyButton text={meta.prompt} label="Copy full prompt" />
+          </div>
+          <pre className="max-h-105 overflow-auto rounded-lg border border-border bg-muted/60 p-3 text-xs leading-relaxed whitespace-pre-wrap">
+            {meta.prompt}
+          </pre>
+        </div>
+      </details>
     </div>
   );
 }

@@ -51,7 +51,7 @@ Rewrite this input's default value as one calm sentence explaining that the demo
 Agent — dispute resolution:
 
 ```text
-Implement dispute resolution end to end: wire resolveDispute in lib/disputes/resolve.ts, make POST /api/disputes/[id]/resolve persist ACCEPTED or DECLINED with the reviewer note, and enable the Accept credit / Decline buttons on app/disputes/[id]/page.tsx. Any credit must be capped at the catalog plan price from lib/plans.ts. Do not touch tests/dispute-credit.test.ts, prisma/seed.ts, or any price.
+Implement the existing dispute-resolution stub end to end: wire resolveDispute in lib/disputes/resolve.ts, make POST /api/disputes/[id]/resolve persist ACCEPTED or DECLINED with the reviewer note, and enable the Accept credit / Decline buttons on app/disputes/[id]/page.tsx. Do not edit lib/dispute-credit.ts, tests/dispute-credit.test.ts, or prisma/seed.ts; leave the planted credit-cap bug for the /goal or /orchestrate beat.
 ```
 
 Design Mode on the dashboard KPI cards:

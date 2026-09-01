@@ -2,7 +2,9 @@
 
 Presenter run-of-show. Not a course. Two tracks, independent beats. You still review every result.
 
-The book is Fieldnote Workspace. Operator **Avery Quinn**. Catalog is Starter **$49**, Growth **$99**, Scale **$249**. Clock is frozen at **23 August 2026**. Prompts also live on `/workflows`. Source of truth for workflow prompts is `lib/workflows/meta.ts`.
+The book is Fieldnote Workspace. Operator **Avery Quinn**. Catalog is Starter **$49**, Growth **$99**, Scale **$249**. Clock is frozen at **23 August 2026**.
+
+This guide uses short presenter prompts. The detailed, copy-ready versions live on `/workflows`; their source of truth is `lib/workflows/meta.ts`. Use the short version live. Open the detailed version only when someone asks how the guardrails are encoded.
 
 ## Jump menu
 
@@ -24,6 +26,18 @@ The book is Fieldnote Workspace. Operator **Avery Quinn**. Catalog is Starter **
 4. [Verify](#11-trust-and-verification-3-min) and [reset](#12-close)
 
 Jump directly to any beat. Each section states its prerequisite; you do not need to run earlier sections first.
+
+---
+
+## Talk-track pattern
+
+Keep each transition to three points:
+
+- **Why:** Name the engineering friction.
+- **Benefit:** Say what Cursor takes on.
+- **Why it matters:** Connect it to focus, throughput, or trust.
+
+Do not read prompts aloud. State the intent, run the short prompt, then narrate the evidence.
 
 ---
 
@@ -66,6 +80,8 @@ Port 43173 busy: stop the old `npm run dev`. Empty dashboard: `npm run db:reset`
 
 **Do:** Point at the catalog line on the dashboard, the overdue queue, the Resolution panel.
 
+**Why:** Shared context. **Benefit:** Every feature uses the same realistic book. **Why it matters:** The audience evaluates product work, not toy snippets.
+
 **Say:**
 
 > Fieldnote Workspace. Avery Quinn. Starter $49, Growth $99, Scale $249 — those are the only prices. The clock is frozen on 23 August 2026 so overdue math never drifts mid-demo.
@@ -80,6 +96,8 @@ Port 43173 busy: stop the old `npm run dev`. Empty dashboard: `npm run db:reset`
 
 **Open:** Cursor chat in **Ask** mode. Leave the app on the dashboard or the dispute.
 
+**Why:** Unfamiliar repos are expensive to learn. **Benefit:** Ask explains from source without editing. **Why it matters:** Engineers build confidence before acting.
+
 **Say:**
 
 > Ask mode reads the repo. It does not edit. I am going to ask it for the prices and the overdue invoices, then how a dispute works — including what is unfinished.
@@ -87,13 +105,13 @@ Port 43173 busy: stop the old `npm run dev`. Empty dashboard: `npm run db:reset`
 **Paste:**
 
 ```text
-What are the only plan prices in this app, and which seeded invoices are overdue against the frozen demo clock? Cite the exact files you used. Do not invent any number that is not in the seed.
+What are Ledgerly's only plan prices, and which seeded invoices are overdue? Cite the source files.
 ```
 
 **Then:**
 
 ```text
-Walk me through how a dispute works in this app, end to end, as if I have never seen the codebase. Finish by telling me which parts are intentionally unfinished and why.
+Explain the dispute flow end to end. What is intentionally unfinished?
 ```
 
 **Look for:** Citations to `lib/plans.ts`, `prisma/seed.ts`, `lib/clock.ts`. INV-1043 / Cobalt Goods among the overdue set. The resolve stub named: `lib/disputes/resolve.ts`, the resolve API route, the panel buttons.
@@ -108,6 +126,8 @@ Walk me through how a dispute works in this app, end to end, as if I have never 
 
 **Open:** [Settings](http://127.0.0.1:43173/settings). Select the timezone input default: `UTC — demo clock is frozen`.
 
+**Why:** Small edits should stay small. **Benefit:** Cmd-K keeps intent and review local. **Why it matters:** Less context switching and scope growth.
+
 **Say:**
 
 > Inline edit. I am not asking the Agent to roam the repo. One field, one sentence, under 15 words.
@@ -115,7 +135,7 @@ Walk me through how a dispute works in this app, end to end, as if I have never 
 **Paste** into Cmd-K (Ctrl-K on Windows):
 
 ```text
-Rewrite this input's default value as one calm sentence explaining that the demo clock is frozen on 23 August 2026 so overdue math never drifts during a meeting. Keep it under 15 words.
+In under 15 words, explain that the clock is frozen on 23 August 2026 so overdue math never drifts.
 ```
 
 **Look for:** The input default rewrites in place. Leave the webhook **Tab** seam alone unless that is a side beat.
@@ -132,14 +152,16 @@ Skip this beat if the advanced command will be `/goal` or `/orchestrate` (same w
 
 **Open:** Agent. Keep [dsp_1043](http://127.0.0.1:43173/disputes/dsp_1043) visible.
 
+**Why:** End-to-end work crosses layers. **Benefit:** Agent traces, edits, and verifies the path. **Why it matters:** Explicit boundaries keep it reviewable.
+
 **Say:**
 
-> Agent can edit. I am going to finish dispute resolution — helper, API, buttons — and cap any credit at the catalog price. I am not touching the planted test or the seed.
+> Agent can edit. I am going to wire the existing resolve stub, API, and buttons. The credit-cap bug stays planted for the `/goal` or `/orchestrate` beat.
 
 **Paste:**
 
 ```text
-Implement dispute resolution end to end: wire resolveDispute in lib/disputes/resolve.ts, make POST /api/disputes/[id]/resolve persist ACCEPTED or DECLINED with the reviewer note, and enable the Accept credit / Decline buttons on app/disputes/[id]/page.tsx. Any credit must be capped at the catalog plan price from lib/plans.ts. Do not touch tests/dispute-credit.test.ts, prisma/seed.ts, or any price.
+Implement the existing dispute-resolution stub end to end: lib/disputes/resolve.ts, the resolve API route, and the Resolution buttons. Persist Accept or Decline with a reviewer note. Do not edit lib/dispute-credit.ts, tests/dispute-credit.test.ts, or prisma/seed.ts.
 ```
 
 **Look for:** Accept / Decline enabled. A reviewer note can persist. Suggested credit may still read **$400** — this prompt does not require editing `lib/dispute-credit.ts`. That cap is the `/goal` / `/orchestrate` finish line.
@@ -154,6 +176,8 @@ Implement dispute resolution end to end: wire resolveDispute in lib/disputes/res
 
 **Open:** Dashboard. Design Mode if you have it; same prompt in Agent if you do not.
 
+**Why:** UI iteration loses time to edit-refresh cycles. **Benefit:** Design Mode makes visual intent direct. **Why it matters:** File and token limits preserve the system.
+
 **Say:**
 
 > Visual only. Existing tokens. I am undoing this when we are done. $49, $99, and $249 stay on the cards.
@@ -161,7 +185,7 @@ Implement dispute resolution end to end: wire resolveDispute in lib/disputes/res
 **Paste:**
 
 ```text
-Restyle the four KPI cards on this dashboard using only the existing design tokens in app/globals.css: a soft indigo accent on each card, stronger emphasis on the value, and a subtle hover lift. No new hex colors, no layout rewrite, no data or price changes — $49, $99, and $249 stay exactly as rendered. Touch components/kpi-card.tsx, and app/page.tsx only if you must. Two files max, nothing under lib/ or tests/. Show me the diff — I am undoing this after the demo.
+Restyle the four KPI cards with existing tokens: soft indigo, stronger values, subtle hover lift. Two files max; no data or price changes. Show the diff.
 ```
 
 **Look for:** Two files max. No new hex. No data change. Show the diff, then revert before the next demo.
@@ -175,6 +199,8 @@ Restyle the four KPI cards on this dashboard using only the existing design toke
 ## 6. Customize the Agent (3 min)
 
 **Prerequisite:** None. This beat is read-only.
+
+**Why:** Repeating standards in prompts is fragile. **Benefit:** Rules guard, skills repeat, subagents isolate. **Why it matters:** Good practice survives across tasks.
 
 **Open side by side:**
 
@@ -196,6 +222,8 @@ Restyle the four KPI cards on this dashboard using only the existing design toke
 
 **Prerequisite:** Open a new Agent chat so the model picker is visible.
 
+**Why:** One model is not optimal everywhere. **Benefit:** Match capability to task shape. **Why it matters:** Better speed and cost without lowering verification.
+
 **Say:**
 
 > Use the strongest reasoning model for exploration, planning, and coordinating subagents. Use a faster focused model for a worker with one route and one acceptance test. Model choice follows task shape; it is not one model everywhere.
@@ -213,6 +241,8 @@ Restyle the four KPI cards on this dashboard using only the existing design toke
 ## 8. Cloud Agents (3 min)
 
 **Prerequisite:** The branch and required setup must be available remotely. `.cursor/environment.json` installs dependencies, seeds the database, and starts the app on port 43173.
+
+**Why:** Local work stops with the session. **Benefit:** Cloud Agents are isolated and durable. **Why it matters:** Engineers hand off bounded work and return to evidence.
 
 **Say:**
 
@@ -233,6 +263,8 @@ Restyle the four KPI cards on this dashboard using only the existing design toke
 
 **Prerequisite:** Use Cursor's Agents Window. This beat opens the Automations editor; it does not add a GitHub Actions file.
 
+**Why:** People forget repeatable checks. **Benefit:** Automations run on events or schedules. **Why it matters:** Proven workflows become governed systems.
+
 **Say:**
 
 > `/loop` repeats inside a session. A Cursor Automation is event- or schedule-driven and can survive the laptop closing. First prove the workflow while watching it; then automate it.
@@ -240,7 +272,7 @@ Restyle the four KPI cards on this dashboard using only the existing design toke
 **Use `/automate` and draft:**
 
 ```text
-Create a Cursor Automation for this repository. Trigger when a pull request is opened or updated. Review the diff for Ledgerly's catalog prices, synthetic customer names, planted dispute seams, and unrelated changes. Leave a concise review comment with evidence. Do not modify product code, tests, the seed, CI configuration, or workflows.
+Create a PR-triggered Cursor Automation that reviews Ledgerly guardrails and leaves an evidence-backed comment. Review only; do not modify code, tests, seed, or CI.
 ```
 
 **Do:** Review the draft, then open the Automations editor. Select the repository and PR trigger there. Do not save or enable it unless that is part of the live demo.
@@ -251,7 +283,9 @@ Create a Cursor Automation for this repository. Trigger when a pull request is o
 
 ## 10. Workflow beat library
 
-**Open:** [http://127.0.0.1:43173/workflows](http://127.0.0.1:43173/workflows). Copy the prompt from the page, or paste from below.
+**Open:** [http://127.0.0.1:43173/workflows](http://127.0.0.1:43173/workflows). Use the short prompt below. The workflow page holds the detailed version.
+
+**Why:** Work has different shapes. **Benefit:** Choose the right ownership boundary. **Why it matters:** Delegate toil without delegating judgment.
 
 **Say:**
 
@@ -271,42 +305,41 @@ Run one, or jump directly to the one named in the deck discussion.
 
 ### 10a. `/multitask` — breadth
 
+**Why:** Independent work queues unnecessarily. **Benefit:** Workers run in parallel. **Why it matters:** More throughput with one clear diff per task.
+
 **Say:**
 
 > Four API surfaces, no shared diff. I am not going to sit and do them in series. Four workers, then a reviewer. I read one diff per task.
 
-**Paste** (verbatim from `lib/workflows/meta.ts`):
+**Short prompt:**
 
 ```text
-/multitask Add the same small request-log helper to Ledgerly's four independent API surfaces: invoices, disputes, Nudge, and Pulse.
-
-Use the dispatch-subagents skill. Launch four api-instrumenter subagents in one parallel turn — one route each:
-- app/api/invoices/route.ts and app/api/invoices/[id]/route.ts
-- app/api/disputes/route.ts and app/api/disputes/[id]/route.ts
-- app/api/mock/nudge/route.ts
-- app/api/mock/pulse/route.ts
-
-A shared helper may live under lib/. Each worker starts with clean context; the dispatch prompt must name the files, the helper, and the constraint. After the diffs land, launch the ledgerly-reviewer subagent. Do not touch prices, prisma/seed.ts, prisma/extra-accounts.ts, or tests/dispute-credit.test.ts. I will review one diff per task.
+/multitask Read the multitask entry in WORKFLOWS from lib/workflows/meta.ts and run its prompt exactly.
 ```
+
+**Detailed prompt:** [Open `/workflows/multitask`](http://127.0.0.1:43173/workflows/multitask)
+
+**Fallback:** If Cursor does not open `lib/workflows/meta.ts`, use **Copy full prompt** on that page.
 
 **Look for:** Four `api-instrumenter` launches in one turn. A shared helper under `lib/`. `ledgerly-reviewer` after the diffs. No price or seed edits.
 
 ### 10b. `/loop` — time
 
+**Why:** Re-checking steals attention. **Benefit:** A loop handles the waiting. **Why it matters:** Engineers stay focused and control when it stops.
+
 **Say:**
 
 > I would otherwise sit and watch a 45-second job. I start it, then hand over the checking. I still stop the loop.
 
-**Paste:**
+**Short prompt:**
 
 ```text
-Start the local demo job, then hand over the checking.
-
-1. POST http://127.0.0.1:43173/api/demo/job to start the invoice backfill (idle → running → complete over about 45 seconds).
-2. /loop 10s Check GET http://127.0.0.1:43173/api/demo/job until status is complete, or until I stop the loop.
-
-Do not add GitHub Actions. Do not write to the Ledgerly database. You still stop the loop; I still review the result.
+Read the loop entry in WORKFLOWS from lib/workflows/meta.ts and run its prompt exactly.
 ```
+
+**Detailed prompt:** [Open `/workflows/loop`](http://127.0.0.1:43173/workflows/loop)
+
+**Fallback:** If Cursor does not open `lib/workflows/meta.ts`, use **Copy full prompt** on that page.
 
 **Look for:** `idle` → `running` → `complete`. Nothing written to SQLite. No GitHub Actions.
 
@@ -316,41 +349,41 @@ The 201 deck calls this `/babysit`. The current supported name is `/autopilot`.
 
 **Prerequisite:** Prepare an open pull request for the current feature branch with one actionable review comment or a scoped failing required check. Do not run this beat on `main`.
 
+**Why:** PR readiness is a coordination loop. **Benefit:** Autopilot handles clear review and CI work. **Why it matters:** Ambiguity and merging stay human decisions.
+
 **Say:**
 
 > This is not a generic goal. It is one real pull request. Autopilot refreshes live state, handles conflicts before comments before CI, and stops at merge-ready. I still merge.
 
-**Paste:**
+**Short prompt:**
 
 ```text
-/autopilot Keep the pull request for the current branch merge-ready.
-
-Refresh the live PR state before every pass. Work in this order: merge conflicts, active unresolved review comments (including Bugbot), then failing required checks. Validate each finding before acting. Fix only issues caused by this PR and keep every change inside its scope.
-
-Never change CI checks, workflows, the Ledgerly catalog, prisma/seed.ts, prisma/extra-accounts.ts, or tests/dispute-credit.test.ts to get green. Stop and ask if branch intent is ambiguous or a billing, security, privacy, migration, or concurrency comment needs judgment. Report ready only when the PR is mergeable, required checks are green, and every active comment is triaged. Do not merge or enable auto-merge; I still review and merge.
+/autopilot Read the autopilot entry in WORKFLOWS from lib/workflows/meta.ts and run its prompt exactly.
 ```
+
+**Detailed prompt:** [Open `/workflows/autopilot`](http://127.0.0.1:43173/workflows/autopilot)
+
+**Fallback:** If Cursor does not open `lib/workflows/meta.ts`, use **Copy full prompt** on that page.
 
 **Look for:** Fresh PR state on every pass. Conflicts first, then active comments, then CI. Findings are validated rather than obeyed blindly. No CI weakening or unrelated fixes. The run stops at merge-ready.
 
 ### 10d. `/goal` — the objective
 
+**Why:** Long objectives lose continuity. **Benefit:** A goal preserves the finish condition. **Why it matters:** The engineer can steer without restating the objective.
+
 **Say:**
 
 > One objective: make dispute resolution demo-complete. Cap the credit, wire resolve, enable the buttons, keep going until the checks pass. The agent judges the finish line. I review.
 
-**Paste:**
+**Short prompt:**
 
 ```text
-/goal Make Ledgerly demo-complete for dispute resolution.
-
-1. Cap suggestDisputeCredit in lib/dispute-credit.ts at the catalog plan price from lib/plans.ts.
-2. Implement resolveDispute in lib/disputes/resolve.ts.
-3. Make POST /api/disputes/[id]/resolve persist ACCEPTED or DECLINED with the reviewer note.
-4. Enable the Accept credit / Decline buttons on app/disputes/[id]/page.tsx.
-5. Keep going across turns until npm test is fully green and http://127.0.0.1:43173/disputes/dsp_1043 shows suggested credit at or below the Scale catalog price of $249.
-
-Do not change prisma/seed.ts, prisma/extra-accounts.ts, or tests/dispute-credit.test.ts. Do not invent a fourth price. When the checks pass, launch the dispute-verifier subagent to report evidence. I still review the result.
+/goal Read the goal entry in WORKFLOWS from lib/workflows/meta.ts and run its prompt exactly.
 ```
+
+**Detailed prompt:** [Open `/workflows/goal`](http://127.0.0.1:43173/workflows/goal)
+
+**Fallback:** If Cursor does not open `lib/workflows/meta.ts`, use **Copy full prompt** on that page.
 
 **Look for:** Suggested credit on dsp_1043 at or below **$249**. `npm test` green. `dispute-verifier` reports evidence. Seed and `tests/dispute-credit.test.ts` untouched.
 
@@ -360,23 +393,21 @@ If the run must survive closing the laptop, use the `hand-to-cloud-agent` skill.
 
 Need `bun` on PATH and a `CURSOR_API_KEY` (personal key or team service account, not a team admin key). Slack is optional.
 
+**Why:** Some goals are too large for one task. **Benefit:** Orchestration delegates planning and staffing. **Why it matters:** Isolated workers and verifiers keep the plan converging.
+
 **Say:**
 
 > Same outcome as /goal, but the work needs a plan first. A root planner writes no code. Isolated workers. A verifier. I still review and merge.
 
-**Paste:**
+**Short prompt:**
 
 ```text
-/orchestrate Make Ledgerly demo-complete for dispute resolution. This is a plugin workflow — you need bun on PATH and a CURSOR_API_KEY (personal key or team service account, not a team admin key). Slack is optional.
-
-Decompose the work. The root planner writes no code. Workers are isolated; every handoff points up. Staff at least:
-
-- Worker: cap suggestDisputeCredit in lib/dispute-credit.ts at the catalog plan price. Do not touch tests/dispute-credit.test.ts or the seed.
-- Worker: implement resolveDispute and POST /api/disputes/[id]/resolve.
-- Worker: enable Accept / Decline on app/disputes/[id]/page.tsx.
-
-Launch the dispute-verifier subagent as the verifier: it checks tests/dispute-credit.test.ts (or npm test), POSTs accept/decline against dsp_1043, and loads http://127.0.0.1:43173/disputes/dsp_1043. Republish a task if a verifier fails. I still review and merge. Do not invent a fourth price.
+/orchestrate Read the orchestrate entry in WORKFLOWS from lib/workflows/meta.ts and run its prompt exactly.
 ```
+
+**Detailed prompt:** [Open `/workflows/orchestrate`](http://127.0.0.1:43173/workflows/orchestrate)
+
+**Fallback:** If Cursor does not open `lib/workflows/meta.ts`, use **Copy full prompt** on that page.
 
 **Look for:** Planner does not write product code. Three workers, then `dispute-verifier`. Same finish line as `/goal`.
 
@@ -385,6 +416,8 @@ Launch the dispute-verifier subagent as the verifier: it checks tests/dispute-cr
 ## 11. Trust and verification (3 min)
 
 **Prerequisite:** Use the checks appropriate to the beat you ran.
+
+**Why:** Agent count is not trust. **Benefit:** Verification produces layered evidence. **Why it matters:** Teams scale delegation without losing accountability.
 
 **Say:**
 
@@ -412,6 +445,8 @@ npx vitest run tests/workflows.test.ts tests/money.test.ts tests/plans.test.ts
 ---
 
 ## 12. Close
+
+**Why:** Demos drift after edits. **Benefit:** Reset restores deterministic state. **Why it matters:** Every audience sees the same proof points.
 
 **Say:**
 
