@@ -243,28 +243,29 @@ Open .cursor/rules/ledgerly.mdc, .cursor/skills/choose-cursor-workflow/SKILL.md,
 
 ## 7. Model selection (2 min)
 
-**Prerequisite:** Open a new Agent chat so the model picker is visible.
+**Prerequisite:** Open a new Agent chat so the model picker is visible. Point at **Auto** if it is listed — that is Cursor Router, not a single named model.
 
-**Why:** One model is not optimal everywhere. **Benefit:** Match capability to task shape. **Why it matters:** Better speed and cost without lowering verification.
+**Why:** One model is not optimal everywhere, and most people should not have to pick a model on every turn. **Benefit:** Pin a model when the role is known; use Auto / Router when the next request's difficulty is not. **Why it matters:** Better speed and cost without lowering verification.
 
 **Say — novice version:**
 
-> Model choice is part of the task design. I use a stronger reasoning model when Cursor must understand and coordinate several pieces. I can use a faster model when the worker has one file and one clear check. The model picker makes that choice explicit.
+> The model picker has named models and, on Teams and Enterprise, Auto. Auto is Cursor Router. Not every request needs a frontier model, so the router classifies the task and sends simple work to faster, cheaper models and harder work to more capable ones. Under Auto you Optimize For Cost, Balance, or Intelligence — Cost favors token spend, Balance mixes quality and cost, Intelligence uses stronger models for harder tasks at less than pinning one frontier model all day. Benefits: you do not memorize which model to use; cost follows the work; you can still pin a model when the split is already known. For this Ledgerly /multitask I would pin a high-reasoning parent to plan and coordinate, and a faster model on each worker that has one route and one check. If Auto is missing, say so — Router may be off for this org — and pick named models instead.
 
 **Paste** (same block as the Model selection card):
 
 ```text
-Look at the models available in this Cursor session (the chat picker, and cursor.com/docs/models if you need current labels). Then recommend a concrete split for Ledgerly /multitask:
+Look at the models available in this Cursor session (the chat picker, and cursor.com/docs/models or cursor.com/docs/cursor-router if you need current labels). Then recommend a concrete split for Ledgerly /multitask:
 
 1. Parent — one current high-reasoning / thinking model from the picker. It has to decompose four API surfaces, write a dispatch that names files + helper + constraints, and launch ledgerly-reviewer after the diffs.
 2. Each api-instrumenter worker — one current faster focused model from the picker. One named route, a small helper under lib/, no catalog, seed, or dispute-credit test edits.
+3. Auto / Cursor Router — if Auto is in the picker, name the Optimize For mode you would use (Cost, Balance, or Intelligence) for day-to-day vs this /multitask parent, and why. Router classifies each request and sends simple work to efficient models and harder work to more capable ones. If Auto or Router is missing, say so (Teams/Enterprise; Enterprise admins may have it off) and stay with named models.
 
 Name the exact picker labels you would select today and why each fits. If a label is missing on this account, say so and pick the next best available option. Do not invent a model. Do not write model slugs into the repo — this is a picker recommendation only. Say where to set them: the parent chat picker, and the model on each Task / api-instrumenter launch (or inherit if the worker should match the parent).
 ```
 
-**Look for:** Exact current picker labels. Parent vs worker split. Where to set them. No invented model. No slugs written into the repo.
+**Look for:** Auto in the picker, plus Cost / Balance / Intelligence if present. Exact current picker labels. Parent vs worker split, or Auto when the next request is unknown. Where to set them. No invented model. No slugs written into the repo.
 
-**Land:** High reasoning plans and coordinates. Focused models execute bounded tasks. Verification stays independent of model choice.
+**Land:** Router chooses per request so you do not have to. Pin a high-reasoning parent and focused workers when those roles are already known. Verification stays independent of model choice.
 
 ---
 
