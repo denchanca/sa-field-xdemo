@@ -1,44 +1,53 @@
 # Ledgerly demo howto
 
-Presenter run-of-show, not a course. There are two tracks, and every beat stands on its own, so you can start anywhere. You still review each result before it ships.
+Presenter run-of-show, not a course. There are two tracks, and every step stands on its own, so you can start anywhere. You still review each result before it ships.
 
-The book — the set of accounts Ledgerly bills — is Fieldnote Workspace, and Avery Quinn is the operator. Three plans: Starter **$49**, Growth **$99**, Scale **$249**. The demo clock is frozen at **23 August 2026**.
+Ledgerly is a small, fictional demo app. It exists to give Cursor enablement steps a visible surface: code to read, a UI to inspect, a scoped error to fix, and tests to verify. The data is synthetic. Avery Quinn is the operator, the only plan prices are Starter **$49**, Growth **$99**, and Scale **$249**, and the clock is frozen at **23 August 2026** so every run is repeatable.
 
-The pastes below match the copy-paste blocks on `/workflows`. Deck and CLI cards show the full beat text. Workflow command cards show the full `prompt` from `lib/workflows/meta.ts`. The short `/command Read the … entry` lines are the slug-page demo prompts — the test requires them verbatim here.
+The pastes below match the copy-paste blocks on `/workflows`. Deck and CLI cards show the full step text. Workflow command cards show the full `prompt` from `lib/workflows/meta.ts`. The short `/command Read the … entry` lines are the slug-page demo prompts — the test requires them verbatim here.
 
 ## Jump menu
 
 **Track 1 — 201**
 
-1. [Getting oriented](#1-the-book-2-min) — book + Ask
+1. Getting oriented — [demo error](#1-the-demo-error-2-min) + [Ask](#2-ask-3-min)
 2. [Customize the Agent](#6-customize-the-agent-3-min) — rules, skills, subagents
 3. [Model selection](#7-model-selection-2-min)
 4. [Cloud Agents](#8-cloud-agents-3-min)
 5. [Automations](#9-automations-3-min)
-6. [Choose one 201 workflow](#10-workflow-beat-library) — `/multitask`, `/loop`, `/autopilot`, or `/orchestrate`
+6. [Choose one 201 workflow](#10-workflow-step-library) — `/multitask`, `/loop`, `/autopilot`, or `/orchestrate`
 7. [Trust and verification](#11-trust-and-verification-3-min)
 
 **Track 2 — Advanced**
 
-1. [The planted dispute](#1-the-book-2-min)
+1. [The planted error](#1-the-demo-error-2-min)
 2. Pick one or more local surfaces: [Ask](#2-ask-3-min), [Cmd-K](#3-cmd-k-2-min), [Agent](#4-agent--wire-resolve-5-8-min), [Design Mode](#5-design-mode-3-min)
 3. [Cursor CLI primer](#advanced-cursor-cli-primer-5-min)
-4. [Choose an advanced workflow](#10-workflow-beat-library) — `/goal`, `/multitask`, `/loop`, `/autopilot`, or `/orchestrate`
+4. [Choose an advanced workflow](#10-workflow-step-library) — `/goal`, `/multitask`, `/loop`, `/autopilot`, or `/orchestrate`
 5. [Verify](#11-trust-and-verification-3-min) and [reset](#12-close)
 
-Jump directly to any beat. Each section states its prerequisite; you do not need to run earlier sections first.
+Jump directly to any step. Each section states its prerequisite; you do not need to run earlier sections first.
 
 ---
 
-## Talk-track pattern
+## How to narrate
 
-Keep each transition to three points:
+For a novice audience, narrate each step in this order:
 
-- **Why:** Name the engineering friction.
-- **Benefit:** Say what Cursor takes on.
-- **Why it matters:** Connect it to focus, throughput, or trust.
+- **Before:** “Here is the task and the boundary I am giving Cursor.”
+- **During:** “Cursor is reading, editing, or checking. I can inspect each action.”
+- **After:** “Here is the evidence. I decide whether the result ships.”
 
-Do not read prompts aloud. State the intent, paste from the card or this script, then narrate the evidence.
+Then add the engineering point: why the task is hard, what Cursor takes on, and why the evidence matters. Do not read prompts aloud. State the intent, paste from the card or this script, then narrate what changed in plain language.
+
+Use these definitions when the audience is new:
+
+- **Ask:** reads and explains; it does not edit.
+- **Agent:** can inspect, edit, and run checks within the boundary you give it.
+- **Rule:** an always-on project guardrail.
+- **Skill:** a reusable set of instructions for a kind of task.
+- **Subagent:** a focused worker with its own context.
+- **Verifier:** checks the result independently; it does not decide to ship.
 
 ---
 
@@ -56,7 +65,7 @@ Check shipped state:
 
 - `npm test` is **1 failed / 9 passed**
 - [http://127.0.0.1:43173/disputes/dsp_1043](http://127.0.0.1:43173/disputes/dsp_1043) shows **Suggested credit $400.00** in red, above the Scale price of **$249**
-- Accept credit / Decline are disabled
+- Accept credit / Decline are disabled — that unfinished UI is separate from the planted credit-cap error
 
 If the credit reads $249.00 or the suite is all green, a prior run capped `lib/dispute-credit.ts`. Restore with the `reset-demo-state` skill, or:
 
@@ -71,25 +80,36 @@ Port 43173 busy: stop the old `npm run dev`. Empty dashboard: `npm run db:reset`
 
 ## Through-line
 
-> This is a real billing book, not a slide deck. Avery Quinn runs Fieldnote. Three prices, frozen clock, one planted dispute. The 201 track maps Cursor's platform concepts onto this book. The Advanced track goes deeper on durable goals, parallel workers, PR supervision, and verifier loops. I still review what ships.
+> Ledgerly is the demo surface, not the lesson. It has one known error that connects the seed, application code, UI, and test. The 201 track uses that surface to explain Cursor concepts. The Advanced track gives Cursor more ownership over the same bounded work. I still review what ships.
 
 ---
 
-## 1. The book (2 min)
+## 1. The demo error (2 min)
 
-**Open:** Dashboard, then Collections, then [dsp_1043](http://127.0.0.1:43173/disputes/dsp_1043).
+**Open:** [dsp_1043](http://127.0.0.1:43173/disputes/dsp_1043). The dashboard and Collections page are optional context.
 
-**Do:** Point at the catalog line on the dashboard, the overdue queue, the Resolution panel.
+**Do:** Point at **Suggested credit $400.00**, then **Scale catalog price $249.00**.
 
-**Why:** Shared context. **Benefit:** Every feature uses the same realistic book. **Why it matters:** The audience evaluates product work, not toy snippets.
+**Why:** One concrete error keeps the demo easy to follow. **Benefit:** Every enablement step can use the same visible example. **Why it matters:** The audience can focus on how Cursor works instead of learning a product.
 
-**Say:**
+**Say — novice version:**
 
-> Fieldnote Workspace. Avery Quinn. Starter $49, Growth $99, Scale $249 — those are the only prices. The clock is frozen on 23 August 2026 so overdue math never drifts mid-demo.
+> Ledgerly is a fictional billing app we use for this demo. It contains one known error on purpose.
 >
-> Cobalt Goods, INV-1043, Scale. They opened dsp_1043: billed on Scale, they say the signed order is Growth, and they are claiming $400 back. The invoice is $249. The panel suggests a $400 credit. That is wrong on purpose. Ledgerly must never credit more than it charged.
+> This invoice costs $249, but the dispute claims $400. The app incorrectly copies the $400 claim into the suggested credit instead of capping it at the $249 invoice price. That is why the page shows a red warning and one test is red.
+>
+> The same error appears in four places: the seed creates the example, the helper contains the faulty calculation, the page shows the result, and the test describes the correct behavior. We will use that connection to show how Cursor understands, changes, and verifies a codebase.
 
-**Look for:** Red **Suggested credit $400.00**. Copy: *Above the Scale catalog price of $249.00.* Buttons disabled. Reason: *Billed on Scale. The signed order is Growth.*
+**How the error correlates:**
+
+| Layer | File | What it proves |
+| --- | --- | --- |
+| Demo data | `prisma/seed.ts` | `dsp_1043` claims $400 against `inv_1043`, a $249 Scale invoice |
+| Faulty logic | `lib/dispute-credit.ts` | Returns the claimed amount without applying the catalog cap |
+| Product surface | `app/disputes/[id]/page.tsx` | Recomputes and displays the same $400 suggestion in red |
+| Expected behavior | `tests/dispute-credit.test.ts` | Expects the suggestion to stop at the $249 plan price |
+
+**Look for:** Red **Suggested credit $400.00**, copy stating it is above **$249.00**, and disabled Accept / Decline buttons. Those buttons are a separate unfinished seam; do not confuse them with the credit-cap error.
 
 ---
 
@@ -99,9 +119,9 @@ Port 43173 busy: stop the old `npm run dev`. Empty dashboard: `npm run db:reset`
 
 **Why:** Unfamiliar repos are expensive to learn. **Benefit:** Ask explains from source without editing. **Why it matters:** Engineers build confidence before acting.
 
-**Say:**
+**Say — novice version:**
 
-> Ask mode reads the repo. It does not edit. I am going to ask it for the prices and the overdue invoices, then how a dispute works — including what is unfinished.
+> I am starting in Ask mode because I want an explanation before any code changes. Cursor can read the repository and cite the files it used, but it cannot edit them in this mode. I will use its answer to connect the red page to the faulty helper and the failing test.
 
 **Paste** (same block as the Getting oriented card):
 
@@ -111,11 +131,11 @@ What are Ledgerly's only plan prices, and which seeded invoices are overdue? Cit
 Explain the dispute flow end to end. What is intentionally unfinished? Cite the resolve helper, the resolve API route, and the dispute page. Do not edit any files.
 ```
 
-**Look for:** Citations to `lib/plans.ts`, `prisma/seed.ts`, `prisma/extra-accounts.ts`. INV-1043 / Cobalt Goods among the overdue set, plus the extra-book overdue invoices (Alder BioSystems, Blue Harbor Bank). The resolve stub named: `lib/disputes/resolve.ts`, the resolve API route, the panel buttons. No edits.
+**Look for:** Citations to `lib/plans.ts`, `prisma/seed.ts`, and `prisma/extra-accounts.ts`; `INV-1043` among the overdue invoices; the resolve stub named separately from the credit-cap error; no edits.
 
 **Say after it answers:**
 
-> Grounded in the seed. It did not invent a fourth price. And it found the Agent seam without me pointing at the file.
+> Cursor explained the behavior from source instead of guessing from the screen. The answer identified the seeded invoice and the separate unfinished resolution path. The correlation table above shows the faulty credit helper and its test.
 
 ---
 
@@ -135,17 +155,17 @@ Explain the dispute flow end to end. What is intentionally unfinished? Cite the 
 In under 15 words, explain that the clock is frozen on 23 August 2026 so overdue math never drifts.
 ```
 
-**Look for:** The input default rewrites in place. Leave the webhook **Tab** seam alone unless that is a side beat.
+**Look for:** The input default rewrites in place. Leave the webhook **Tab** seam alone unless that is an optional step.
 
 **Say:**
 
-> That TODO in the file is intentional. Same idea as the dispute panel — a small, named seam.
+> That TODO is intentional, like the disabled Accept / Decline controls. Both are small editing seams. Neither one is the planted $400 credit-cap error.
 
 ---
 
 ## 4. Agent — wire resolve (5-8 min)
 
-Skip this beat if the advanced command will be `/goal` or `/orchestrate` (same work, longer leash).
+Skip this step if the advanced command will be `/goal` or `/orchestrate` (same work, longer leash).
 
 **Open:** Agent. Keep [dsp_1043](http://127.0.0.1:43173/disputes/dsp_1043) visible.
 
@@ -153,7 +173,7 @@ Skip this beat if the advanced command will be `/goal` or `/orchestrate` (same w
 
 **Say:**
 
-> Agent can edit. I am going to wire the existing resolve stub, API, and buttons. The credit-cap bug stays planted for the `/goal` or `/orchestrate` beat.
+> Ask only explained the code. Agent can change it. I am giving Agent three named files and one explicit boundary: wire the unfinished resolution path, but leave the planted credit calculation unchanged for the later `/goal` or `/orchestrate` step.
 
 **Paste:**
 
@@ -195,7 +215,7 @@ Restyle the four KPI cards with existing tokens: soft indigo, stronger values, s
 
 ## 6. Customize the Agent (3 min)
 
-**Prerequisite:** None. This beat is read-only.
+**Prerequisite:** None. This step is read-only.
 
 **Why:** Repeating standards in prompts is fragile. **Benefit:** Rules guard, skills repeat, subagents isolate. **Why it matters:** Good practice survives across tasks.
 
@@ -205,9 +225,9 @@ Restyle the four KPI cards with existing tokens: soft indigo, stronger values, s
 - `.cursor/skills/choose-cursor-workflow/SKILL.md`
 - `.cursor/agents/api-instrumenter.md`
 
-**Say:**
+**Say — novice version:**
 
-> Rules are always-on guardrails: three prices, synthetic names, and planted seams. Skills are on-demand workflows: choose a track, dispatch workers, hand work to cloud. Subagents are focused workers with clean context. The parent has to send the files, constraints, and finish condition in every dispatch.
+> These are three different ways to give Cursor context. A rule is always on for this project. A skill is a reusable playbook we choose for a task. A subagent is a focused worker given one bounded assignment. Together they keep important constraints out of ad hoc prompts.
 
 **Paste** (same block as the Rules, skills, subagents card):
 
@@ -217,7 +237,7 @@ Open .cursor/rules/ledgerly.mdc, .cursor/skills/choose-cursor-workflow/SKILL.md,
 
 **Show:** The rule blocks invented prices. The skill distinguishes `/autopilot` from `/goal`. The worker is allowed to touch one named API surface and nothing else.
 
-**Land:** Rules constrain every beat; skills encode repeatable methods; subagents isolate work and context.
+**Land:** Rules constrain every step; skills encode repeatable methods; subagents isolate work and context.
 
 ---
 
@@ -227,9 +247,9 @@ Open .cursor/rules/ledgerly.mdc, .cursor/skills/choose-cursor-workflow/SKILL.md,
 
 **Why:** One model is not optimal everywhere. **Benefit:** Match capability to task shape. **Why it matters:** Better speed and cost without lowering verification.
 
-**Say:**
+**Say — novice version:**
 
-> Use the strongest reasoning model available in this session's picker for exploration, planning, and coordinating subagents. Use a faster focused model from the same picker for a worker with one route and one acceptance test. Name the labels you would select today. Do not write slugs into the repo.
+> Model choice is part of the task design. I use a stronger reasoning model when Cursor must understand and coordinate several pieces. I can use a faster model when the worker has one file and one clear check. The model picker makes that choice explicit.
 
 **Paste** (same block as the Model selection card):
 
@@ -254,9 +274,9 @@ Name the exact picker labels you would select today and why each fits. If a labe
 
 **Why:** Local work stops with the session. **Benefit:** Cloud Agents are isolated and durable. **Why it matters:** Engineers hand off bounded work and return to evidence.
 
-**Say:**
+**Say — novice version:**
 
-> Same agent, its own computer. The cloud environment is isolated, persists when my laptop closes, and returns reviewable work plus proof. I am going to draft the brief first. I will not launch a Cloud Agent unless this room is ready.
+> A Cloud Agent runs the task on a separate computer managed by Cursor, so the work can continue without this laptop staying open. It still needs a bounded objective and still returns changes for review. I will draft the instructions first and will not launch anything during this explanation.
 
 **Paste** (same block as the Cloud Agents card):
 
@@ -269,7 +289,7 @@ Use the hand-to-cloud-agent skill. Explain how to hand this Ledgerly repo to a C
 - **201:** `/autopilot` keeps an existing PR merge-ready; `/orchestrate` runs planner, workers, and verifier in isolated environments.
 - **Advanced:** `/goal` can make dispute resolution pass its test and browser check. `/autopilot` and `/orchestrate` remain available.
 
-**Look for:** Cites `.cursor/environment.json`. Draft names `/autopilot` or a bounded `/goal` / `/orchestrate` with credit at or below $249. No launch unless you confirm. No fourth price.
+**Look for:** Cites `.cursor/environment.json`. On 201, use `/autopilot` for a real open PR or `/orchestrate` when planning and staffing are required. `/goal` is Advanced-only. No launch unless you confirm. No fourth price.
 
 **Land:** Cloud changes where work runs and how long it can persist. It does not remove the human review gate.
 
@@ -277,13 +297,13 @@ Use the hand-to-cloud-agent skill. Explain how to hand this Ledgerly repo to a C
 
 ## 9. Automations (3 min)
 
-**Prerequisite:** Use Cursor's Agents Window. This beat opens the Automations editor; it does not add a GitHub Actions file.
+**Prerequisite:** Use Cursor's Agents Window. This step opens the Automations editor; it does not add a GitHub Actions file.
 
 **Why:** People forget repeatable checks. **Benefit:** Automations run on events or schedules. **Why it matters:** Proven workflows become governed systems.
 
-**Say:**
+**Say — novice version:**
 
-> `/loop` repeats inside a session. A Cursor Automation is event- or schedule-driven and can survive the laptop closing. First prove the workflow while watching it; then automate it.
+> A loop repeats while this session is open. An Automation starts from an event or schedule and can run later without me watching. I first prove the instructions interactively; then I can turn the proven workflow into an Automation.
 
 **Paste** (same block as the Automations card):
 
@@ -299,7 +319,7 @@ Use the hand-to-cloud-agent skill. Explain how to hand this Ledgerly repo to a C
 
 ## Advanced: Cursor CLI primer (5 min)
 
-This beat is Advanced-only and stands on its own.
+This step is Advanced-only and stands on its own.
 
 **Prerequisite:** Cursor CLI is installed and signed in. Open a terminal at the repository root. The app and seed do not need to be running.
 
@@ -320,9 +340,9 @@ agent status
 
 If the CLI is missing, install it before the demo from [cursor.com/docs/cli/installation](https://cursor.com/docs/cli/installation). If it is signed out, run `agent login`. A new clone needs `--trust` on first Ask; that is not `--force`.
 
-**Say:**
+**Say — novice version:**
 
-> The CLI is Cursor Agent in the terminal. I am starting in Ask mode, so this pass is read-only. First run in a new clone needs `--trust`. The repository remains the source of context, and I still choose the model and review the result.
+> The CLI is the same Cursor Agent in a terminal. I am starting it in Ask mode, so it can explain the repository but cannot edit it. `--trust` confirms that this folder is allowed; it is not permission to bypass review.
 
 **Run:**
 
@@ -343,15 +363,15 @@ While the session is open:
 
 ---
 
-## 10. Workflow beat library
+## 10. Workflow step library
 
 **Open:** [http://127.0.0.1:43173/workflows](http://127.0.0.1:43173/workflows). Each command card already shows the full `prompt`. The short line below is the slug-page demo prompt — it tells the agent to load that same instruction.
 
 **Why:** Work has different shapes. **Benefit:** Choose the right ownership boundary. **Why it matters:** Delegate toil without delegating judgment.
 
-**Say:**
+**Say — novice version:**
 
-> The 201 track has four deck-aligned workflows using the current product name `/autopilot` for the deck's `/babysit`. The Advanced track adds `/goal`. I pick on the shape of the work. I still review.
+> These commands hand over different kinds of work. `/multitask` handles independent pieces, `/loop` handles waiting, `/autopilot` watches one pull request, `/goal` owns a finish line, and `/orchestrate` first creates and staffs a plan. The command changes what Cursor owns, not who approves the result.
 
 | If the work is… | Command | Hands over | Track |
 | --- | --- | --- | --- |
@@ -409,7 +429,7 @@ Run one, or jump directly to the one named in the deck discussion.
 
 The 201 deck calls this `/babysit`. The current supported name is `/autopilot`.
 
-**Prerequisite:** Prepare an open pull request for the current feature branch with one actionable review comment or a scoped failing required check. Do not run this beat on `main`.
+**Prerequisite:** Prepare an open pull request for the current feature branch with one actionable review comment or a scoped failing required check. Do not run this step on `main`.
 
 **Why:** PR readiness is a coordination loop. **Benefit:** Autopilot handles clear review and CI work. **Why it matters:** Ambiguity and merging stay human decisions.
 
@@ -477,13 +497,13 @@ Need `bun` on PATH and a `CURSOR_API_KEY` (personal key or team service account,
 
 ## 11. Trust and verification (3 min)
 
-**Prerequisite:** Use the checks appropriate to the beat you ran.
+**Prerequisite:** Use the checks appropriate to the step you ran.
 
 **Why:** Agent count is not trust. **Benefit:** Verification produces layered evidence. **Why it matters:** Teams scale delegation without losing accountability.
 
-**Say:**
+**Say — novice version:**
 
-> Trust rises through evidence, not agent count. The rule prevents known bad changes. The worker has a narrow scope. Tests prove the contract. The agent runs the app like a user. A verifier reports evidence. Then I read the diff and decide what ships.
+> More agents do not automatically mean more trust. Trust comes from layers: project rules prevent known mistakes, a narrow worker limits scope, tests check behavior, the app shows the user result, and a verifier checks independently. I still read the diff and decide what ships.
 
 **Show four layers:**
 
@@ -502,7 +522,7 @@ On a clean tree, npm test is 1 failed / 9 passed. The red test is the planted cr
 
 **If `/goal` or `/orchestrate` completed dispute resolution:** `npm test` should be fully green. Load dsp_1043 and confirm suggested credit is at or below **$249** and Accept / Decline work.
 
-**If no credit-cap beat ran:** `npm test` should remain **1 failed / 9 passed**. That is shipped state, not failed setup. Do not let the agent "fix" the red test.
+**If no credit-cap step ran:** `npm test` should remain **1 failed / 9 passed**. That is shipped state, not failed setup. Do not let the agent "fix" the red test.
 
 **Land:** A green check is evidence, not permission to merge. The presenter remains accountable.
 
@@ -514,7 +534,7 @@ On a clean tree, npm test is 1 failed / 9 passed. The red test is the planted cr
 
 **Say:**
 
-> I reviewed the result. The book is still Fieldnote — three prices, no real companies. I am putting the machine back so the next run starts from the planted $400 seam.
+> I reviewed the result. Now I am resetting the demo app so the next session starts with the same planted $400 error and the same expected red test.
 
 **Do:** Ask the agent to run `reset-demo-state`, or:
 
@@ -535,28 +555,28 @@ Only run `git checkout -- .` if you mean to drop **all** local changes.
 
 - Invent a fourth price, ARR, or a real customer
 - “Correct” the $400 claim on dsp_1043 or the seed
-- Touch `tests/dispute-credit.test.ts` unless the beat is the cap
+- Touch `tests/dispute-credit.test.ts` unless the step is the cap
 - Commit a KPI restyle to `main`
 - Run `/loop` in the cloud, or `/orchestrate` without `bun` and a key
 - Launch a Cloud Agent unless you confirm the environment is ready
-- Save or enable an Automation unless that is the live beat
+- Save or enable an Automation unless that is the live step
 - Treat a green verifier as a ship decision
 
 ---
 
 ## 201 short path (20–25 min)
 
-1. Book + Ask — orientation
+1. Demo error + Ask — connect the UI, helper, seed, and test
 2. Open one rule, one skill, one subagent
 3. Explain model choice in the picker
-4. Draft the Cloud Agent brief; open an Automation draft if time allows — do not launch or save unless that is the beat
+4. Draft the Cloud Agent brief; open an Automation draft if time allows — do not launch or save unless that is the step
 5. Run one: `/multitask`, `/loop`, `/autopilot`, or `/orchestrate`
 6. Show the verification layers
 7. Reset
 
 ## Advanced short path (20–30 min)
 
-1. Book — dsp_1043 ($400 vs $249)
+1. Demo error — dsp_1043 ($400 vs $249)
 2. One local surface: Ask, Cmd-K, Agent, or Design
 3. Run the Cursor CLI primer
 4. Run `/goal`, or jump to another workflow from `/workflows`
